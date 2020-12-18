@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
           title: Text('Home'),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
