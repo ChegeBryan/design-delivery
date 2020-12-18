@@ -6,6 +6,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentTab = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentTab = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +50,8 @@ class _HomePageState extends State<HomePage> {
         ],
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        currentIndex: _currentTab,
+        onTap: _onItemTapped,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
