@@ -9,40 +9,40 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Home'),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
-              ),
-              label: 'Home',
+      appBar: AppBar(
+        title: Text('Home'),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.favorite_border_outlined,
-              ),
-              label: 'Favorites',
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite_border_outlined,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.shopping_cart_outlined,
-              ),
-              label: 'Cart',
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shopping_cart_outlined,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_outline_outlined,
-              ),
-              label: 'Profile',
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outline_outlined,
             ),
-          ],
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-        ) // This trailing comma makes auto-formatting nicer for build methods.
-        );
+            label: 'Profile',
+          ),
+        ],
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }
