@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget {
           selectedIconTheme: IconThemeData(
             color: Color(0xFF254081),
           ),
+          unselectedIconTheme: IconThemeData(
+            color: Color(0xFF727C8E),
+          ),
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
