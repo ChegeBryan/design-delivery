@@ -13,6 +13,11 @@ class MyApp extends StatelessWidget {
       title: 'Design Delivery Home',
       theme: ThemeData(
         primarySwatch: Colors.amber,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedIconTheme: IconThemeData(
+            color: Color(0xFF254081),
+          ),
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomePage(),
