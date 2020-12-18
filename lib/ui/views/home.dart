@@ -15,13 +15,25 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined), label: 'Home'),
+                icon: Icon(
+                  Icons.home_outlined,
+                ),
+                label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_border_outlined), label: 'Favorites'),
+                icon: Icon(
+                  Icons.favorite_border_outlined,
+                ),
+                label: 'Favorites'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
+                icon: Icon(
+                  Icons.shopping_cart_outlined,
+                ),
+                label: 'Cart'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline_outlined), label: 'Profile'),
+                icon: Icon(
+                  Icons.person_outline_outlined,
+                ),
+                label: 'Profile'),
           ],
         ) // This trailing comma makes auto-formatting nicer for build methods.
         );
