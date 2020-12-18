@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
           showSelectedLabels: false,
+          showUnselectedLabels: false,
         ) // This trailing comma makes auto-formatting nicer for build methods.
         );
   }
