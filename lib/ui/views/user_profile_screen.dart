@@ -28,6 +28,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 Divider(
                   indent: 52.0,
                 ),
+                ListTile(
+                  leading: Icon(Icons.pin_drop),
+                  title: Text('Manage Addresses'),
+                  trailing: Icon(Icons.keyboard_arrow_right),
+                  onTap: () {},
+                ),
+                Divider(
+                  indent: 52.0,
+                ),
                 TextButton(
                   onPressed: () {},
                   child: Text(
