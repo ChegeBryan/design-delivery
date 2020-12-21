@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        // set Lato as default font
+        fontFamily: 'Lato',
       ),
       home: App(),
     );
