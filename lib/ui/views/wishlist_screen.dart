@@ -28,7 +28,13 @@ class _WishlistScreenState extends State<WishlistScreen> {
                   fit: BoxFit.cover,
                 ),
               ),
-            )
+            ),
+            Column(
+              children: [
+                Text('Product Title'),
+                Text('Ksh. 399.00'),
+              ],
+            ),
           ],
         ),
       ),
