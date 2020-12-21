@@ -13,8 +13,24 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         title: Text('Profile'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: Center(
-        child: Text('Test.'),
+      body: ListView(
+        children: [
+          Container(
+            child: Column(
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Delete Account',
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
