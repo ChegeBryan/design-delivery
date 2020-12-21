@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/widgets/home_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -13,6 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         shrinkWrap: true,
         children: [
+          HomeCarousel(),
           // category container
           Container(
             color: Colors.red,
