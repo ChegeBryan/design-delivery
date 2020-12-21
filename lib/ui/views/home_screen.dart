@@ -48,14 +48,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (BuildContext context, int index) => Card(
-                        child: Column(
-                          children: [
-                            FadeInImage.memoryNetwork(
-                              placeholder: kTransparentImage,
-                              image: 'https://picsum.photos/250?image=9',
-                            ),
-                          ],
+                      itemBuilder: (BuildContext context, int index) =>
+                          SizedBox(
+                        height: 150,
+                        width: 120,
+                        child: Card(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              FadeInImage.memoryNetwork(
+                                placeholder: kTransparentImage,
+                                image: 'https://picsum.photos/250?image=9',
+                                fit: BoxFit.cover,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
