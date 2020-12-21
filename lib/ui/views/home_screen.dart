@@ -77,6 +77,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                   overflow: TextOverflow.fade,
                                 ),
                               ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
+                                child: Text(
+                                  'Ksh. 499.00',
+                                  style: TextStyle(
+                                    color: Color(0xFF727C8E),
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  softWrap: false,
+                                  overflow: TextOverflow.fade,
+                                ),
+                              ),
                             ],
                           ),
                         ),
