@@ -31,6 +31,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
             ),
             Container(
               height: 100.0,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
