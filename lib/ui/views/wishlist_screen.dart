@@ -29,16 +29,18 @@ class _WishlistScreenState extends State<WishlistScreen> {
                 ),
               ),
             ),
-            Container(
-              height: 100.0,
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text('Product Title'),
-                  Text('Ksh. 399.00'),
-                ],
+            Expanded(
+              child: Container(
+                height: 100.0,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text('Product title'),
+                    Text('Ksh. 399.00'),
+                  ],
+                ),
               ),
             ),
           ],
