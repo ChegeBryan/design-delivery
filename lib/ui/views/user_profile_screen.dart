@@ -10,7 +10,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Page Screen'),
+        title: Text('Profile'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       body: Center(
         child: Text('Test.'),
