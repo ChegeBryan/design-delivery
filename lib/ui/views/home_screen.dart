@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 8.0),
           // Stores container
           Container(
-            color: Colors.red,
+            color: Colors.grey[100],
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,

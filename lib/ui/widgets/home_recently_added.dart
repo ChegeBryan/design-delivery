@@ -9,7 +9,7 @@ class HomeRecentlyAdded extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.grey[100],
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
