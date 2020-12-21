@@ -57,6 +57,14 @@ class _WishlistScreenState extends State<WishlistScreen> {
                 ),
               ),
             ),
+            IconButton(
+              icon: Icon(
+                Icons.favorite,
+                color: Theme.of(context).primaryColor,
+              ),
+              // toggle wishlist status
+              onPressed: () {},
+            ),
           ],
         ),
       ),
