@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -48,7 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (BuildContext context, int index) => Card(
-                        child: Center(child: Text('Dummy Card')),
+                        child: Column(
+                          children: [
+                            FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: 'https://picsum.photos/250?image=9',
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
