@@ -11,6 +11,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Wishlist Page Screen'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       body: Center(
         child: Text('Test'),
