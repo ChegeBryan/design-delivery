@@ -56,10 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              FadeInImage.memoryNetwork(
-                                placeholder: kTransparentImage,
-                                image: 'https://picsum.photos/250?image=9',
-                                fit: BoxFit.cover,
+                              AspectRatio(
+                                aspectRatio: 4 / 3,
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: 'https://picsum.photos/250?image=9',
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ],
                           ),
