@@ -31,6 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontFamily: 'Lato',
                         ),
                       ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('Shop More'),
+                      ),
                     ],
                   ),
                 ),
