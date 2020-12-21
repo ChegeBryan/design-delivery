@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/widgets/user_tab_navigator_routes.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatefulWidget {
@@ -20,6 +21,7 @@ class _AppState extends State<App> {
 
   void _onItemTapped(int index) {
     setState(() {
+      _currentPage = pageKeys[index];
       _currentTab = index;
     });
   }
@@ -27,6 +29,12 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Stack(children: <Widget>[
+        _buildOffstageNavigator('home'),
+        _buildOffstageNavigator('wishlist'),
+        _buildOffstageNavigator('cart'),
+        _buildOffstageNavigator('profile'),
+      ]),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
@@ -64,6 +72,17 @@ class _AppState extends State<App> {
         currentIndex: _currentTab,
         onTap: _onItemTapped,
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildOffstageNavigator(String tabItem) {
+    return Offstage(
+      offstage: _currentPage != tabItem,
+      child: TabNavigator(
+        // keep each navigator key seprate for each tab
+        navigatorKey: _navigatorKeys[tabItem],
+        tabItem: tabItem,
+      ),
     );
   }
 }
