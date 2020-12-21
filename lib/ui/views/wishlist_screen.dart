@@ -17,55 +17,59 @@ class _WishlistScreenState extends State<WishlistScreen> {
       body: ListView.builder(
         itemBuilder: (BuildContext context, int) => Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Row(
+          child: Column(
             children: [
-              SizedBox(
-                height: 100.0,
-                width: 100.0,
-                child: Card(
-                  clipBehavior: Clip.antiAlias,
-                  child: FadeInImage.memoryNetwork(
-                    placeholder: kTransparentImage,
-                    image: 'https://picsum.photos/250?image=9',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  height: 100.0,
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Product title',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFF515C6F),
-                        ),
+              Row(
+                children: [
+                  SizedBox(
+                    height: 100.0,
+                    width: 100.0,
+                    child: Card(
+                      clipBehavior: Clip.antiAlias,
+                      child: FadeInImage.memoryNetwork(
+                        placeholder: kTransparentImage,
+                        image: 'https://picsum.photos/250?image=9',
+                        fit: BoxFit.cover,
                       ),
-                      Text(
-                        'Ksh. 399.00',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF25408F),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.favorite,
-                  color: Theme.of(context).primaryColor,
-                ),
-                // toggle wishlist status
-                onPressed: () {},
+                  Expanded(
+                    child: Container(
+                      height: 100.0,
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            'Product title',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF515C6F),
+                            ),
+                          ),
+                          Text(
+                            'Ksh. 399.00',
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF25408F),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.favorite,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    // toggle wishlist status
+                    onPressed: () {},
+                  ),
+                ],
               ),
             ],
           ),
