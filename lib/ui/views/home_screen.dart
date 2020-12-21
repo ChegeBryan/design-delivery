@@ -64,6 +64,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
+                                child: Text(
+                                  'Title',
+                                  style: TextStyle(
+                                    color: Color(0xFF727C8E),
+                                    fontSize: 16.0,
+                                    fontFamily: 'Lato',
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
