@@ -30,6 +30,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
               ),
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('Product Title'),
                 Text('Ksh. 399.00'),
