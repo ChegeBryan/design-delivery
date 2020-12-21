@@ -12,7 +12,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         shrinkWrap: true,
         children: [
+          // category container
           Container(
+            color: Colors.red,
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -24,6 +26,51 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Text(
                         'Categories',
+                        style: TextStyle(
+                          color: Color(0xFF254081),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                          fontFamily: 'Lato',
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('Shop More'),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: SizedBox(
+                    height: 150.0,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) => Card(
+                        child: Center(child: Text('Dummy Card')),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(height: 8.0),
+          // Stores container
+          Container(
+            color: Colors.red,
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Stores',
                         style: TextStyle(
                           color: Color(0xFF254081),
                           fontWeight: FontWeight.bold,
