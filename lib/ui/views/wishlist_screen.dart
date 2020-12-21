@@ -16,7 +16,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
       ),
       body: ListView.builder(
         itemBuilder: (BuildContext context, int) => Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
           child: Column(
             children: [
               Row(
