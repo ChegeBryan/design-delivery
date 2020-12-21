@@ -37,7 +37,14 @@ class _WishlistScreenState extends State<WishlistScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('Product title'),
+                    Text(
+                      'Product title',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF515C6F),
+                      ),
+                    ),
                     Text('Ksh. 399.00'),
                   ],
                 ),
