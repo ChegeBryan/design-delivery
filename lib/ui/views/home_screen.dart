@@ -53,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 150,
                         width: 120,
                         child: Card(
+                          clipBehavior: Clip.antiAlias,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
