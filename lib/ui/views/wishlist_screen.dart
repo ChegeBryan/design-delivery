@@ -15,57 +15,60 @@ class _WishlistScreenState extends State<WishlistScreen> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       body: ListView.builder(
-        itemBuilder: (BuildContext context, int) => Row(
-          children: [
-            SizedBox(
-              height: 100.0,
-              width: 100.0,
-              child: Card(
-                clipBehavior: Clip.antiAlias,
-                child: FadeInImage.memoryNetwork(
-                  placeholder: kTransparentImage,
-                  image: 'https://picsum.photos/250?image=9',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Expanded(
-              child: Container(
+        itemBuilder: (BuildContext context, int) => Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              SizedBox(
                 height: 100.0,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'Product title',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF515C6F),
-                      ),
-                    ),
-                    Text(
-                      'Ksh. 399.00',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF25408F),
-                      ),
-                    ),
-                  ],
+                width: 100.0,
+                child: Card(
+                  clipBehavior: Clip.antiAlias,
+                  child: FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: 'https://picsum.photos/250?image=9',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.favorite,
-                color: Theme.of(context).primaryColor,
+              Expanded(
+                child: Container(
+                  height: 100.0,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'Product title',
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF515C6F),
+                        ),
+                      ),
+                      Text(
+                        'Ksh. 399.00',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF25408F),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              // toggle wishlist status
-              onPressed: () {},
-            ),
-          ],
+              IconButton(
+                icon: Icon(
+                  Icons.favorite,
+                  color: Theme.of(context).primaryColor,
+                ),
+                // toggle wishlist status
+                onPressed: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );
