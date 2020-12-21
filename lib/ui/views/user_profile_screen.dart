@@ -16,6 +16,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       body: ListView(
         children: [
           Container(
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
                 ListTile(
