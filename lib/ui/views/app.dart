@@ -7,6 +7,16 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   int _currentTab = 0;
+  String _currentPage = 'home';
+
+  List<String> pageKeys = ['home', 'wishlist', 'cart', 'profile'];
+
+  Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
+    'home': GlobalKey<NavigatorState>(),
+    'wishlist': GlobalKey<NavigatorState>(),
+    'cart': GlobalKey<NavigatorState>(),
+    'profile': GlobalKey<NavigatorState>(),
+  };
 
   void _onItemTapped(int index) {
     setState(() {
