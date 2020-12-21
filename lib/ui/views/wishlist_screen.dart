@@ -45,7 +45,14 @@ class _WishlistScreenState extends State<WishlistScreen> {
                         color: Color(0xFF515C6F),
                       ),
                     ),
-                    Text('Ksh. 399.00'),
+                    Text(
+                      'Ksh. 399.00',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF25408F),
+                      ),
+                    ),
                   ],
                 ),
               ),
