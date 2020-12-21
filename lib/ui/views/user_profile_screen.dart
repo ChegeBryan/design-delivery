@@ -25,7 +25,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   trailing: Icon(Icons.keyboard_arrow_right),
                   onTap: () {},
                 ),
-                Divider(),
+                Divider(
+                  indent: 52.0,
+                ),
                 TextButton(
                   onPressed: () {},
                   child: Text(
