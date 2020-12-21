@@ -29,13 +29,16 @@ class _WishlistScreenState extends State<WishlistScreen> {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text('Product Title'),
-                Text('Ksh. 399.00'),
-              ],
+            Container(
+              height: 100.0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text('Product Title'),
+                  Text('Ksh. 399.00'),
+                ],
+              ),
             ),
           ],
         ),
