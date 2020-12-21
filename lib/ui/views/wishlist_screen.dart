@@ -71,6 +71,13 @@ class _WishlistScreenState extends State<WishlistScreen> {
                   ),
                 ],
               ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Divider(
+                  indent: 116,
+                  endIndent: 16,
+                ),
+              )
             ],
           ),
         ),
