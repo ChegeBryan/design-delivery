@@ -1,5 +1,6 @@
 import 'package:design_delivery/ui/widgets/home_carousel.dart';
 import 'package:design_delivery/ui/widgets/home_categories.dart';
+import 'package:design_delivery/ui/widgets/home_recently_added.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -62,6 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          SizedBox(
+            height: 8.0,
+          ),
+          HomeRecentlyAdded(),
         ],
       ),
     );
