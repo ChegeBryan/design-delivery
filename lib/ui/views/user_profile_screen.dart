@@ -18,6 +18,13 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           Container(
             child: Column(
               children: [
+                ListTile(
+                  leading: Icon(Icons.list),
+                  title: Text('My Orders'),
+                  trailing: Icon(Icons.keyboard_arrow_right),
+                  onTap: () {},
+                ),
+                Divider(),
                 TextButton(
                   onPressed: () {},
                   child: Text(
