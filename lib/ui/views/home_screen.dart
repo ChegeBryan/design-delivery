@@ -38,6 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: SizedBox(
+                    height: 150.0,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) => Card(
+                        child: Center(child: Text('Dummy Card')),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
