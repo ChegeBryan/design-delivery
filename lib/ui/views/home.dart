@@ -25,24 +25,28 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(
               Icons.home_outlined,
             ),
+            activeIcon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.favorite_border_outlined,
             ),
+            activeIcon: Icon(Icons.favorite),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart_outlined,
             ),
+            activeIcon: Icon(Icons.shopping_cart),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person_outline_outlined,
             ),
+            activeIcon: Icon(Icons.person),
             label: 'Profile',
           ),
         ],
