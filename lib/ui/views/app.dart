@@ -1,12 +1,11 @@
-import 'package:design_delivery/ui/widgets/user_tab_navigator_routes.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class App extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _AppState createState() => _AppState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AppState extends State<App> {
   int _currentTab = 0;
 
   void _onItemTapped(int index) {

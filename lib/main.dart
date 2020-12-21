@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ui/views/home.dart';
+import 'ui/views/app.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: App(),
     );
   }
 }
