@@ -28,50 +28,67 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(children: <Widget>[
-        _buildOffstageNavigator('home'),
-        _buildOffstageNavigator('wishlist'),
-        _buildOffstageNavigator('cart'),
-        _buildOffstageNavigator('profile'),
-      ]),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
+    return WillPopScope(
+      onWillPop: () async {
+        final isFirstRouteInCurrentTab =
+            !await _navigatorKeys[_currentPage].currentState.maybePop();
+        if (isFirstRouteInCurrentTab) {
+          // if not on the home page
+          if (_currentPage != 'home') {
+            // switch to home page
+            _onItemTapped(0);
+            // back button handled by app
+            return false;
+          }
+        }
+        // let system handle back button if we're on the first route
+        return isFirstRouteInCurrentTab;
+      },
+      child: Scaffold(
+        body: Stack(children: <Widget>[
+          _buildOffstageNavigator('home'),
+          _buildOffstageNavigator('wishlist'),
+          _buildOffstageNavigator('cart'),
+          _buildOffstageNavigator('profile'),
+        ]),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+              ),
+              activeIcon: Icon(Icons.home),
+              label: 'Home',
             ),
-            activeIcon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite_border_outlined,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite_border_outlined,
+              ),
+              activeIcon: Icon(Icons.favorite),
+              label: 'Favorites',
             ),
-            activeIcon: Icon(Icons.favorite),
-            label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_cart_outlined,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+              ),
+              activeIcon: Icon(Icons.shopping_cart),
+              label: 'Cart',
             ),
-            activeIcon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_outline_outlined,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person_outline_outlined,
+              ),
+              activeIcon: Icon(Icons.person),
+              label: 'Profile',
             ),
-            activeIcon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: _currentTab,
-        onTap: _onItemTapped,
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+          ],
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          currentIndex: _currentTab,
+          onTap: _onItemTapped,
+        ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 
