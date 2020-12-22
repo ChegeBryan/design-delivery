@@ -26,7 +26,14 @@ class _CartScreenState extends State<CartScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text('Order Summary'),
+              Text(
+                'Order Summary',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF25408F),
+                ),
+              ),
               Row(
                 children: [
                   Text('Total Items'),
