@@ -55,12 +55,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 Divider(
                   indent: 52.0,
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Delete Account',
-                    style: TextStyle(
-                      color: Colors.red,
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Delete Account',
+                      style: TextStyle(
+                        color: Colors.red,
+                      ),
                     ),
                   ),
                 ),
