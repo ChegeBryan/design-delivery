@@ -47,6 +47,9 @@ class _CartItemsState extends State<CartItems> {
                                   fontWeight: FontWeight.w500,
                                   color: Color(0xFF515C6F),
                                 ),
+                                maxLines: 2,
+                                softWrap: true,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             IconButton(
