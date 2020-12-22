@@ -52,7 +52,10 @@ class _CartScreenState extends State<CartScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Total Delivery Fee'),
-                  Text('Ksh. 200'),
+                  Text(
+                    'Ksh. 200',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
               Divider(),
