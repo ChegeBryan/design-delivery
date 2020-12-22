@@ -17,7 +17,16 @@ class _CartScreenState extends State<CartScreen> {
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16.0),
         child: Row(
-          children: [],
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text('Total'),
+                Text('KSh. 563'),
+              ],
+            ),
+          ],
         ),
       ),
     );
