@@ -9,6 +9,7 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   bool _orderSummaryVisibility = false;
   double _containerHeight = 80.0;
+  IconData _arrowIconType = Icons.keyboard_arrow_up;
 
   void _showOrderSummary() {
     setState(() {
@@ -20,6 +21,10 @@ class _CartScreenState extends State<CartScreen> {
       _orderSummaryVisibility
           ? _containerHeight = 160.0
           : _containerHeight = 80.0;
+      // change icon type
+      _orderSummaryVisibility
+          ? _arrowIconType = Icons.keyboard_arrow_down
+          : _arrowIconType = Icons.keyboard_arrow_up;
     });
   }
 
@@ -106,7 +111,7 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ),
                           IconButton(
-                            icon: Icon(Icons.keyboard_arrow_up),
+                            icon: Icon(_arrowIconType),
                             onPressed: _showOrderSummary,
                             splashRadius: 1,
                           )
