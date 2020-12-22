@@ -15,6 +15,19 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Container(
+          margin: EdgeInsets.symmetric(horizontal: 12),
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(48),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                offset: Offset(5.0, 5.0),
+                blurRadius: 5.0,
+                color: Colors.black87.withOpacity(0.05),
+              ),
+            ],
+          ),
           child: TextField(
             decoration: InputDecoration(
               hintText: 'Search Products...',
