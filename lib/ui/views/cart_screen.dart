@@ -13,8 +13,12 @@ class _CartScreenState extends State<CartScreen> {
         title: Text('Cart'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: Center(
-        child: Text('Test'),
+      body: Container(),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [],
+        ),
       ),
     );
   }
