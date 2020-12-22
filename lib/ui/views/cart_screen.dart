@@ -44,7 +44,10 @@ class _CartScreenState extends State<CartScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Total Items'),
-                    Text('13'),
+                    Text(
+                      '13',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               ),
