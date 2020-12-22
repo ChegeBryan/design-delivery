@@ -41,6 +41,7 @@ class _CartScreenState extends State<CartScreen> {
                     IconButton(
                       icon: Icon(Icons.keyboard_arrow_up),
                       onPressed: () {},
+                      splashRadius: 1,
                     )
                   ],
                 ),
