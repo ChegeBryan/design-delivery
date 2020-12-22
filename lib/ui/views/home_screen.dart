@@ -15,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 0.0,
         title: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
