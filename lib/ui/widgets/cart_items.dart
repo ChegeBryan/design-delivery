@@ -39,12 +39,14 @@ class _CartItemsState extends State<CartItems> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Product title',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xFF515C6F),
+                            Expanded(
+                              child: Text(
+                                'Product title with overflow test from here continue',
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xFF515C6F),
+                                ),
                               ),
                             ),
                             IconButton(
