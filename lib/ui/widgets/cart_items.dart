@@ -58,7 +58,7 @@ class _CartItemsState extends State<CartItems> {
                 ),
                 IconButton(
                   icon: Icon(
-                    Icons.favorite,
+                    Icons.delete,
                     color: Theme.of(context).primaryColor,
                   ),
                   // toggle wishlist status
