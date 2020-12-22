@@ -11,7 +11,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Wishlist Page Screen'),
+        title: Text('Wishlist'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       body: WishlistProduct(),
