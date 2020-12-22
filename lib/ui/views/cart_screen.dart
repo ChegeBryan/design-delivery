@@ -8,6 +8,7 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   bool _orderSummaryVisibility = false;
+  double _containerHeight = 80.0;
 
   void _showOrderSummary() {
     setState(() {
@@ -15,6 +16,10 @@ class _CartScreenState extends State<CartScreen> {
       _orderSummaryVisibility
           ? _orderSummaryVisibility = false
           : _orderSummaryVisibility = true;
+      // change container height
+      _orderSummaryVisibility
+          ? _containerHeight = 160.0
+          : _containerHeight = 80.0;
     });
   }
 
@@ -29,7 +34,7 @@ class _CartScreenState extends State<CartScreen> {
       bottomNavigationBar: Material(
         elevation: 4.0,
         child: Container(
-          height: 160.0,
+          height: _containerHeight,
           padding: const EdgeInsets.symmetric(
             horizontal: 16.0,
             vertical: 8.0,
