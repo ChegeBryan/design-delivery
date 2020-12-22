@@ -28,6 +28,12 @@ class _CartScreenState extends State<CartScreen> {
             children: [
               Row(
                 children: [
+                  Text('Total Items'),
+                  Text('13'),
+                ],
+              ),
+              Row(
+                children: [
                   Text('Total Delivery Fee'),
                   Text('Ksh. 200'),
                 ],
