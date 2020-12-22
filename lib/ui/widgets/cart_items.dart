@@ -57,6 +57,7 @@ class _CartItemsState extends State<CartItems> {
                   ),
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     IconButton(
                       icon: Icon(
@@ -66,6 +67,29 @@ class _CartItemsState extends State<CartItems> {
                       // toggle wishlist status
                       onPressed: () {},
                     ),
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.remove_circle,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          // toggle wishlist status
+                          onPressed: () {},
+                          splashRadius: 20.0,
+                        ),
+                        Text('3'),
+                        IconButton(
+                          icon: Icon(
+                            Icons.add_circle,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          // toggle wishlist status
+                          onPressed: () {},
+                          splashRadius: 20.0,
+                        ),
+                      ],
+                    )
                   ],
                 )
               ],
