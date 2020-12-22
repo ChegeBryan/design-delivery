@@ -31,7 +31,7 @@ class _CartItemsState extends State<CartItems> {
                 Expanded(
                   child: Container(
                     height: 100.0,
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: const EdgeInsets.only(left: 16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
