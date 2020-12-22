@@ -14,7 +14,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextField(),
+        title: Container(
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: 'Search Products...',
+              suffixIcon: Icon(Icons.search),
+            ),
+          ),
+        ),
       ),
       body: ListView(
         shrinkWrap: true,
