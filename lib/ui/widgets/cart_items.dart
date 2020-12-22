@@ -60,7 +60,7 @@ class _CartItemsState extends State<CartItems> {
                               // toggle wishlist status
                               onPressed: () {},
                               padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
-                              splashRadius: 20.0,
+                              splashRadius: 1,
                             ),
                           ],
                         ),
@@ -84,7 +84,7 @@ class _CartItemsState extends State<CartItems> {
                                   ),
                                   // toggle wishlist status
                                   onPressed: () {},
-                                  splashRadius: 20.0,
+                                  splashRadius: 1,
                                 ),
                                 Text('3'),
                                 IconButton(
@@ -93,7 +93,7 @@ class _CartItemsState extends State<CartItems> {
                                     color: Theme.of(context).primaryColor,
                                   ),
                                   onPressed: () {},
-                                  splashRadius: 20.0,
+                                  splashRadius: 1,
                                   padding:
                                       const EdgeInsets.fromLTRB(8, 8, 0, 8),
                                 ),
