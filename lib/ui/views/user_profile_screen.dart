@@ -57,6 +57,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
+                  height: 50.0,
                   child: TextButton(
                     onPressed: () {},
                     child: Text(
