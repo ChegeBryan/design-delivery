@@ -85,9 +85,10 @@ class _CartItemsState extends State<CartItems> {
                                     Icons.add_circle,
                                     color: Theme.of(context).primaryColor,
                                   ),
-                                  // toggle wishlist status
                                   onPressed: () {},
                                   splashRadius: 20.0,
+                                  padding:
+                                      const EdgeInsets.fromLTRB(8, 8, 0, 8),
                                 ),
                               ],
                             ),
