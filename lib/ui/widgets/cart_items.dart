@@ -56,46 +56,45 @@ class _CartItemsState extends State<CartItems> {
                             ),
                           ],
                         ),
-                        Text(
-                          'Ksh. 399.00',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF25408F),
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              'Ksh. 399.00',
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF25408F),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.remove_circle,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                  // toggle wishlist status
+                                  onPressed: () {},
+                                  splashRadius: 20.0,
+                                ),
+                                Text('3'),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.add_circle,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                  // toggle wishlist status
+                                  onPressed: () {},
+                                  splashRadius: 20.0,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Row(
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.remove_circle,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          // toggle wishlist status
-                          onPressed: () {},
-                          splashRadius: 20.0,
-                        ),
-                        Text('3'),
-                        IconButton(
-                          icon: Icon(
-                            Icons.add_circle,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          // toggle wishlist status
-                          onPressed: () {},
-                          splashRadius: 20.0,
-                        ),
-                      ],
-                    )
-                  ],
-                )
               ],
             ),
             Padding(
