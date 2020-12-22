@@ -33,6 +33,10 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ],
             ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Checkout'),
+            ),
           ],
         ),
       ),
