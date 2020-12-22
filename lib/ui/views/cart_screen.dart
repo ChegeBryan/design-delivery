@@ -24,6 +24,7 @@ class _CartScreenState extends State<CartScreen> {
             vertical: 8.0,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
