@@ -36,13 +36,25 @@ class _CartItemsState extends State<CartItems> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text(
-                          'Product title',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF515C6F),
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              'Product title',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF515C6F),
+                              ),
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.delete,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              // toggle wishlist status
+                              onPressed: () {},
+                            ),
+                          ],
                         ),
                         Text(
                           'Ksh. 399.00',
@@ -59,14 +71,6 @@ class _CartItemsState extends State<CartItems> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.delete,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      // toggle wishlist status
-                      onPressed: () {},
-                    ),
                     Row(
                       children: [
                         IconButton(
