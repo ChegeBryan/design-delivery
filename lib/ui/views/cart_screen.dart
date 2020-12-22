@@ -7,6 +7,17 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  bool _orderSummaryVisibility = false;
+
+  void _showOrderSummary() {
+    setState(() {
+      // toggle order summary visbility
+      _orderSummaryVisibility
+          ? _orderSummaryVisibility = false
+          : _orderSummaryVisibility = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +39,7 @@ class _CartScreenState extends State<CartScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Visibility(
+                visible: _orderSummaryVisibility,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -90,7 +102,7 @@ class _CartScreenState extends State<CartScreen> {
                           ),
                           IconButton(
                             icon: Icon(Icons.keyboard_arrow_up),
-                            onPressed: () {},
+                            onPressed: _showOrderSummary,
                             splashRadius: 1,
                           )
                         ],
