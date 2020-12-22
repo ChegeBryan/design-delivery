@@ -37,7 +37,19 @@ class _CartScreenState extends State<CartScreen> {
             ),
             ElevatedButton(
               onPressed: () {},
-              child: Text('Checkout'),
+              child: Text(
+                'Checkout',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(StadiumBorder()),
+                padding: MaterialStateProperty.all(
+                    EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0)),
+                minimumSize: MaterialStateProperty.all(Size(48.0, 8.0)),
+              ),
             ),
           ],
         ),
