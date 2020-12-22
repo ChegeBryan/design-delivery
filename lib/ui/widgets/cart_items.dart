@@ -58,6 +58,7 @@ class _CartItemsState extends State<CartItems> {
                           ],
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'Ksh. 399.00',
