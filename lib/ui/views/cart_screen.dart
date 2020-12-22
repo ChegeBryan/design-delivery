@@ -10,7 +10,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart Page Screen'),
+        title: Text('Cart'),
       ),
       body: Center(
         child: Text('Test'),
