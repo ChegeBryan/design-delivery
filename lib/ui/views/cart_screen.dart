@@ -23,7 +23,14 @@ class _CartScreenState extends State<CartScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text('Total'),
-                Text('KSh. 563'),
+                Text(
+                  'KSh. 563',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF25408F),
+                  ),
+                ),
               ],
             ),
           ],
