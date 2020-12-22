@@ -38,11 +38,15 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  Text('Total Items'),
-                  Text('13'),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Total Items'),
+                    Text('13'),
+                  ],
+                ),
               ),
               Row(
                 children: [
