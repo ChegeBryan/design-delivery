@@ -56,14 +56,18 @@ class _CartItemsState extends State<CartItems> {
                     ),
                   ),
                 ),
-                IconButton(
-                  icon: Icon(
-                    Icons.delete,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  // toggle wishlist status
-                  onPressed: () {},
-                ),
+                Column(
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.delete,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      // toggle wishlist status
+                      onPressed: () {},
+                    ),
+                  ],
+                )
               ],
             ),
             Padding(
