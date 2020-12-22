@@ -38,6 +38,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   indent: 52.0,
                 ),
                 ListTile(
+                  leading: Icon(Icons.money),
+                  title: Text('Manage Mpesa Accounts'),
+                  trailing: Icon(Icons.keyboard_arrow_right),
+                  onTap: () {},
+                ),
+                Divider(
+                  indent: 52.0,
+                ),
+                ListTile(
                   leading: Icon(Icons.logout),
                   title: Text('Logout'),
                   trailing: Icon(Icons.keyboard_arrow_right),
@@ -57,7 +66,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
