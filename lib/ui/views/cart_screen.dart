@@ -15,7 +15,10 @@ class _CartScreenState extends State<CartScreen> {
       ),
       body: Container(),
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
+          vertical: 8.0,
+        ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -25,13 +28,21 @@ class _CartScreenState extends State<CartScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text('Total'),
-                Text(
-                  'KSh. 563',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF25408F),
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      'KSh. 563',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF25408F),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.keyboard_arrow_up),
+                      onPressed: () {},
+                    )
+                  ],
                 ),
               ],
             ),
