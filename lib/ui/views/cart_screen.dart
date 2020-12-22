@@ -1,4 +1,4 @@
-import 'package:design_delivery/ui/widgets/wishlist_product.dart';
+import 'package:design_delivery/ui/widgets/cart_items.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class _CartScreenState extends State<CartScreen> {
         title: Text('Cart'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: Container(),
+      body: CartItems(),
       bottomNavigationBar: Container(
         height: 80.0,
         padding: const EdgeInsets.symmetric(
