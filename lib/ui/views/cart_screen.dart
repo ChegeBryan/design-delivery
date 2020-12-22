@@ -26,6 +26,12 @@ class _CartScreenState extends State<CartScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              Row(
+                children: [
+                  Text('Total Delivery Fee'),
+                  Text('Ksh. 200'),
+                ],
+              ),
               Divider(),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
