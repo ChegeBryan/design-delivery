@@ -22,13 +22,18 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Customer Name',
-                    style: TextStyle(
-                      color: Color(0xFF25408F),
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Customer Name',
+                        style: TextStyle(
+                          color: Color(0xFF25408F),
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('email@example.com'),
+                    ],
                   ),
                 ),
                 ListTile(
