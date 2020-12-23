@@ -14,6 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
         body: Container(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(
                 'assets/img/cover.png',
