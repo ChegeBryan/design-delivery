@@ -92,6 +92,10 @@ class _LoginFormState extends State<LoginForm> {
                       fontSize: 16.0,
                     ),
                   ),
+                  style: ButtonStyle(
+                    overlayColor:
+                        MaterialStateProperty.all<Color>(Colors.transparent),
+                  ),
                 )
               ],
             ),
