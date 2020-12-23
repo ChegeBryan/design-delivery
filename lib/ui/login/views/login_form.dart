@@ -26,6 +26,7 @@ class _LoginFormState extends State<LoginForm> {
                 Divider(),
                 TextFormField(
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock_outlined),
                     border: InputBorder.none,
                   ),
                   obscureText: true,
