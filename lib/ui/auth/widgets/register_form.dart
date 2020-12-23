@@ -6,8 +6,29 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            cursorColor: Colors.amber,
+            keyboardType: TextInputType.text,
+            autocorrect: false,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.person_outline),
+              labelText: 'Username',
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+            ),
+            textAlignVertical: TextAlignVertical.center,
+          ),
+          Divider(),
+        ],
+      ),
+    );
   }
 }
