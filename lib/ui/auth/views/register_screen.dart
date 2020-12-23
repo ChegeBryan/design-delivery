@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/auth/widgets/cover_image.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
@@ -12,6 +13,15 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      ),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CoverImage(),
+          ],
+        ),
       ),
     );
   }
