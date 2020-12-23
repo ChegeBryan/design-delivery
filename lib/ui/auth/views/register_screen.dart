@@ -13,6 +13,7 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        iconTheme: IconThemeData(color: Color(0xFF25408F)),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
