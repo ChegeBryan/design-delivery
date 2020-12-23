@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -45,36 +46,8 @@ class _LoginFormState extends State<LoginForm> {
               ],
             ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.only(top: 48),
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(),
-                  Text(
-                    'Sign In',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: 18,
-                    color: Colors.white,
-                  ),
-                ],
-              ),
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all(StadiumBorder()),
-                padding: MaterialStateProperty.all(
-                    EdgeInsets.symmetric(vertical: 16.0)),
-              ),
-            ),
+          SubmitAuthFormButton(
+            buttonLabel: 'Sign In',
           ),
         ],
       ),
