@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/login/views/login_form.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width,
               ),
+              LoginForm(),
             ],
           ),
         ),
