@@ -13,7 +13,13 @@ class _LoginScreenState extends State<LoginScreen> {
         body: Container(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            children: [],
+            children: [
+              Image.asset(
+                'assets/img/cover.png',
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width,
+              ),
+            ],
           ),
         ),
       ),
