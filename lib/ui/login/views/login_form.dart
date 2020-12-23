@@ -27,6 +27,7 @@ class _LoginFormState extends State<LoginForm> {
                   decoration: InputDecoration(
                     border: InputBorder.none,
                   ),
+                  obscureText: true,
                 ),
               ],
             ),
