@@ -47,6 +47,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           Container(
             width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.only(top: 48),
             child: ElevatedButton(
               onPressed: () {},
               child: Row(
