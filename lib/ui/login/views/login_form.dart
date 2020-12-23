@@ -19,6 +19,7 @@ class _LoginFormState extends State<LoginForm> {
               children: [
                 TextFormField(
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email_outlined),
                     border: InputBorder.none,
                   ),
                 ),
