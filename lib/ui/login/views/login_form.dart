@@ -49,13 +49,24 @@ class _LoginFormState extends State<LoginForm> {
             width: MediaQuery.of(context).size.width,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text(
-                'Sign In',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(),
+                  Text(
+                    'Sign In',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    size: 18,
+                    color: Colors.white,
+                  ),
+                ],
               ),
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(StadiumBorder()),
