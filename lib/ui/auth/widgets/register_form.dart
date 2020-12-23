@@ -27,6 +27,19 @@ class _RegisterFormState extends State<RegisterForm> {
             textAlignVertical: TextAlignVertical.center,
           ),
           Divider(),
+          TextFormField(
+            cursorColor: Colors.amber,
+            keyboardType: TextInputType.emailAddress,
+            autocorrect: false,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.email_outlined),
+              labelText: 'Email',
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+            ),
+            textAlignVertical: TextAlignVertical.center,
+          ),
+          Divider(),
         ],
       ),
     );
