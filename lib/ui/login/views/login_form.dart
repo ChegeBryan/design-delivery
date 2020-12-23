@@ -22,6 +22,7 @@ class _LoginFormState extends State<LoginForm> {
                     border: InputBorder.none,
                   ),
                 ),
+                Divider(),
                 TextFormField(
                   decoration: InputDecoration(
                     border: InputBorder.none,
