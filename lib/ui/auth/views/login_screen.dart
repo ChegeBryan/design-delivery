@@ -1,4 +1,5 @@
 import 'package:design_delivery/ui/auth/views/register_screen.dart';
+import 'package:design_delivery/ui/auth/widgets/cover_image.dart';
 import 'package:design_delivery/ui/auth/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
@@ -17,11 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Image.asset(
-                'assets/img/cover.png',
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
-              ),
+              CoverImage(),
               LoginForm(),
               Center(
                 child: Column(
