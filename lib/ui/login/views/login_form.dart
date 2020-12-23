@@ -23,16 +23,20 @@ class _LoginFormState extends State<LoginForm> {
                   autocorrect: false,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.email_outlined),
+                    labelText: 'Email',
                     border: InputBorder.none,
                   ),
+                  textAlignVertical: TextAlignVertical.center,
                 ),
                 Divider(),
                 TextFormField(
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock_outlined),
                     border: InputBorder.none,
+                    labelText: 'Password',
                   ),
                   obscureText: true,
+                  textAlignVertical: TextAlignVertical.center,
                 ),
               ],
             ),
