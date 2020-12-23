@@ -75,6 +75,14 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
           ),
+          Center(
+            child: Text(
+              'Dont have an account? Swipe right to',
+              style: TextStyle(
+                fontSize: 16.0,
+              ),
+            ),
+          )
         ],
       ),
     );
