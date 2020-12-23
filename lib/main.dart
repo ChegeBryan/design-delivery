@@ -1,6 +1,6 @@
-import 'package:design_delivery/ui/login/views/login_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'ui/auth/views/login_screen.dart';
 import 'ui/views/app.dart';
 
 void main() {
