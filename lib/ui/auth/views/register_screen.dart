@@ -2,12 +2,12 @@ import 'package:design_delivery/ui/auth/widgets/cover_image.dart';
 import 'package:design_delivery/ui/auth/widgets/register_form.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   @override
-  _RegisterState createState() => _RegisterState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _RegisterState extends State<Register> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
