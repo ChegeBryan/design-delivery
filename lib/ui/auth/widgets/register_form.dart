@@ -40,6 +40,18 @@ class _RegisterFormState extends State<RegisterForm> {
             textAlignVertical: TextAlignVertical.center,
           ),
           Divider(),
+          TextFormField(
+            cursorColor: Colors.amber,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.lock_outlined),
+              border: InputBorder.none,
+              labelText: 'Password',
+              contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+            ),
+            obscureText: true,
+            textAlignVertical: TextAlignVertical.center,
+          ),
+          Divider(),
         ],
       ),
     );
