@@ -12,58 +12,60 @@ class _RegisterFormState extends State<RegisterForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Column(
-        children: [
-          TextFormField(
-            cursorColor: Colors.amber,
-            keyboardType: TextInputType.text,
-            autocorrect: false,
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.person_outline),
-              labelText: 'Username',
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+      child: Card(
+        child: Column(
+          children: [
+            TextFormField(
+              cursorColor: Colors.amber,
+              keyboardType: TextInputType.text,
+              autocorrect: false,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.person_outline),
+                labelText: 'Username',
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+              ),
+              textAlignVertical: TextAlignVertical.center,
             ),
-            textAlignVertical: TextAlignVertical.center,
-          ),
-          Divider(),
-          TextFormField(
-            cursorColor: Colors.amber,
-            keyboardType: TextInputType.emailAddress,
-            autocorrect: false,
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.email_outlined),
-              labelText: 'Email',
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+            Divider(),
+            TextFormField(
+              cursorColor: Colors.amber,
+              keyboardType: TextInputType.emailAddress,
+              autocorrect: false,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.email_outlined),
+                labelText: 'Email',
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+              ),
+              textAlignVertical: TextAlignVertical.center,
             ),
-            textAlignVertical: TextAlignVertical.center,
-          ),
-          Divider(),
-          TextFormField(
-            cursorColor: Colors.amber,
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.lock_outlined),
-              border: InputBorder.none,
-              labelText: 'Password',
-              contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+            Divider(),
+            TextFormField(
+              cursorColor: Colors.amber,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.lock_outlined),
+                border: InputBorder.none,
+                labelText: 'Password',
+                contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+              ),
+              obscureText: true,
+              textAlignVertical: TextAlignVertical.center,
             ),
-            obscureText: true,
-            textAlignVertical: TextAlignVertical.center,
-          ),
-          Divider(),
-          TextFormField(
-            cursorColor: Colors.amber,
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.lock_outlined),
-              border: InputBorder.none,
-              labelText: 'Confirm Password',
-              contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+            Divider(),
+            TextFormField(
+              cursorColor: Colors.amber,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.lock_outlined),
+                border: InputBorder.none,
+                labelText: 'Confirm Password',
+                contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+              ),
+              obscureText: true,
+              textAlignVertical: TextAlignVertical.center,
             ),
-            obscureText: true,
-            textAlignVertical: TextAlignVertical.center,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
