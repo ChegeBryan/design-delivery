@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -18,6 +19,8 @@ class _LoginFormState extends State<LoginForm> {
             child: Column(
               children: [
                 TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.email_outlined),
                     border: InputBorder.none,
