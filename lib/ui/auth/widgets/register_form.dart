@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:flutter/material.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -66,9 +67,11 @@ class _RegisterFormState extends State<RegisterForm> {
                   obscureText: true,
                   textAlignVertical: TextAlignVertical.center,
                 ),
+                // TODO: Add Radio button
               ],
             ),
           ),
+          SubmitAuthFormButton(buttonLabel: 'Sign Up'),
         ],
       ),
     );
