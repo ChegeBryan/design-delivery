@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/auth/views/register_screen.dart';
 import 'package:design_delivery/ui/auth/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
