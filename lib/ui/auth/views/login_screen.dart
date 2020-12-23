@@ -32,7 +32,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Register()),
+                        );
+                      },
                       child: Text(
                         'Create a new account.',
                         style: TextStyle(
