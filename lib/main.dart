@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/login/views/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/views/app.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         // set Lato as default font
         fontFamily: 'Lato',
       ),
-      home: App(),
+      home: LoginScreen(),
     );
   }
 }
