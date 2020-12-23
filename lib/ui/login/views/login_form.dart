@@ -17,8 +17,14 @@ class _LoginFormState extends State<LoginForm> {
           Card(
             child: Column(
               children: [
-                TextFormField(),
-                TextFormField(),
+                TextFormField(
+                  decoration: InputDecoration(),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                  ),
+                ),
               ],
             ),
           ),
