@@ -19,6 +19,7 @@ class _LoginFormState extends State<LoginForm> {
             child: Column(
               children: [
                 TextFormField(
+                  cursorColor: Colors.amber,
                   keyboardType: TextInputType.emailAddress,
                   autocorrect: false,
                   decoration: InputDecoration(
@@ -31,6 +32,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 Divider(),
                 TextFormField(
+                  cursorColor: Colors.amber,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock_outlined),
                     border: InputBorder.none,
