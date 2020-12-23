@@ -45,6 +45,25 @@ class _LoginFormState extends State<LoginForm> {
               ],
             ),
           ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                'Sign In',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(StadiumBorder()),
+                padding: MaterialStateProperty.all(
+                    EdgeInsets.symmetric(vertical: 16.0)),
+              ),
+            ),
+          ),
         ],
       ),
     );
