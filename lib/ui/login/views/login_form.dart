@@ -75,31 +75,6 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
           ),
-          Center(
-            child: Column(
-              children: [
-                Text(
-                  'Dont have an account? Swipe right to',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Create a new account.',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  style: ButtonStyle(
-                    overlayColor:
-                        MaterialStateProperty.all<Color>(Colors.transparent),
-                  ),
-                )
-              ],
-            ),
-          ),
         ],
       ),
     );
