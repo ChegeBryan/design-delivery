@@ -133,6 +133,7 @@ class _ProductDetailState extends State<ProductDetail> {
           subtitle: Text(
             'Long text for store address',
           ),
+          isThreeLine: true,
         )
       ],
     );
