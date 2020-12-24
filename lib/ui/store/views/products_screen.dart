@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/store/widgets/product_list_builder.dart';
 import 'package:flutter/material.dart';
 
 class ProductsScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           )
         ],
       ),
+      body: ProductListBuilder(),
     );
   }
 }
