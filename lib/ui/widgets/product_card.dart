@@ -47,6 +47,14 @@ class ProductCard extends StatelessWidget {
                     ),
                   ],
                 ),
+                IconButton(
+                  icon: Icon(
+                    Icons.favorite,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  // toggle wishlist status
+                  onPressed: () {},
+                ),
               ],
             ),
           ),
