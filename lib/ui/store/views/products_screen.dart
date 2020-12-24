@@ -15,7 +15,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         actionsIconTheme: IconThemeData(color: Color(0xFF25408F)),
         actions: [
-          IconButton(icon: Icon(Icons.store), onPressed: () {}),
+          IconButton(icon: Icon(Icons.add), onPressed: () {}),
         ],
       ),
       body: ProductListBuilder(),
