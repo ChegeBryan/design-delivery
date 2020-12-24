@@ -51,6 +51,11 @@ class _ProductDetailState extends State<ProductDetail> {
                   ),
                 ],
               ),
+              OutlineButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.shopping_cart_outlined),
+                label: Text('Add to cart'),
+              )
             ],
           ),
         ),
