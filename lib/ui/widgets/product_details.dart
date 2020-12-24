@@ -123,6 +123,15 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
         ),
         ListTile(
+          leading: CircleAvatar(
+            backgroundColor: Colors.amber,
+            child: Text(
+              "AB",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
           title: Text(
             'Long text for store name',
             style: TextStyle(
@@ -134,7 +143,7 @@ class _ProductDetailState extends State<ProductDetail> {
             'Long text for store address',
           ),
           isThreeLine: true,
-        )
+        ),
       ],
     );
   }
