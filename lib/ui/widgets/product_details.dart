@@ -21,41 +21,46 @@ class _ProductDetailState extends State<ProductDetail> {
         Container(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              // product name section
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Expanded(
-                    child: Text(
-                      'Product title with overflow test from here continue',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF25408F),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Product title with overflow test from here continue',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF25408F),
+                          ),
+                          maxLines: 2,
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                      maxLines: 2,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.favorite_border,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        // toggle wishlist status
+                        onPressed: () {},
+                        padding: const EdgeInsets.fromLTRB(8, 0, 0, 8),
+                        splashRadius: 1,
+                      ),
+                    ],
                   ),
                   IconButton(
-                    icon: Icon(
-                      Icons.favorite_border,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    // toggle wishlist status
+                    icon: Icon(Icons.add_shopping_cart_sharp),
                     onPressed: () {},
-                    padding: const EdgeInsets.fromLTRB(8, 0, 0, 8),
-                    splashRadius: 1,
                   ),
                 ],
-              ),
-              IconButton(
-                icon: Icon(Icons.add_shopping_cart_sharp),
-                onPressed: () {},
-              ),
+              )
             ],
           ),
         ),
