@@ -61,6 +61,39 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
         ),
         Divider(),
+        Container(
+          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  'Standard Delivery',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF515C6F),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Delivery Fee'),
+                    Text(
+                      'Ksh. 200',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Divider(),
       ],
     );
   }
