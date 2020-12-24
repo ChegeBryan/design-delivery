@@ -13,6 +13,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
       context,
       MaterialPageRoute(
         builder: (BuildContext context) => OrderDetailDialogScreen(),
+        fullscreenDialog: true,
       ),
     );
   }
