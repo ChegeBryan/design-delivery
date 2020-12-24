@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/widgets/product_details.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         title: Text('Details'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: ProductDetail(),
       bottomNavigationBar: Material(
         elevation: 4.0,
         child: Container(
