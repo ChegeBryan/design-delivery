@@ -66,6 +66,7 @@ class _AppStoreState extends State<AppStore> {
           showUnselectedLabels: true,
           currentIndex: _currentTab,
           onTap: _onItemTapped,
+          selectedLabelStyle: TextStyle(color: Color(0xFF25408F)),
         ),
       ),
     );
