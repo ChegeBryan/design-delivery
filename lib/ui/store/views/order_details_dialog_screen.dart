@@ -34,6 +34,14 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
           Divider(
             indent: 72,
           ),
+          OrderDetail(
+            leadingIcon: Icons.local_mall_outlined,
+            sectionTitle: 'Quantity',
+            description: '4 Pieces',
+          ),
+          Divider(
+            indent: 72,
+          ),
         ],
       ),
     );
