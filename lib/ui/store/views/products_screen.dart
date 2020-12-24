@@ -12,6 +12,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
       appBar: AppBar(
         title: Text('All Products'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        actionsIconTheme: IconThemeData(color: Color(0xFF25408F)),
         actions: [
           IconButton(icon: Icon(Icons.store), onPressed: () {}),
           IconButton(
