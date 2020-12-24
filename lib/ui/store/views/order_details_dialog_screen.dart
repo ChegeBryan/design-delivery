@@ -23,6 +23,17 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           ),
+          Divider(
+            indent: 72,
+          ),
+          OrderDetail(
+            leadingIcon: Icons.money_outlined,
+            sectionTitle: 'Price',
+            description: 'Ksh. 499',
+          ),
+          Divider(
+            indent: 72,
+          ),
         ],
       ),
     );
