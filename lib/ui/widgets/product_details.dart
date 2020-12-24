@@ -7,6 +7,14 @@ class ProductDetail extends StatefulWidget {
 }
 
 class _ProductDetailState extends State<ProductDetail> {
+  bool _descriptionVisible = false;
+
+  void _toggleDescriptionVisibility() {
+    setState(() {
+      _descriptionVisible = !_descriptionVisible;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -108,9 +116,10 @@ class _ProductDetailState extends State<ProductDetail> {
             color: Color(0xFF515C6F),
           ),
           contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-          onTap: () {},
+          onTap: _toggleDescriptionVisibility,
         ),
         Visibility(
+          visible: _descriptionVisible,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
