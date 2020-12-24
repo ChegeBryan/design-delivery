@@ -16,7 +16,7 @@ class SubmitAuthFormButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.only(top: 48),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: action,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

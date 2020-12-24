@@ -1,4 +1,5 @@
 import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
+import 'package:design_delivery/ui/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -48,6 +49,15 @@ class _LoginFormState extends State<LoginForm> {
           ),
           SubmitAuthFormButton(
             buttonLabel: 'Sign In',
+            action: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ),
+                (Route<dynamic> route) => false,
+              );
+            },
           ),
         ],
       ),
