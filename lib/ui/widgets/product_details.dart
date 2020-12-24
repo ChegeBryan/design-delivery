@@ -95,7 +95,7 @@ class _ProductDetailState extends State<ProductDetail> {
         ),
         Divider(),
         Container(
-          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
