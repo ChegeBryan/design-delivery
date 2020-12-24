@@ -59,6 +59,11 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
           Divider(
             indent: 72,
           ),
+          OrderDetail(
+            leadingIcon: Icons.person_outlined,
+            sectionTitle: 'Customer Name',
+            description: 'John Doe',
+          ),
         ],
       ),
     );
