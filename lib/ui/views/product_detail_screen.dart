@@ -8,6 +8,11 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Details'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      ),
+    );
   }
 }
