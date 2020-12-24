@@ -56,6 +56,7 @@ class ProductCard extends StatelessWidget {
                     ),
                     // toggle wishlist status
                     onPressed: () {},
+                    splashRadius: 1,
                   ),
                 ],
               ),
