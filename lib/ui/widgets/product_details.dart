@@ -109,12 +109,9 @@ class _ProductDetailState extends State<ProductDetail> {
                     color: Color(0xFF515C6F),
                   ),
                 ),
-                IconButton(
-                  icon: Icon(
-                    Icons.keyboard_arrow_right_outlined,
-                    color: Color(0xFF515C6F),
-                  ),
-                  onPressed: () {},
+                Icon(
+                  Icons.keyboard_arrow_right_outlined,
+                  color: Color(0xFF515C6F),
                 ),
               ],
             ),
