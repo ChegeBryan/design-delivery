@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/widgets/product_grid_builder.dart';
 import 'package:flutter/material.dart';
 
 class ProductsByStoreScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class _ProductsByStoreScreenState extends State<ProductsByStoreScreen> {
         title: Text('Store name'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: ProductGridBuilder(),
     );
   }
 }
