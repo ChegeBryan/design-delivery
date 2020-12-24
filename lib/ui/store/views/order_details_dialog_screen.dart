@@ -28,6 +28,10 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
             ),
             subtitle: const Text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+              style: TextStyle(
+                color: Color(0xFF727C8E),
+                fontSize: 16.0,
+              ),
             ),
           ),
         ],
