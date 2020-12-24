@@ -143,6 +143,7 @@ class _ProductDetailState extends State<ProductDetail> {
             'Long text for store address',
           ),
           isThreeLine: true,
+          onTap: () {},
         ),
       ],
     );
