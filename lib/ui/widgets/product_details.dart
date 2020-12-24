@@ -110,6 +110,18 @@ class _ProductDetailState extends State<ProductDetail> {
           contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
           onTap: () {},
         ),
+        Visibility(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus.',
+              softWrap: true,
+              style: TextStyle(
+                fontSize: 16.0,
+              ),
+            ),
+          ),
+        ),
         Divider(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
