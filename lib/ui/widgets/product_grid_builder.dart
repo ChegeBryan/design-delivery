@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
 class ProductGridBuilder extends StatelessWidget {
@@ -11,7 +12,7 @@ class ProductGridBuilder extends StatelessWidget {
       itemCount: 17, // for test only put product count here
       gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-      itemBuilder: null,
+      itemBuilder: (BuildContext context, int index) => ProductCard(),
     );
   }
 }
