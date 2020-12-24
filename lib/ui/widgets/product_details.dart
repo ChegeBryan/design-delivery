@@ -96,25 +96,28 @@ class _ProductDetailState extends State<ProductDetail> {
         Divider(),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Description',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF515C6F),
+          child: InkWell(
+            onTap: () {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Description',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF515C6F),
+                  ),
                 ),
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.keyboard_arrow_right_outlined,
-                  color: Color(0xFF515C6F),
+                IconButton(
+                  icon: Icon(
+                    Icons.keyboard_arrow_right_outlined,
+                    color: Color(0xFF515C6F),
+                  ),
+                  onPressed: () {},
                 ),
-                onPressed: () {},
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Divider(),
