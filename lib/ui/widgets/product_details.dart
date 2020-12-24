@@ -19,10 +19,10 @@ class _ProductDetailState extends State<ProductDetail> {
           fit: BoxFit.cover,
         ),
         Container(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
           child: Column(
             children: [
-              // product name section
+              // product name sections
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -60,10 +60,11 @@ class _ProductDetailState extends State<ProductDetail> {
                     onPressed: () {},
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
+        Divider(),
       ],
     );
   }
