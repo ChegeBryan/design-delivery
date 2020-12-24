@@ -13,6 +13,7 @@ class ProductGridBuilder extends StatelessWidget {
       gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (BuildContext context, int index) => ProductCard(),
+      padding: const EdgeInsets.all(16.0),
     );
   }
 }
