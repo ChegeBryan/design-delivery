@@ -64,6 +64,7 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
             sectionTitle: 'Customer Name',
             description: 'John Doe',
           ),
+          SizedBox(height: 24.0),
           ElevatedButton.icon(
             onPressed: () {},
             icon: Icon(
