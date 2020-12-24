@@ -64,6 +64,27 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
             sectionTitle: 'Customer Name',
             description: 'John Doe',
           ),
+          ElevatedButton.icon(
+            onPressed: () {},
+            icon: Icon(
+              Icons.check_box_outlined,
+              size: 18,
+              color: Colors.white,
+            ),
+            label: Text(
+              'Complete Order',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all(StadiumBorder()),
+              padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(vertical: 16.0)),
+            ),
+          )
         ],
       ),
     );
