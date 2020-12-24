@@ -122,6 +122,18 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
           ),
         ),
+        ListTile(
+          title: Text(
+            'Long text for store name',
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF515C6F),
+            ),
+          ),
+          subtitle: Text(
+            'Long text for store address',
+          ),
+        )
       ],
     );
   }
