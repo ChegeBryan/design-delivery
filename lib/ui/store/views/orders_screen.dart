@@ -19,6 +19,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
           title: Text('Product Name'),
           subtitle: Text('Address'),
           trailing: Text('Qty: 34'),
+          isThreeLine: true,
           onTap: () {},
         ),
         separatorBuilder: (context, index) => Divider(),
