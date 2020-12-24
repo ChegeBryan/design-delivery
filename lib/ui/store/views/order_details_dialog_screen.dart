@@ -18,7 +18,14 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
         padding: const EdgeInsets.all(16.0),
         children: [
           ListTile(
-            title: const Text('Product Name'),
+            title: const Text(
+              'Product Name',
+              style: TextStyle(
+                color: Color(0xFF515C6F),
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             subtitle: const Text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             ),
