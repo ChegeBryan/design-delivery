@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
               suffixIcon: Icon(Icons.search),
               border: InputBorder.none,
             ),
+            textAlignVertical: TextAlignVertical.center,
           ),
         ),
       ),
