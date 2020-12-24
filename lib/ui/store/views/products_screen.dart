@@ -19,11 +19,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ],
       ),
       body: ProductListBuilder(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add, color: Colors.white),
-        backgroundColor: Color(0xFF25408F),
-      ),
     );
   }
 }
