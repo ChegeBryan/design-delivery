@@ -66,7 +66,10 @@ class _ProductDetailState extends State<ProductDetail> {
                 ],
               ),
               IconButton(
-                icon: Icon(Icons.add_shopping_cart_sharp),
+                icon: Icon(
+                  Icons.add_shopping_cart_sharp,
+                  color: Color(0xFF25408F),
+                ),
                 onPressed: () {},
               ),
             ],
