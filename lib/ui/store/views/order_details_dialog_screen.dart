@@ -18,6 +18,7 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
         padding: const EdgeInsets.all(16.0),
         children: [
           OrderDetail(
+            leadingIcon: Icons.notes,
             sectionTitle: 'Product Name',
             description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -31,16 +32,19 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
 class OrderDetail extends StatelessWidget {
   const OrderDetail({
     Key key,
+    @required this.leadingIcon,
     @required this.sectionTitle,
     @required this.description,
   }) : super(key: key);
 
+  final IconData leadingIcon;
   final String sectionTitle;
   final String description;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      leading: Icon(leadingIcon),
       title: Text(
         sectionTitle,
         style: TextStyle(
