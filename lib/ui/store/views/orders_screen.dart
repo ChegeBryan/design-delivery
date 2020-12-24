@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/store/views/order_details_dialog_screen.dart';
 import "package:flutter/material.dart";
 
 class OrdersScreen extends StatefulWidget {
@@ -6,6 +7,16 @@ class OrdersScreen extends StatefulWidget {
 }
 
 class _OrdersScreenState extends State<OrdersScreen> {
+  // opens order dialog screen
+  void _openOrderDetailsDialog() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => OrderDetailDialogScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +31,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
           subtitle: Text('Address'),
           trailing: Text('Qty: 34'),
           isThreeLine: true,
-          onTap: () {},
+          onTap: _openOrderDetailsDialog,
         ),
         separatorBuilder: (context, index) => Divider(),
         padding: const EdgeInsets.all(16.0),
