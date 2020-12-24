@@ -52,11 +52,10 @@ class _ProductDetailState extends State<ProductDetail> {
                   ),
                 ],
               ),
-              OutlineButton.icon(
+              IconButton(
+                icon: Icon(Icons.add_shopping_cart_sharp),
                 onPressed: () {},
-                icon: Icon(Icons.shopping_cart_outlined),
-                label: Text('Add to cart'),
-              )
+              ),
             ],
           ),
         ),
