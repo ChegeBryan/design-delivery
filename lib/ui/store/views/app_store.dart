@@ -10,10 +10,11 @@ class _AppStoreState extends State<AppStore> {
   int _currentTab = 0;
   String _currentPage = 'products';
 
-  List<String> pageKeys = ['products', 'profile'];
+  List<String> pageKeys = ['products', 'orders', 'profile'];
 
   Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
     'products': GlobalKey<NavigatorState>(),
+    'orders': GlobalKey<NavigatorState>(),
     'profile': GlobalKey<NavigatorState>(),
   };
 
@@ -45,6 +46,7 @@ class _AppStoreState extends State<AppStore> {
       child: Scaffold(
         body: Stack(children: <Widget>[
           _buildOffstageNavigator('products'),
+          _buildOffstageNavigator('orders'),
           _buildOffstageNavigator('profile'),
         ]),
         bottomNavigationBar: BottomNavigationBar(
@@ -54,6 +56,10 @@ class _AppStoreState extends State<AppStore> {
               icon: Icon(Icons.list),
               activeIcon: Icon(Icons.list),
               label: 'Products',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.storefront_outlined),
+              label: 'Orders',
             ),
             BottomNavigationBarItem(
               icon: Icon(

@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/store/views/orders_screen.dart';
 import 'package:design_delivery/ui/store/views/products_screen.dart';
 import 'package:design_delivery/ui/store/views/store_profile.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,9 @@ class StoreTabNavigator extends StatelessWidget {
     switch (tabItem) {
       case 'products':
         page = ProductsScreen();
+        break;
+      case 'orders':
+        page = OrdersScreen();
         break;
       case 'profile':
         page = StoreProfile();
