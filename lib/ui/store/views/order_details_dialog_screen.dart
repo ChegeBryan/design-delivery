@@ -17,24 +17,44 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          ListTile(
-            title: const Text(
-              'Product Name',
-              style: TextStyle(
-                color: Color(0xFF515C6F),
-                fontSize: 18.0,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            subtitle: const Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-              style: TextStyle(
-                color: Color(0xFF727C8E),
-                fontSize: 16.0,
-              ),
-            ),
+          OrderDetail(
+            sectionTitle: 'Product Name',
+            description:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           ),
         ],
+      ),
+    );
+  }
+}
+
+class OrderDetail extends StatelessWidget {
+  const OrderDetail({
+    Key key,
+    @required this.sectionTitle,
+    @required this.description,
+  }) : super(key: key);
+
+  final String sectionTitle;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        sectionTitle,
+        style: TextStyle(
+          color: Color(0xFF515C6F),
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      subtitle: Text(
+        description,
+        style: TextStyle(
+          color: Color(0xFF727C8E),
+          fontSize: 16.0,
+        ),
       ),
     );
   }
