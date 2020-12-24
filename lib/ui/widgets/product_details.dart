@@ -110,6 +110,18 @@ class _ProductDetailState extends State<ProductDetail> {
           contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
           onTap: () {},
         ),
+        Divider(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: Text(
+            'Vendor Store',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF515C6F),
+            ),
+          ),
+        ),
       ],
     );
   }
