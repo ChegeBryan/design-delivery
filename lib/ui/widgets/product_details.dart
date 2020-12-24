@@ -8,10 +8,14 @@ class ProductDetail extends StatefulWidget {
 
 class _ProductDetailState extends State<ProductDetail> {
   bool _descriptionVisible = false;
+  IconData _descriptionIcon = Icons.keyboard_arrow_right_outlined;
 
   void _toggleDescriptionVisibility() {
     setState(() {
       _descriptionVisible = !_descriptionVisible;
+      _descriptionVisible
+          ? _descriptionIcon = Icons.keyboard_arrow_down_outlined
+          : _descriptionIcon = Icons.keyboard_arrow_right_outlined;
     });
   }
 
@@ -112,7 +116,7 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
           ),
           trailing: Icon(
-            Icons.keyboard_arrow_right_outlined,
+            _descriptionIcon,
             color: Color(0xFF515C6F),
           ),
           contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
