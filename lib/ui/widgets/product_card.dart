@@ -14,7 +14,7 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           AspectRatio(
-            aspectRatio: 4 / 3,
+            aspectRatio: 18.0 / 11.0,
             child: FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
               image: 'https://picsum.photos/250?image=9',
