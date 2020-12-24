@@ -14,6 +14,17 @@ class _OrderDetailDialogScreenState extends State<OrderDetailDialogScreen> {
         title: const Text('Order Detials'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
+        children: [
+          ListTile(
+            title: const Text('Product Name'),
+            subtitle: const Text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
