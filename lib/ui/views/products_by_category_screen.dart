@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/widgets/product_grid_builder.dart';
 import 'package:flutter/material.dart';
 
 class ProductsByCateory extends StatefulWidget {
@@ -13,6 +14,7 @@ class _ProductsByCateoryState extends State<ProductsByCateory> {
         title: Text('Category Name'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: ProductGridBuilder(),
     );
   }
 }
