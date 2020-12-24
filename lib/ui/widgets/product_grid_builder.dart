@@ -8,10 +8,12 @@ class ProductGridBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
+
     return GridView.builder(
       itemCount: 17, // for test only put product count here
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
       itemBuilder: (BuildContext context, int index) => ProductCard(),
       padding: const EdgeInsets.all(16.0),
     );
