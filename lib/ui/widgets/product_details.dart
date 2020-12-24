@@ -94,30 +94,22 @@ class _ProductDetailState extends State<ProductDetail> {
           ),
         ),
         Divider(),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: InkWell(
-            onTap: () {},
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Description',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF515C6F),
-                  ),
-                ),
-                Icon(
-                  Icons.keyboard_arrow_right_outlined,
-                  color: Color(0xFF515C6F),
-                ),
-              ],
+        ListTile(
+          title: Text(
+            'Description',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF515C6F),
             ),
           ),
+          trailing: Icon(
+            Icons.keyboard_arrow_right_outlined,
+            color: Color(0xFF515C6F),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+          onTap: () {},
         ),
-        Divider(),
       ],
     );
   }
