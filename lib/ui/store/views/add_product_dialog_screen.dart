@@ -11,6 +11,7 @@ class _AddProductDialogScreenState extends State<AddProductDialogScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Product'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
     );
   }
