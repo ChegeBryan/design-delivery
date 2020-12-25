@@ -9,12 +9,12 @@ const List categories = <DropdownMenuItem>[
   DropdownMenuItem(child: Text('Category 3'), value: 3),
 ];
 
-class AddContactForm extends StatefulWidget {
+class AddProductForm extends StatefulWidget {
   @override
-  _AddContactFormState createState() => _AddContactFormState();
+  _AddProductFormState createState() => _AddProductFormState();
 }
 
-class _AddContactFormState extends State<AddContactForm> {
+class _AddProductFormState extends State<AddProductForm> {
   final _formKey = GlobalKey<FormState>();
 
   Future<void> _imageSourceOptions() async {

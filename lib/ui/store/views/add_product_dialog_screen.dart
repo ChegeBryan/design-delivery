@@ -26,7 +26,7 @@ class _AddProductDialogScreenState extends State<AddProductDialogScreen> {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(16.0),
-          child: AddContactForm(),
+          child: AddProductForm(),
         ),
       ),
     );
