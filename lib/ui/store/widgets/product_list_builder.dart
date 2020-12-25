@@ -5,6 +5,46 @@ class ProductListBuilder extends StatelessWidget {
   const ProductListBuilder({
     Key key,
   }) : super(key: key);
+
+  Future<void> _confirmDeleteDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Are you sure you want to delete product?'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Deleted products cannot be retrieved.'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.red),
+              ),
+              child: Text(
+                'Delete',
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -79,7 +119,9 @@ class ProductListBuilder extends StatelessWidget {
                                 color: Theme.of(context).primaryColor,
                               ),
                               // toggle wishlist status
-                              onPressed: () {},
+                              onPressed: () {
+                                _confirmDeleteDialog(context);
+                              },
                               splashRadius: 1,
                             ),
                           ],
