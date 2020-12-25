@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/store/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 
 class AddContactForm extends StatefulWidget {
@@ -12,7 +13,14 @@ class _AddContactFormState extends State<AddContactForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Text('FORM GOES HERE'),
+      child: Column(
+        children: [
+          CustomInputField(
+            label: 'Product Name',
+            inputIcon: Icons.assignment_outlined,
+          ),
+        ],
+      ),
     );
   }
 }
