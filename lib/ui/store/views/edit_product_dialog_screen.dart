@@ -12,7 +12,7 @@ class _EditProductDialogScreenState extends State<EditProductDialogScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Product'),
+        title: Text('Edit Product'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         actions: [
           TextButton(
