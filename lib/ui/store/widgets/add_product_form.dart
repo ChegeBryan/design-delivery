@@ -19,6 +19,11 @@ class _AddContactFormState extends State<AddContactForm> {
             label: 'Product Name',
             inputIcon: Icons.assignment_outlined,
           ),
+          CustomInputField(
+            label: 'Price (Ksh.)',
+            inputIcon: Icons.monetization_on_outlined,
+            keyboard: TextInputType.number,
+          )
         ],
       ),
     );
