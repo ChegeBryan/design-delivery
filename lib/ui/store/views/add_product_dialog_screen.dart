@@ -22,6 +22,9 @@ class _AddProductDialogScreenState extends State<AddProductDialogScreen> {
           ),
         ],
       ),
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+      ),
     );
   }
 }
