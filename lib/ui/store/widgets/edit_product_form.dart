@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/store/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 
 class EditProductForm extends StatefulWidget {
@@ -26,6 +27,10 @@ class _EditProductFormState extends State<EditProductForm> {
                 ),
               ),
             ),
+          ),
+          CustomInputField(
+            label: 'Product Name',
+            inputIcon: Icons.assessment_outlined,
           ),
         ],
       ),
