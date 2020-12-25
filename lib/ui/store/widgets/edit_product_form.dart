@@ -16,6 +16,38 @@ class EditProductForm extends StatefulWidget {
 class _EditProductFormState extends State<EditProductForm> {
   final _formKey = GlobalKey<FormState>();
 
+  Future<void> _imageSourceOptions() async {
+    switch (await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            title: const Text('Change Product Photo'),
+            children: <Widget>[
+              SimpleDialogOption(
+                onPressed: () {},
+                child: const Text('Remove photo'),
+                padding:
+                    const EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0),
+              ),
+              SimpleDialogOption(
+                onPressed: () {},
+                child: const Text('Take new photo'),
+                padding:
+                    const EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0),
+              ),
+              SimpleDialogOption(
+                onPressed: () {},
+                child: const Text('Select new photo'),
+                padding:
+                    const EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0),
+              ),
+            ],
+          );
+        })) {
+      // Code to run when an option is selected
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -30,7 +62,7 @@ class _EditProductFormState extends State<EditProductForm> {
                 radius: 40.0,
                 child: IconButton(
                   icon: Icon(Icons.add_a_photo_outlined),
-                  onPressed: () {},
+                  onPressed: _imageSourceOptions,
                 ),
               ),
             ),
