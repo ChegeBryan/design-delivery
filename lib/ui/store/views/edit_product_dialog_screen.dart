@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/store/widgets/edit_product_form.dart';
 import 'package:flutter/material.dart';
 
 class EditProductDialogScreen extends StatefulWidget {
@@ -22,6 +23,12 @@ class _EditProductDialogScreenState extends State<EditProductDialogScreen> {
             ),
           ),
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          child: EditProductForm(),
+        ),
       ),
     );
   }
