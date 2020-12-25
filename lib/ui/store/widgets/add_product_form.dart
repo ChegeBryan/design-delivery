@@ -1,5 +1,13 @@
+import 'package:design_delivery/ui/store/widgets/custom_dropdown_feild.dart';
 import 'package:design_delivery/ui/store/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
+
+// category list for testing
+const List categories = <DropdownMenuItem>[
+  DropdownMenuItem(child: Text('Category 1'), value: 1),
+  DropdownMenuItem(child: Text('Category 2'), value: 2),
+  DropdownMenuItem(child: Text('Category 3'), value: 3),
+];
 
 class AddContactForm extends StatefulWidget {
   @override
@@ -29,7 +37,8 @@ class _AddContactFormState extends State<AddContactForm> {
             inputIcon: Icons.notes,
             keyboard: TextInputType.text,
             maxlines: null,
-          )
+          ),
+          CustomDropdownFormField(listFor: categories),
         ],
       ),
     );
