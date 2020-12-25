@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/store/views/edit_product_dialog_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -42,6 +43,16 @@ class ProductListBuilder extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+
+  void _lauchEditProductDialog(context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => EditProductDialogScreen(),
+        fullscreenDialog: true,
+      ),
     );
   }
 
@@ -96,7 +107,7 @@ class ProductListBuilder extends StatelessWidget {
                                 color: Theme.of(context).primaryColor,
                               ),
                               // toggle wishlist status
-                              onPressed: () {},
+                              onPressed: () => _lauchEditProductDialog(context),
                               padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
                               splashRadius: 1,
                             ),
