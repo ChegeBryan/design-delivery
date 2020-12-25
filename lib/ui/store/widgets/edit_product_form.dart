@@ -37,6 +37,12 @@ class _EditProductFormState extends State<EditProductForm> {
             inputIcon: Icons.monetization_on_outlined,
             keyboard: TextInputType.number,
           ),
+          CustomInputField(
+            label: 'Product Description',
+            inputIcon: Icons.notes,
+            keyboard: TextInputType.text,
+            maxlines: null,
+          ),
         ],
       ),
     );
