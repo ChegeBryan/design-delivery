@@ -12,6 +12,15 @@ class _AddProductDialogScreenState extends State<AddProductDialogScreen> {
       appBar: AppBar(
         title: Text('Add Product'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        actions: [
+          TextButton(
+            style: ButtonStyle(),
+            onPressed: () {},
+            child: Text(
+              'Save',
+            ),
+          ),
+        ],
       ),
     );
   }
