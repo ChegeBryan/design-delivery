@@ -23,6 +23,19 @@ class _AddContactFormState extends State<AddContactForm> {
       key: _formKey,
       child: Column(
         children: [
+          Container(
+            height: 120,
+            child: FractionallySizedBox(
+              heightFactor: 0.5,
+              child: CircleAvatar(
+                radius: 40.0,
+                child: IconButton(
+                  icon: Icon(Icons.add_a_photo_outlined),
+                  onPressed: () {},
+                ),
+              ),
+            ),
+          ),
           CustomInputField(
             label: 'Product Name',
             inputIcon: Icons.assignment_outlined,
