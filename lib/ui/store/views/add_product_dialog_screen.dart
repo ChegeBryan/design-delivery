@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/store/widgets/add_product_form.dart';
 import 'package:flutter/material.dart';
 
 class AddProductDialogScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _AddProductDialogScreenState extends State<AddProductDialogScreen> {
       ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
+        child: AddContactForm(),
       ),
     );
   }
