@@ -32,6 +32,11 @@ class _EditProductFormState extends State<EditProductForm> {
             label: 'Product Name',
             inputIcon: Icons.assessment_outlined,
           ),
+          CustomInputField(
+            label: 'Price (Ksh.)',
+            inputIcon: Icons.monetization_on_outlined,
+            keyboard: TextInputType.number,
+          ),
         ],
       ),
     );
