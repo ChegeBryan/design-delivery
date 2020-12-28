@@ -1,5 +1,6 @@
 import 'package:design_delivery/ui/auth/widgets/cover_image.dart';
 import 'package:design_delivery/ui/auth/widgets/register_form.dart';
+import 'package:design_delivery/ui/auth/widgets/register_store_form.dart';
 import 'package:flutter/material.dart';
 
 class StoreRegisterScreen extends StatefulWidget {
@@ -22,6 +23,7 @@ class _StoreRegisterScreenState extends State<StoreRegisterScreen> {
         child: Column(
           children: [
             CoverImage(),
+            RegisterStoreForm(),
           ],
         ),
       ),
