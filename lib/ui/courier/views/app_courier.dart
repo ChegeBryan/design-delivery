@@ -29,6 +29,11 @@ class _AppCourierState extends State<AppCourier> {
             activeIcon: Icon(Icons.done_all),
             label: 'Delivered',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outlined),
+            activeIcon: Icon(Icons.person),
+            label: 'Profile',
+          ),
         ],
         currentIndex: _currentTab,
       ),
