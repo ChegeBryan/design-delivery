@@ -1,4 +1,5 @@
 import 'package:design_delivery/ui/store/views/edit_product_dialog_screen.dart';
+import 'package:design_delivery/ui/store/views/product_detail_dialog_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -56,6 +57,16 @@ class ProductListBuilder extends StatelessWidget {
     );
   }
 
+  void _launchProductDetailDialog(context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => ProductDetailDialogScreen(),
+        fullscreenDialog: true,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -64,7 +75,9 @@ class ProductListBuilder extends StatelessWidget {
         child: Column(
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                _launchProductDetailDialog(context);
+              },
               child: Row(
                 children: [
                   SizedBox(
