@@ -23,6 +23,12 @@ class _RegisterCourierFormState extends State<RegisterCourierForm> {
                   label: 'Courier Name',
                   prefixIcon: Icons.person_outlined,
                 ),
+                Divider(),
+                AuthTextField(
+                  label: 'Email',
+                  prefixIcon: Icons.email_outlined,
+                  keyboard: TextInputType.emailAddress,
+                ),
               ],
             ),
           ),
