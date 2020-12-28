@@ -7,6 +7,21 @@ class AppCourier extends StatefulWidget {
 
 class _AppCourierState extends State<AppCourier> {
   int _currentTab = 0;
+  String _currentPage = 'new_deliveries';
+
+  List<String> pageKeys = [
+    'new_deliveries',
+    'in_progress',
+    'delivered',
+    'profile'
+  ];
+
+  Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
+    'new_deliveries': GlobalKey<NavigatorState>(),
+    'in_progress': GlobalKey<NavigatorState>(),
+    'delivered': GlobalKey<NavigatorState>(),
+    'profile': GlobalKey<NavigatorState>(),
+  };
 
   @override
   Widget build(BuildContext context) {
