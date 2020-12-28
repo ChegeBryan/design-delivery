@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/auth/views/courier_register_screen.dart';
 import 'package:design_delivery/ui/auth/views/login_screen.dart';
 import 'package:design_delivery/ui/auth/views/register_screen.dart';
 import 'package:design_delivery/ui/auth/views/store_register_screen.dart';
@@ -16,6 +17,7 @@ class AuthPageView extends StatelessWidget {
         LoginScreen(),
         RegisterScreen(),
         StoreRegisterScreen(),
+        CourierRegisterScreen(),
       ],
     );
   }
