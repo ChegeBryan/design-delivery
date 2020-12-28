@@ -19,6 +19,11 @@ class _AppCourierState extends State<AppCourier> {
             activeIcon: Icon(Icons.markunread_mailbox),
             label: 'New Deliveries',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.two_wheeler_outlined),
+            activeIcon: Icon(Icons.two_wheeler),
+            label: 'In progress',
+          ),
         ],
         currentIndex: _currentTab,
       ),
