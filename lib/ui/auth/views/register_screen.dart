@@ -12,51 +12,47 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        iconTheme: IconThemeData(color: Color(0xFF25408F)),
-      ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            CoverImage(),
-            RegisterForm(),
-            Center(
-              child: Column(
-                children: [
-                  Text(
-                    'Are you a vendor? Swipe right to',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => StoreRegisterScreen()),
-                      );
-                    },
-                    child: Text(
-                      'Create a vendor account.',
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CoverImage(),
+              RegisterForm(),
+              Center(
+                child: Column(
+                  children: [
+                    Text(
+                      'Are you a vendor? Swipe right to',
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    style: ButtonStyle(
-                      overlayColor:
-                          MaterialStateProperty.all<Color>(Colors.transparent),
-                    ),
-                  )
-                ],
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StoreRegisterScreen()),
+                        );
+                      },
+                      child: Text(
+                        'Create a vendor account.',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        overlayColor: MaterialStateProperty.all<Color>(
+                            Colors.transparent),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
