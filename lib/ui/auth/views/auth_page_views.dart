@@ -1,5 +1,6 @@
 import 'package:design_delivery/ui/auth/views/login_screen.dart';
 import 'package:design_delivery/ui/auth/views/register_screen.dart';
+import 'package:design_delivery/ui/auth/views/store_register_screen.dart';
 import 'package:flutter/material.dart';
 
 class AuthPageView extends StatelessWidget {
@@ -14,6 +15,7 @@ class AuthPageView extends StatelessWidget {
       children: [
         LoginScreen(),
         RegisterScreen(),
+        StoreRegisterScreen(),
       ],
     );
   }
