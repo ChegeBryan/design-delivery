@@ -14,19 +14,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              CoverImage(),
-              RegisterForm(),
-              FormBottomText(
-                message: 'Are you a vendor? Swipe right to',
-                actionMessage: 'Create a vendor account',
-                swipeTo: StoreRegisterScreen(),
-              ),
-            ],
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CoverImage(),
+                RegisterForm(),
+                FormBottomText(
+                  message: 'Are you a vendor? Swipe right to',
+                  actionMessage: 'Create a vendor account',
+                  swipeTo: StoreRegisterScreen(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
