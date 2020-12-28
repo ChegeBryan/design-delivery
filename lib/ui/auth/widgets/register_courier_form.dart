@@ -1,4 +1,5 @@
 import 'package:design_delivery/ui/auth/widgets/auth_text_field.dart';
+import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -48,6 +49,10 @@ class _RegisterCourierFormState extends State<RegisterCourierForm> {
                 ),
               ],
             ),
+          ),
+          SubmitAuthFormButton(
+            buttonLabel: 'Sign Up',
+            action: () {},
           ),
         ],
       ),
