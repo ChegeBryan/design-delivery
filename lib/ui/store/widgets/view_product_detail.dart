@@ -18,19 +18,38 @@ class _ViewProductDetailState extends State<ViewProductDetail> {
           height: 250,
           fit: BoxFit.cover,
         ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            'Product title with overflow test from here continue',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF25408F),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+              child: Text(
+                'Product title with overflow test from here continue',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF25408F),
+                ),
+                maxLines: 2,
+                softWrap: true,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
-            maxLines: 2,
-            softWrap: true,
-            overflow: TextOverflow.ellipsis,
-          ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Ksh. 499',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF515C6F),
+                ),
+                maxLines: 2,
+                softWrap: true,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
         ),
         Divider(
           indent: 16,
