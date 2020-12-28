@@ -14,34 +14,37 @@ class FormBottomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Text(
-            message,
-            style: TextStyle(
-              fontSize: 16.0,
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => swipeTo),
-              );
-            },
-            child: Text(
-              actionMessage,
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0),
+      child: Center(
+        child: Column(
+          children: [
+            Text(
+              message,
               style: TextStyle(
                 fontSize: 16.0,
               ),
             ),
-            style: ButtonStyle(
-              overlayColor:
-                  MaterialStateProperty.all<Color>(Colors.transparent),
-            ),
-          )
-        ],
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => swipeTo),
+                );
+              },
+              child: Text(
+                actionMessage,
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
+              ),
+              style: ButtonStyle(
+                overlayColor:
+                    MaterialStateProperty.all<Color>(Colors.transparent),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
