@@ -67,6 +67,35 @@ class _ViewProductDetailState extends State<ViewProductDetail> {
           indent: 16,
           endIndent: 16.0,
         ),
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Category',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF515C6F),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 16.0),
+                child: Chip(
+                  labelStyle: TextStyle(
+                    color: Color(0xFF25408F),
+                    fontSize: 16.0,
+                  ),
+                  label: Text(
+                    'Lorem ipsum dolor',
+                    softWrap: true,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
