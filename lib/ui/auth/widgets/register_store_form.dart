@@ -23,7 +23,7 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
                 children: [
                   AuthTextField(
                     label: 'Store name',
-                    prefixIcon: Icons.person_outline,
+                    prefixIcon: Icons.store_outlined,
                   ),
                   Divider(),
                   AuthTextField(
