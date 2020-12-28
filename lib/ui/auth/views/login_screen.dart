@@ -14,19 +14,21 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              CoverImage(),
-              LoginForm(),
-              FormBottomText(
-                message: "Don't have an account? Swipe right to",
-                actionMessage: 'Create a new account',
-                swipeTo: RegisterScreen(),
-              ),
-            ],
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CoverImage(),
+                LoginForm(),
+                FormBottomText(
+                  message: "Don't have an account? Swipe right to",
+                  actionMessage: 'Create a new account',
+                  swipeTo: RegisterScreen(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
