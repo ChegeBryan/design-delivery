@@ -37,6 +37,18 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
                     prefixIcon: Icons.local_convenience_store_outlined,
                     keyboard: TextInputType.streetAddress,
                   ),
+                  Divider(),
+                  AuthTextField(
+                    label: 'Password',
+                    prefixIcon: Icons.lock_outlined,
+                    obscureText: true,
+                  ),
+                  Divider(),
+                  AuthTextField(
+                    label: 'Confirm Password',
+                    prefixIcon: Icons.lock_outlined,
+                    obscureText: true,
+                  ),
                 ],
               ),
             ),
