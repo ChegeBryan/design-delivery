@@ -37,6 +37,11 @@ class _RegisterCourierFormState extends State<RegisterCourierForm> {
                 ),
                 Divider(),
                 AuthTextField(
+                  label: 'Phone Number',
+                  prefixIcon: Icons.phone_outlined,
+                  keyboard: TextInputType.emailAddress,
+                ),
+                AuthTextField(
                   label: 'Password',
                   prefixIcon: Icons.lock_outlined,
                   obscureText: true,
