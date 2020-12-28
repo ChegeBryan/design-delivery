@@ -1,5 +1,6 @@
 import 'package:design_delivery/ui/auth/views/register_screen.dart';
 import 'package:design_delivery/ui/auth/widgets/cover_image.dart';
+import 'package:design_delivery/ui/auth/widgets/form_bottom_text.dart';
 import 'package:design_delivery/ui/auth/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
@@ -24,36 +25,10 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             CoverImage(),
             LoginForm(),
-            Center(
-              child: Column(
-                children: [
-                  Text(
-                    'Dont have an account? Swipe right to',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegisterScreen()),
-                      );
-                    },
-                    child: Text(
-                      'Create a new account.',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    style: ButtonStyle(
-                      overlayColor:
-                          MaterialStateProperty.all<Color>(Colors.transparent),
-                    ),
-                  )
-                ],
-              ),
+            FormBottomText(
+              message: "Don't have an account? Swipe right to",
+              actionMessage: 'Create a new account',
+              swipeTo: RegisterScreen(),
             ),
           ],
         ),
