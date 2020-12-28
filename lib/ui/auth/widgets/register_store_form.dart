@@ -1,4 +1,5 @@
 import 'package:design_delivery/ui/auth/widgets/auth_text_field.dart';
+import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:flutter/material.dart';
 
 class RegisterStoreForm extends StatefulWidget {
@@ -26,6 +27,10 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
                   ),
                 ],
               ),
+            ),
+            SubmitAuthFormButton(
+              buttonLabel: 'Sign Up',
+              action: () {},
             ),
           ],
         ),
