@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/auth/widgets/auth_text_field.dart';
 import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:design_delivery/ui/store/views/app_store.dart';
 import 'package:design_delivery/ui/views/app.dart';
@@ -21,29 +22,16 @@ class _LoginFormState extends State<LoginForm> {
           Card(
             child: Column(
               children: [
-                TextFormField(
-                  cursorColor: Colors.amber,
-                  keyboardType: TextInputType.emailAddress,
-                  autocorrect: false,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email_outlined),
-                    labelText: 'Email',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
-                  ),
-                  textAlignVertical: TextAlignVertical.center,
+                AuthTextField(
+                  label: 'Email',
+                  prefixIcon: Icons.email_outlined,
+                  keyboard: TextInputType.emailAddress,
                 ),
                 Divider(),
-                TextFormField(
-                  cursorColor: Colors.amber,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock_outlined),
-                    border: InputBorder.none,
-                    labelText: 'Password',
-                    contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
-                  ),
+                AuthTextField(
+                  label: 'Password',
+                  prefixIcon: Icons.lock_outlined,
                   obscureText: true,
-                  textAlignVertical: TextAlignVertical.center,
                 ),
               ],
             ),
