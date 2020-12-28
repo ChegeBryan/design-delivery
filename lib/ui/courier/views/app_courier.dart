@@ -35,6 +35,8 @@ class _AppCourierState extends State<AppCourier> {
             label: 'Profile',
           ),
         ],
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         currentIndex: _currentTab,
       ),
     );
