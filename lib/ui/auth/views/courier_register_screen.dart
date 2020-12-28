@@ -1,4 +1,5 @@
 import 'package:design_delivery/ui/auth/widgets/cover_image.dart';
+import 'package:design_delivery/ui/auth/widgets/register_courier_form.dart';
 import 'package:flutter/material.dart';
 
 class CourierRegisterScreen extends StatefulWidget {
@@ -17,7 +18,10 @@ class _CourierRegisterScreenState extends State<CourierRegisterScreen> {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [CoverImage()],
+              children: [
+                CoverImage(),
+                RegisterCourierForm(),
+              ],
             ),
           ),
         ),
