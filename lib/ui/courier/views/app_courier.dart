@@ -6,8 +6,22 @@ class AppCourier extends StatefulWidget {
 }
 
 class _AppCourierState extends State<AppCourier> {
+  int _currentTab = 0;
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.markunread_mailbox_outlined),
+            activeIcon: Icon(Icons.markunread_mailbox),
+            label: 'New Deliveries',
+          ),
+        ],
+        currentIndex: _currentTab,
+      ),
+    );
   }
 }
