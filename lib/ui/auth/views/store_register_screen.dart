@@ -12,7 +12,6 @@ class _StoreRegisterScreenState extends State<StoreRegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
