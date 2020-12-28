@@ -27,15 +27,15 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
                   ),
                   Divider(),
                   AuthTextField(
-                    label: 'Email',
-                    prefixIcon: Icons.email_outlined,
-                    keyboard: TextInputType.emailAddress,
-                  ),
-                  Divider(),
-                  AuthTextField(
                     label: 'Store Address',
                     prefixIcon: Icons.local_convenience_store_outlined,
                     keyboard: TextInputType.streetAddress,
+                  ),
+                  Divider(),
+                  AuthTextField(
+                    label: 'Email',
+                    prefixIcon: Icons.email_outlined,
+                    keyboard: TextInputType.emailAddress,
                   ),
                   Divider(),
                   AuthTextField(
