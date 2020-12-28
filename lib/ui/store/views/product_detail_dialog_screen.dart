@@ -18,6 +18,14 @@ class _ProductDetailDialogScreenState extends State<ProductDetailDialogScreen> {
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.delete))],
       ),
       body: ViewProductDetail(),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF25408F),
+        onPressed: () {},
+        child: Icon(
+          Icons.edit,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
