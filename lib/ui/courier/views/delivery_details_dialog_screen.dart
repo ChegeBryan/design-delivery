@@ -119,6 +119,14 @@ class DeliveryDetailsScreen extends StatelessWidget {
                 ),
               ),
               Divider(),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  TextButton(onPressed: () {}, child: Text('Decline')),
+                  ElevatedButton(onPressed: () {}, child: Text('Accept')),
+                ],
+              )
             ],
           ),
         ),
