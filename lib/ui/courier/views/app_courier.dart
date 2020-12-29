@@ -33,43 +33,60 @@ class _AppCourierState extends State<AppCourier> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          _buildOffstageNavigator('new_deliveries'),
-          _buildOffstageNavigator('in_progress'),
-          _buildOffstageNavigator('delivered'),
-          _buildOffstageNavigator('profile'),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.markunread_mailbox_outlined),
-            activeIcon: Icon(Icons.markunread_mailbox),
-            label: 'New Deliveries',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.two_wheeler_outlined),
-            activeIcon: Icon(Icons.two_wheeler),
-            label: 'In progress',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.done_all_outlined),
-            activeIcon: Icon(Icons.done_all),
-            label: 'Delivered',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outlined),
-            activeIcon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        currentIndex: _currentTab,
-        onTap: _onItemTapped,
+    return WillPopScope(
+      onWillPop: () async {
+        final isFirstRouteInCurrentTab =
+            !await _navigatorKeys[_currentPage].currentState.maybePop();
+        if (isFirstRouteInCurrentTab) {
+          // if not on the home page
+          if (_currentPage != 'new_deliveries') {
+            // switch to home page
+            _onItemTapped(0);
+            // back button handled by app
+            return false;
+          }
+        }
+        // let system handle back button if we're on the first route
+        return isFirstRouteInCurrentTab;
+      },
+      child: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            _buildOffstageNavigator('new_deliveries'),
+            _buildOffstageNavigator('in_progress'),
+            _buildOffstageNavigator('delivered'),
+            _buildOffstageNavigator('profile'),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.markunread_mailbox_outlined),
+              activeIcon: Icon(Icons.markunread_mailbox),
+              label: 'New Deliveries',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.two_wheeler_outlined),
+              activeIcon: Icon(Icons.two_wheeler),
+              label: 'In progress',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.done_all_outlined),
+              activeIcon: Icon(Icons.done_all),
+              label: 'Delivered',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outlined),
+              activeIcon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          currentIndex: _currentTab,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }
