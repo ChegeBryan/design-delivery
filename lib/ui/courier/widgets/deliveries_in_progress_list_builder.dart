@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/courier/views/in_progress_delivery_dialog_screen.dart';
 import 'package:design_delivery/ui/courier/widgets/detail_attribute.dart';
 import 'package:flutter/material.dart';
 
@@ -5,6 +6,16 @@ class DeliveriesInProgressListBuilder extends StatelessWidget {
   const DeliveriesInProgressListBuilder({
     Key key,
   }) : super(key: key);
+
+  void _launchInProgressDeliveryDialog(context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => InProgressDeliveryDialogScreen(),
+        fullscreenDialog: true,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +25,9 @@ class DeliveriesInProgressListBuilder extends StatelessWidget {
         height: 150.0,
         width: MediaQuery.of(context).size.width,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            _launchInProgressDeliveryDialog(context);
+          },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
