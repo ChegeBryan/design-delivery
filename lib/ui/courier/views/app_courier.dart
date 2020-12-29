@@ -34,6 +34,14 @@ class _AppCourierState extends State<AppCourier> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          _buildOffstageNavigator('new_deliveries'),
+          _buildOffstageNavigator('in_progress'),
+          _buildOffstageNavigator('delivered'),
+          _buildOffstageNavigator('profile'),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
@@ -62,6 +70,16 @@ class _AppCourierState extends State<AppCourier> {
         showUnselectedLabels: false,
         currentIndex: _currentTab,
         onTap: _onItemTapped,
+      ),
+    );
+  }
+
+  Widget _buildOffstageNavigator(String tabItem) {
+    return Offstage(
+      offstage: _currentPage != tabItem,
+      child: CourierTabNavigator(
+        navigatorKey: _navigatorKeys[tabItem],
+        tabItem: tabItem,
       ),
     );
   }
