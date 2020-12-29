@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/courier/views/delivery_details_dialog_screen.dart';
 import 'package:design_delivery/ui/courier/widgets/detail_attribute.dart';
 import 'package:flutter/material.dart';
 
@@ -5,6 +6,16 @@ class NewDeliveriesListBuilder extends StatelessWidget {
   const NewDeliveriesListBuilder({
     Key key,
   }) : super(key: key);
+
+  void _launchDeliveryDetailsDialog(context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => DeliveryDetailsScreen(),
+        fullscreenDialog: true,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +25,9 @@ class NewDeliveriesListBuilder extends StatelessWidget {
         height: 100.0,
         width: MediaQuery.of(context).size.width,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            _launchDeliveryDetailsDialog(context);
+          },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
