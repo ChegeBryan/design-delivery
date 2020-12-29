@@ -68,6 +68,19 @@ class CourierProfileScreen extends StatelessWidget {
                 Divider(
                   indent: 52.0,
                 ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 50.0,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Delete Account',
+                      style: TextStyle(
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
