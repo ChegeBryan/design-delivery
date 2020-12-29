@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/courier/widgets/detail_attribute.dart';
 import 'package:flutter/material.dart';
 
 class NewDeliveriesListBuilder extends StatelessWidget {
@@ -17,30 +18,9 @@ class NewDeliveriesListBuilder extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Text(
-                      'Vendor Name',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: Text(
-                      'Name goes here shbhbs hsbhbshs hbshbshs hsh hbs',
-                      style: TextStyle(),
-                      textAlign: TextAlign.end,
-                      softWrap: true,
-                    ),
-                  ),
-                ],
+              DetailAttribute(
+                detailFor: 'Vendor Name',
+                detailText: 'Address goes here',
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
