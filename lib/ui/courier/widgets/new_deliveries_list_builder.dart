@@ -15,6 +15,7 @@ class NewDeliveriesListBuilder extends StatelessWidget {
         child: InkWell(
           onTap: () {},
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
