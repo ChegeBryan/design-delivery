@@ -26,6 +26,19 @@ class NewDeliveriesListBuilder extends StatelessWidget {
                 Text('Name goes here'),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Vendor Address',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text('Address goes here'),
+              ],
+            ),
           ],
         ),
       ),
