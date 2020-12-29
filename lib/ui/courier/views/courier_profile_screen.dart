@@ -32,6 +32,15 @@ class CourierProfileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                ListTile(
+                  leading: Icon(Icons.markunread_mailbox_outlined),
+                  title: Text('New Delivery Requests'),
+                  trailing: Icon(Icons.keyboard_arrow_right),
+                  onTap: () {},
+                ),
+                Divider(
+                  indent: 52.0,
+                ),
               ],
             ),
           ),
