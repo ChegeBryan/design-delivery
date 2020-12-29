@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/courier/widgets/courier_tab_navigator.dart';
 import 'package:flutter/material.dart';
 
 class AppCourier extends StatefulWidget {
@@ -22,6 +23,13 @@ class _AppCourierState extends State<AppCourier> {
     'delivered': GlobalKey<NavigatorState>(),
     'profile': GlobalKey<NavigatorState>(),
   };
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentPage = pageKeys[index];
+      _currentTab = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +61,7 @@ class _AppCourierState extends State<AppCourier> {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         currentIndex: _currentTab,
+        onTap: _onItemTapped,
       ),
     );
   }
