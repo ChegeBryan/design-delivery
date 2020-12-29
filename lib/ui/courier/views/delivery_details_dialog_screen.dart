@@ -93,6 +93,32 @@ class DeliveryDetailsScreen extends StatelessWidget {
                 ),
               ),
               Divider(),
+              SizedBox(
+                height: 100.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      'Product',
+                      style: TextStyle(
+                        color: Color(0xFF25408F),
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    DetailAttribute(
+                      detailFor: 'Product Name',
+                      detailText: 'Name goes here',
+                    ),
+                    DetailAttribute(
+                      detailFor: 'Quantity',
+                      detailText: 'Value',
+                    ),
+                  ],
+                ),
+              ),
+              Divider(),
             ],
           ),
         ),
