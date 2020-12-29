@@ -50,6 +50,15 @@ class CourierProfileScreen extends StatelessWidget {
                 Divider(
                   indent: 52.0,
                 ),
+                ListTile(
+                  leading: Icon(Icons.done_all_outlined),
+                  title: Text('Completed Deliveries'),
+                  trailing: Icon(Icons.keyboard_arrow_right),
+                  onTap: () {},
+                ),
+                Divider(
+                  indent: 52.0,
+                ),
               ],
             ),
           ),
