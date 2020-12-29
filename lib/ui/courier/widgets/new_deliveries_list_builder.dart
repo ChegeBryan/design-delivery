@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+
+class NewDeliveriesListBuilder extends StatelessWidget {
+  const NewDeliveriesListBuilder({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      itemCount: 20,
+      itemBuilder: (BuildContext context, int) => InkWell(
+        onTap: () {},
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Vendor Name',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text('Name goes here'),
+              ],
+            ),
+          ],
+        ),
+      ),
+      separatorBuilder: (context, index) => Divider(),
+      padding: const EdgeInsets.all(16.0),
+    );
+  }
+}

@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/courier/widgets/new_deliveries_list_builder.dart';
 import 'package:flutter/material.dart';
 
 class NewDeliveriesScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class _NewDeliveriesScreenState extends State<NewDeliveriesScreen> {
         title: Text('New Deliveries'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: NewDeliveriesListBuilder(),
     );
   }
 }
