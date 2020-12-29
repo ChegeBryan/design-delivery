@@ -8,6 +8,35 @@ class CourierProfileScreen extends StatelessWidget {
         title: Text('Profile'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: ListView(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Courier Name',
+                        style: TextStyle(
+                          color: Color(0xFF25408F),
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('courier@email.ddress'),
+                      Text('+2467383783'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
