@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/courier/widgets/deliveries_in_progress_list_builder.dart';
 import 'package:flutter/material.dart';
 
 class InProgressDeliveriesScreen extends StatelessWidget {
@@ -8,6 +9,7 @@ class InProgressDeliveriesScreen extends StatelessWidget {
         title: Text('Deliveries In Progress'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: DeliveriesInProgressListBuilder(),
     );
   }
 }
