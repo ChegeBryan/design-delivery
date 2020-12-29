@@ -14,9 +14,7 @@ class _CartScreenState extends State<CartScreen> {
   void _showOrderSummary() {
     setState(() {
       // toggle order summary visbility
-      _orderSummaryVisibility
-          ? _orderSummaryVisibility = false
-          : _orderSummaryVisibility = true;
+      _orderSummaryVisibility = !_orderSummaryVisibility;
       // change container height
       _orderSummaryVisibility
           ? _containerHeight = 160.0
