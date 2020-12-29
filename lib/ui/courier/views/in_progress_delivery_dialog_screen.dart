@@ -142,6 +142,29 @@ class InProgressDeliveryDialogScreen extends StatelessWidget {
               ),
               Divider(),
               SizedBox(height: 20),
+              ElevatedButton.icon(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.check_box_outlined,
+                  size: 18,
+                  color: Colors.white,
+                ),
+                label: Text(
+                  'Complete Delivery',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(StadiumBorder()),
+                  padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(vertical: 16.0)),
+                  minimumSize: MaterialStateProperty.all(
+                      Size(MediaQuery.of(context).size.width, 8.0)),
+                ),
+              )
             ],
           ),
         ),
