@@ -8,6 +8,11 @@ class NewDeliveriesScreen extends StatefulWidget {
 class _NewDeliveriesScreenState extends State<NewDeliveriesScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('New Deliveries'),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      ),
+    );
   }
 }
