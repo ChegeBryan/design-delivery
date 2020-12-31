@@ -9,6 +9,7 @@ class RegisterForm extends StatefulWidget {
 
 class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _username = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   AuthTextField(
                     label: 'Username',
                     prefixIcon: Icons.person_outline,
+                    controller: _username,
                   ),
                   Divider(),
                   AuthTextField(
