@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CoverImage(),
                 LoginForm(),
                 FormBottomText(
-                  message: "Don't have an account? Swipe right to",
+                  message: "Don't have an account? Swipe right",
                   actionMessage: 'Create a new account',
                   swipeTo: RegisterScreen(),
                 ),

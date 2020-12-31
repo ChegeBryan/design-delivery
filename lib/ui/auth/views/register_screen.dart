@@ -24,7 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CoverImage(),
                 RegisterForm(),
                 FormBottomText(
-                  message: 'Are you a vendor? Swipe right to',
+                  message: 'Are you a vendor? Swipe right',
                   actionMessage: 'Create a vendor account',
                   swipeTo: StoreRegisterScreen(),
                 ),

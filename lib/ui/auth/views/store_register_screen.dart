@@ -23,7 +23,7 @@ class _StoreRegisterScreenState extends State<StoreRegisterScreen> {
                 CoverImage(),
                 RegisterStoreForm(),
                 FormBottomText(
-                  message: 'Want to make deliveries? Swipe right to',
+                  message: 'Want to make deliveries? Swipe right',
                   actionMessage: 'Register as a courier',
                   swipeTo: null,
                 ),
