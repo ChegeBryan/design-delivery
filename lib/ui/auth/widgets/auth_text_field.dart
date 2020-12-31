@@ -7,8 +7,10 @@ class AuthTextField extends StatefulWidget {
     @required this.prefixIcon,
     this.keyboard = TextInputType.text,
     this.obscureText = false,
+    this.controller,
   }) : super(key: key);
 
+  final TextEditingController controller;
   final String label;
   final IconData prefixIcon;
   final TextInputType keyboard;
@@ -22,6 +24,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       cursorColor: Colors.amber,
       keyboardType: widget.keyboard,
       autocorrect: false,
