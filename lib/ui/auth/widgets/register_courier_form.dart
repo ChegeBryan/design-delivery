@@ -24,6 +24,7 @@ class _RegisterCourierFormState extends State<RegisterCourierForm> {
                   label: 'Courier Name',
                   prefixIcon: Icons.person_outlined,
                 ),
+                Divider(),
                 AuthTextField(
                   label: 'Delivers with',
                   prefixIcon: Icons.two_wheeler_outlined,
@@ -41,6 +42,7 @@ class _RegisterCourierFormState extends State<RegisterCourierForm> {
                   prefixIcon: Icons.phone_outlined,
                   keyboard: TextInputType.emailAddress,
                 ),
+                Divider(),
                 AuthTextField(
                   label: 'Password',
                   prefixIcon: Icons.lock_outlined,
