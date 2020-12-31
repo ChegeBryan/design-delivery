@@ -12,6 +12,7 @@ class _RegisterFormState extends State<RegisterForm> {
   final TextEditingController _username = TextEditingController();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     label: 'Confirm Password',
                     prefixIcon: Icons.lock_outlined,
                     obscureText: true,
+                    controller: _confirmPassword,
                   ),
                   // TODO: Add Radio button
                 ],
