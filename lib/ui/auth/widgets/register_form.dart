@@ -1,4 +1,3 @@
-import 'package:design_delivery/ui/auth/widgets/auth_text_field.dart';
 import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:flutter/material.dart';
 
@@ -25,36 +24,68 @@ class _RegisterFormState extends State<RegisterForm> {
             Card(
               child: Column(
                 children: [
-                  AuthTextField(
-                    label: 'Username',
-                    prefixIcon: Icons.person_outline,
+                  TextFormField(
                     controller: _username,
+                    cursorColor: Colors.amber,
+                    keyboardType: TextInputType.text,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Username',
+                      prefixIcon: Icon(Icons.person_outline),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                    ),
+                    textAlignVertical: TextAlignVertical.center,
                   ),
                   Divider(),
-                  AuthTextField(
-                    label: 'Email',
-                    prefixIcon: Icons.email_outlined,
-                    keyboard: TextInputType.emailAddress,
+                  TextFormField(
                     controller: _email,
+                    cursorColor: Colors.amber,
+                    keyboardType: TextInputType.emailAddress,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      prefixIcon: Icon(Icons.email_outlined),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                    ),
+                    textAlignVertical: TextAlignVertical.center,
                   ),
                   Divider(),
-                  AuthTextField(
-                    label: 'Password',
-                    prefixIcon: Icons.lock_outlined,
-                    obscureText: true,
+                  TextFormField(
                     controller: _password,
+                    cursorColor: Colors.amber,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      prefixIcon: Icon(Icons.lock_outlined),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                    ),
+                    obscureText: true,
+                    textAlignVertical: TextAlignVertical.center,
                   ),
                   Divider(),
-                  AuthTextField(
-                    label: 'Confirm Password',
-                    prefixIcon: Icons.lock_outlined,
-                    obscureText: true,
+                  TextFormField(
                     controller: _confirmPassword,
+                    cursorColor: Colors.amber,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      prefixIcon: Icon(Icons.lock_outlined),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                    ),
+                    obscureText: true,
+                    textAlignVertical: TextAlignVertical.center,
                   ),
                 ],
               ),
             ),
-            SubmitAuthFormButton(buttonLabel: 'Sign Up'),
+            SubmitAuthFormButton(
+              buttonLabel: 'Sign Up',
+              action: () {},
+            ),
           ],
         ),
       ),
