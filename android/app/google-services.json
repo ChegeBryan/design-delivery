@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "957891083768",
+    "firebase_url": "https://design-delivery-a053f-default-rtdb.firebaseio.com",
+    "project_id": "design-delivery-a053f",
+    "storage_bucket": "design-delivery-a053f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957891083768:android:cb5d33ebeb29ebe765ea0d",
+        "android_client_info": {
+          "package_name": "com.example.design_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957891083768-bssv4vvgme1kdphmus88f9kusg4mob3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuHjZ97--UQ80khuSx-2vubr1M1Js-W6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957891083768-bssv4vvgme1kdphmus88f9kusg4mob3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
