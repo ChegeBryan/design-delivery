@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  firebase_core: ^0.5.3
 
   transparent_image: ^1.0.0
   carousel_slider: ^2.3.1
