@@ -51,7 +51,6 @@ class _RegisterFormState extends State<RegisterForm> {
                     obscureText: true,
                     controller: _confirmPassword,
                   ),
-                  // TODO: Add Radio button
                 ],
               ),
             ),
