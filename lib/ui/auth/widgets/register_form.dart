@@ -11,6 +11,7 @@ class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _username = TextEditingController();
   final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     label: 'Password',
                     prefixIcon: Icons.lock_outlined,
                     obscureText: true,
+                    controller: _password,
                   ),
                   Divider(),
                   AuthTextField(
