@@ -1,3 +1,4 @@
+import 'package:design_delivery/helpers/email_validator.dart';
 import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/ui/auth/widgets/auth_text_field.dart';
 import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
@@ -43,12 +44,8 @@ class _LoginFormState extends State<LoginForm> {
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Please enter email';
-                    } else {
-                      Pattern pattern =
-                          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-                      RegExp regex = new RegExp(pattern);
-                      if (!regex.hasMatch(value))
-                        return 'Provide a valid email';
+                    } else if (!isEmail(value)) {
+                      return 'Provide a valid email';
                     }
                     return null;
                   },
