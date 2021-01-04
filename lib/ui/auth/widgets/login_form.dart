@@ -1,3 +1,4 @@
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/ui/auth/widgets/auth_text_field.dart';
 import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:design_delivery/ui/courier/views/app_courier.dart';
@@ -5,6 +6,7 @@ import 'package:design_delivery/ui/store/views/app_store.dart';
 import 'package:design_delivery/ui/views/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -59,13 +61,17 @@ class _LoginFormState extends State<LoginForm> {
           SubmitAuthFormButton(
             buttonLabel: 'Sign In',
             action: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AppCourier(),
-                ),
-                (Route<dynamic> route) => false,
-              );
+              if (_formKey.currentState.validate()) {
+                Provider.of<Authentication>(context, listen: false)
+                    .loginUserAccount(_email.text, _password.text);
+              }
+              // Navigator.pushAndRemoveUntil(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => AppCourier(),
+              //   ),
+              //   (Route<dynamic> route) => false,
+              // );
             },
           ),
         ],
