@@ -98,6 +98,14 @@ class _LoginFormState extends State<LoginForm> {
                           ),
                           (Route<dynamic> route) => false,
                         );
+                      } else if (data['role'] == 'store') {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AppStore(),
+                          ),
+                          (Route<dynamic> route) => false,
+                        );
                       }
                     } else {
                       print('Document does not exist on the database');
