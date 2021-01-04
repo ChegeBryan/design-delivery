@@ -36,10 +36,17 @@ class _LoginFormState extends State<LoginForm> {
                   textAlignVertical: TextAlignVertical.center,
                 ),
                 Divider(),
-                AuthTextField(
-                  label: 'Password',
-                  prefixIcon: Icons.lock_outlined,
+                TextFormField(
+                  cursorColor: Colors.amber,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    prefixIcon: Icon(Icons.lock_outlined),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                  ),
                   obscureText: true,
+                  textAlignVertical: TextAlignVertical.center,
                 ),
               ],
             ),
