@@ -14,6 +14,8 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
 
+  final TextEditingController _email = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -24,6 +26,7 @@ class _LoginFormState extends State<LoginForm> {
             child: Column(
               children: [
                 TextFormField(
+                  controller: _email,
                   cursorColor: Colors.amber,
                   keyboardType: TextInputType.emailAddress,
                   autocorrect: false,
