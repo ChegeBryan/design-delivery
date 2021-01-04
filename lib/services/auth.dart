@@ -20,4 +20,15 @@ class Authentication with ChangeNotifier {
 
     notifyListeners();
   }
+
+  Future loginUserAccount(
+    String email,
+    String password,
+  ) async {
+    UserCredential userCredential = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
+    User user = userCredential.user;
+    uid = user.uid;
+    notifyListeners();
+  }
 }
