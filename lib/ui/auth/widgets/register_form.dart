@@ -1,5 +1,7 @@
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterForm extends StatefulWidget {
   @override
@@ -84,7 +86,13 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
             SubmitAuthFormButton(
               buttonLabel: 'Sign Up',
-              action: () {},
+              action: () {
+                if (_formKey.currentState.validate()) {
+                  Provider.of<Authentication>(context, listen: false)
+                      .registerUserAccount(
+                          _username.text, _email.text, _password.text);
+                }
+              },
             ),
           ],
         ),
