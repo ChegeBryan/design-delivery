@@ -1,3 +1,4 @@
+import 'package:design_delivery/helpers/email_validator.dart';
 import 'package:design_delivery/ui/auth/widgets/auth_text_field.dart';
 import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:flutter/material.dart';
@@ -59,10 +60,25 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
                     },
                   ),
                   Divider(),
-                  AuthTextField(
-                    label: 'Email',
-                    prefixIcon: Icons.email_outlined,
-                    keyboard: TextInputType.emailAddress,
+                  TextFormField(
+                    cursorColor: Colors.amber,
+                    keyboardType: TextInputType.emailAddress,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      prefixIcon: Icon(Icons.email_outlined),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
+                    ),
+                    textAlignVertical: TextAlignVertical.center,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter email';
+                      } else if (!isEmail(value)) {
+                        return 'Provide a valid email';
+                      }
+                      return null;
+                    },
                   ),
                   Divider(),
                   AuthTextField(
