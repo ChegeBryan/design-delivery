@@ -14,26 +14,23 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => Authentication(),
-      child: Scaffold(
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CoverImage(),
-                  LoginForm(),
-                  FormBottomText(
-                    message: "Don't have an account? Swipe right",
-                    actionMessage: 'Create a new account',
-                    swipeTo: RegisterScreen(),
-                  ),
-                ],
-              ),
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CoverImage(),
+                LoginForm(),
+                FormBottomText(
+                  message: "Don't have an account? Swipe right",
+                  actionMessage: 'Create a new account',
+                  swipeTo: RegisterScreen(),
+                ),
+              ],
             ),
           ),
         ),

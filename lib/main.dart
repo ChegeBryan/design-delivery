@@ -1,7 +1,9 @@
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/ui/auth/views/auth_page_views.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 import 'ui/auth/views/login_screen.dart';
 import 'ui/views/app.dart';
@@ -15,28 +17,31 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Design Delivery Home',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-        textTheme: TextTheme(
-          bodyText2: TextStyle(
-            color: Color(0xFF727C8E),
+    return ChangeNotifierProvider(
+      create: (context) => Authentication(),
+      child: MaterialApp(
+        title: 'Design Delivery Home',
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+          textTheme: TextTheme(
+            bodyText2: TextStyle(
+              color: Color(0xFF727C8E),
+            ),
           ),
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            selectedIconTheme: IconThemeData(
+              color: Color(0xFF25408F),
+            ),
+            unselectedIconTheme: IconThemeData(
+              color: Color(0xFF727C8E),
+            ),
+          ),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          // set Lato as default font
+          fontFamily: 'Lato',
         ),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedIconTheme: IconThemeData(
-            color: Color(0xFF25408F),
-          ),
-          unselectedIconTheme: IconThemeData(
-            color: Color(0xFF727C8E),
-          ),
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        // set Lato as default font
-        fontFamily: 'Lato',
+        home: AuthPageView(),
       ),
-      home: AuthPageView(),
     );
   }
 }
