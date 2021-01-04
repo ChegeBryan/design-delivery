@@ -15,6 +15,7 @@ class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 Divider(),
                 TextFormField(
+                  controller: _password,
                   cursorColor: Colors.amber,
                   autocorrect: false,
                   decoration: InputDecoration(
