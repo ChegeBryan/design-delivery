@@ -81,16 +81,36 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
                     },
                   ),
                   Divider(),
-                  AuthTextField(
-                    label: 'Password',
-                    prefixIcon: Icons.lock_outlined,
+                  TextFormField(
+                    cursorColor: Colors.amber,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      prefixIcon: Icon(Icons.lock_outlined),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
+                    ),
                     obscureText: true,
+                    textAlignVertical: TextAlignVertical.center,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please provide a password';
+                      }
+                      return null;
+                    },
                   ),
                   Divider(),
-                  AuthTextField(
-                    label: 'Confirm Password',
-                    prefixIcon: Icons.lock_outlined,
+                  TextFormField(
+                    cursorColor: Colors.amber,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      prefixIcon: Icon(Icons.lock_outlined),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
+                    ),
                     obscureText: true,
+                    textAlignVertical: TextAlignVertical.center,
                   ),
                 ],
               ),
