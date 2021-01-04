@@ -20,109 +20,106 @@ class _RegisterFormState extends State<RegisterForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 48.0),
-        child: Column(
-          children: [
-            Card(
-              child: Column(
-                children: [
-                  TextFormField(
-                    controller: _username,
-                    cursorColor: Colors.amber,
-                    keyboardType: TextInputType.text,
-                    autocorrect: false,
-                    decoration: InputDecoration(
-                      labelText: 'Username',
-                      prefixIcon: Icon(Icons.person_outline),
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
-                    ),
-                    textAlignVertical: TextAlignVertical.center,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter username';
-                      }
-                      return null;
-                    },
+      child: Column(
+        children: [
+          Card(
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: _username,
+                  cursorColor: Colors.amber,
+                  keyboardType: TextInputType.text,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                    prefixIcon: Icon(Icons.person_outline),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
                   ),
-                  Divider(),
-                  TextFormField(
-                    controller: _email,
-                    cursorColor: Colors.amber,
-                    keyboardType: TextInputType.emailAddress,
-                    autocorrect: false,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      prefixIcon: Icon(Icons.email_outlined),
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
-                    ),
-                    textAlignVertical: TextAlignVertical.center,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter email';
-                      } else if (!isEmail(value)) {
-                        return 'Provide a valid email';
-                      }
-                      return null;
-                    },
+                  textAlignVertical: TextAlignVertical.center,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter username';
+                    }
+                    return null;
+                  },
+                ),
+                Divider(),
+                TextFormField(
+                  controller: _email,
+                  cursorColor: Colors.amber,
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.email_outlined),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
                   ),
-                  Divider(),
-                  TextFormField(
-                    controller: _password,
-                    cursorColor: Colors.amber,
-                    autocorrect: false,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      prefixIcon: Icon(Icons.lock_outlined),
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
-                    ),
-                    obscureText: true,
-                    textAlignVertical: TextAlignVertical.center,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please provide a password';
-                      }
-                      return null;
-                    },
+                  textAlignVertical: TextAlignVertical.center,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter email';
+                    } else if (!isEmail(value)) {
+                      return 'Provide a valid email';
+                    }
+                    return null;
+                  },
+                ),
+                Divider(),
+                TextFormField(
+                  controller: _password,
+                  cursorColor: Colors.amber,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    prefixIcon: Icon(Icons.lock_outlined),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
                   ),
-                  Divider(),
-                  TextFormField(
-                    controller: _confirmPassword,
-                    cursorColor: Colors.amber,
-                    autocorrect: false,
-                    decoration: InputDecoration(
-                      labelText: 'Confirm Password',
-                      prefixIcon: Icon(Icons.lock_outlined),
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
-                    ),
-                    obscureText: true,
-                    textAlignVertical: TextAlignVertical.center,
-                    validator: (value) {
-                      if (value != _password.text) {
-                        return 'Password does not match';
-                      }
-                      return null;
-                    },
+                  obscureText: true,
+                  textAlignVertical: TextAlignVertical.center,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please provide a password';
+                    }
+                    return null;
+                  },
+                ),
+                Divider(),
+                TextFormField(
+                  controller: _confirmPassword,
+                  cursorColor: Colors.amber,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    labelText: 'Confirm Password',
+                    prefixIcon: Icon(Icons.lock_outlined),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
                   ),
-                ],
-              ),
+                  obscureText: true,
+                  textAlignVertical: TextAlignVertical.center,
+                  validator: (value) {
+                    if (value != _password.text) {
+                      return 'Password does not match';
+                    }
+                    return null;
+                  },
+                ),
+              ],
             ),
-            SubmitAuthFormButton(
-              buttonLabel: 'Sign Up',
-              action: () {
-                if (_formKey.currentState.validate()) {
-                  Provider.of<Authentication>(context, listen: false)
-                      .registerUserAccount(
-                          _username.text, _email.text, _password.text);
-                }
-              },
-            ),
-          ],
-        ),
+          ),
+          SubmitAuthFormButton(
+            buttonLabel: 'Sign Up',
+            action: () {
+              if (_formKey.currentState.validate()) {
+                Provider.of<Authentication>(context, listen: false)
+                    .registerUserAccount(
+                        _username.text, _email.text, _password.text);
+              }
+            },
+          ),
+        ],
       ),
     );
   }
