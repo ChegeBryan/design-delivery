@@ -43,6 +43,12 @@ class _LoginFormState extends State<LoginForm> {
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Please enter email';
+                    } else {
+                      Pattern pattern =
+                          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                      RegExp regex = new RegExp(pattern);
+                      if (!regex.hasMatch(value))
+                        return 'Provide a valid email';
                     }
                     return null;
                   },
