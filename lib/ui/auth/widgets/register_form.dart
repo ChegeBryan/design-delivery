@@ -38,6 +38,12 @@ class _RegisterFormState extends State<RegisterForm> {
                       contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
                     ),
                     textAlignVertical: TextAlignVertical.center,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter username';
+                      }
+                      return null;
+                    },
                   ),
                   Divider(),
                   TextFormField(
