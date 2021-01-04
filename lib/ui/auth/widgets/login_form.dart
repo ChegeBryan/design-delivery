@@ -23,10 +23,17 @@ class _LoginFormState extends State<LoginForm> {
           Card(
             child: Column(
               children: [
-                AuthTextField(
-                  label: 'Email',
-                  prefixIcon: Icons.email_outlined,
-                  keyboard: TextInputType.emailAddress,
+                TextFormField(
+                  cursorColor: Colors.amber,
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.email_outlined),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                  ),
+                  textAlignVertical: TextAlignVertical.center,
                 ),
                 Divider(),
                 AuthTextField(
