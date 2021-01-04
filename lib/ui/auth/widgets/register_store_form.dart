@@ -11,6 +11,8 @@ class RegisterStoreForm extends StatefulWidget {
 class _RegisterStoreFormState extends State<RegisterStoreForm> {
   final _formKey = GlobalKey<FormState>();
 
+  final TextEditingController _storeName = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -23,6 +25,7 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
               child: Column(
                 children: [
                   TextFormField(
+                    controller: _storeName,
                     cursorColor: Colors.amber,
                     keyboardType: TextInputType.text,
                     autocorrect: false,
