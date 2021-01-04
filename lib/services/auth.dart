@@ -30,6 +30,29 @@ class Authentication with ChangeNotifier {
     notifyListeners();
   }
 
+  Future registerStore(
+    String storeName,
+    String storeAddress,
+    String email,
+    String password,
+  ) async {
+    UserCredential storeCredential = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email, password: password);
+
+    User store = storeCredential.user;
+    uid = store.uid;
+
+    CollectionReference stores = db.collection('stores');
+    await stores.doc(uid).set({
+      'storeName': storeName,
+      'storeAddress': storeAddress,
+      'email': email,
+      'role': 'store',
+    });
+
+    notifyListeners();
+  }
+
   Future loginUserAccount(
     String email,
     String password,

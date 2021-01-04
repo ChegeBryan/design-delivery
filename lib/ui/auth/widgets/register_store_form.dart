@@ -1,7 +1,9 @@
 import 'package:design_delivery/helpers/email_validator.dart';
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/ui/auth/widgets/auth_text_field.dart';
 import 'package:design_delivery/ui/auth/widgets/submit_auth_form_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterStoreForm extends StatefulWidget {
   @override
@@ -132,7 +134,13 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
             ),
             SubmitAuthFormButton(
               buttonLabel: 'Sign Up',
-              action: () {},
+              action: () {
+                if (_formKey.currentState.validate()) {
+                  Provider.of<Authentication>(context, listen: false)
+                      .registerStore(_storeName.text, _storeAddress.text,
+                          _storeEmail.text, _password.text);
+                }
+              },
             ),
           ],
         ),
