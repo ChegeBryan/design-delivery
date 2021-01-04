@@ -1,4 +1,6 @@
+import 'package:design_delivery/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class UserProfileScreen extends StatefulWidget {
   @override
@@ -67,7 +69,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   leading: Icon(Icons.logout),
                   title: Text('Logout'),
                   trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: () {},
+                  onTap: () {
+                    Provider.of<Authentication>(context, listen: false)
+                        .signOut();
+                  },
                 ),
                 Divider(
                   indent: 52.0,
