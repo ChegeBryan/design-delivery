@@ -8,6 +8,7 @@ import 'package:design_delivery/ui/views/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -79,15 +80,31 @@ class _LoginFormState extends State<LoginForm> {
             action: () {
               if (_formKey.currentState.validate()) {
                 Provider.of<Authentication>(context, listen: false)
-                    .loginUserAccount(_email.text, _password.text);
+                    .loginUserAccount(_email.text, _password.text)
+                    .then((value) {
+                  FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(Provider.of<Authentication>(context, listen: false)
+                          .getUid)
+                      .get()
+                      .then((DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.exists) {
+                      Map<String, dynamic> data = documentSnapshot.data();
+                      if (data['role'] == 'user') {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => App(),
+                          ),
+                          (Route<dynamic> route) => false,
+                        );
+                      }
+                    } else {
+                      print('Document does not exist on the database');
+                    }
+                  });
+                });
               }
-              // Navigator.pushAndRemoveUntil(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => AppCourier(),
-              //   ),
-              //   (Route<dynamic> route) => false,
-              // );
             },
           ),
         ],
