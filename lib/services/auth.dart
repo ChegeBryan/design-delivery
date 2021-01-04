@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Authentication with ChangeNotifier {
   String uid;
   String get getUid => uid;
 
   final FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore db = FirebaseFirestore.instance;
 
   Future registerUserAccount(
     String username,
@@ -15,6 +17,7 @@ class Authentication with ChangeNotifier {
     UserCredential userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     await userCredential.user.updateProfile(displayName: username);
+
     User user = userCredential.user;
     uid = user.uid;
 
