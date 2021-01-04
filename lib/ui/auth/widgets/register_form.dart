@@ -72,6 +72,12 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                     obscureText: true,
                     textAlignVertical: TextAlignVertical.center,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please provide a password';
+                      }
+                      return null;
+                    },
                   ),
                   Divider(),
                   TextFormField(
