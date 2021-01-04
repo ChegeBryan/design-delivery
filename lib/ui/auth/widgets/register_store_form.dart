@@ -21,9 +21,23 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
             Card(
               child: Column(
                 children: [
-                  AuthTextField(
-                    label: 'Store name',
-                    prefixIcon: Icons.store_outlined,
+                  TextFormField(
+                    cursorColor: Colors.amber,
+                    keyboardType: TextInputType.text,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Store name',
+                      prefixIcon: Icon(Icons.store_outlined),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
+                    ),
+                    textAlignVertical: TextAlignVertical.center,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter store name';
+                      }
+                      return null;
+                    },
                   ),
                   Divider(),
                   AuthTextField(
