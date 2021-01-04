@@ -42,8 +42,8 @@ class Authentication with ChangeNotifier {
     User store = storeCredential.user;
     uid = store.uid;
 
-    CollectionReference stores = db.collection('stores');
-    await stores.doc(uid).set({
+    CollectionReference users = db.collection('users');
+    await users.doc(uid).set({
       'storeName': storeName,
       'storeAddress': storeAddress,
       'email': email,
