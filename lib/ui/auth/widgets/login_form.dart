@@ -38,7 +38,8 @@ class _LoginFormState extends State<LoginForm> {
                     labelText: 'Email',
                     prefixIcon: Icon(Icons.email_outlined),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                    contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
+                    //errorStyle: TextStyle(),
                   ),
                   textAlignVertical: TextAlignVertical.center,
                   validator: (value) {
@@ -59,7 +60,7 @@ class _LoginFormState extends State<LoginForm> {
                     labelText: 'Password',
                     prefixIcon: Icon(Icons.lock_outlined),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                    contentPadding: EdgeInsets.fromLTRB(48, 8, 8, 8),
                   ),
                   obscureText: true,
                   textAlignVertical: TextAlignVertical.center,
