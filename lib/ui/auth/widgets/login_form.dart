@@ -40,6 +40,12 @@ class _LoginFormState extends State<LoginForm> {
                     contentPadding: EdgeInsets.fromLTRB(0, 8, 8, 8),
                   ),
                   textAlignVertical: TextAlignVertical.center,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter email';
+                    }
+                    return null;
+                  },
                 ),
                 Divider(),
                 TextFormField(
