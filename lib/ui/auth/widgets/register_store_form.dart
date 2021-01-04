@@ -120,6 +120,12 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
                     ),
                     obscureText: true,
                     textAlignVertical: TextAlignVertical.center,
+                    validator: (value) {
+                      if (value != _password.text) {
+                        return 'Password does not match';
+                      }
+                      return null;
+                    },
                   ),
                 ],
               ),
