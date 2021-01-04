@@ -12,6 +12,7 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _storeName = TextEditingController();
+  final TextEditingController _storeAddress = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +46,7 @@ class _RegisterStoreFormState extends State<RegisterStoreForm> {
                   ),
                   Divider(),
                   TextFormField(
+                    controller: _storeAddress,
                     cursorColor: Colors.amber,
                     keyboardType: TextInputType.streetAddress,
                     autocorrect: false,
