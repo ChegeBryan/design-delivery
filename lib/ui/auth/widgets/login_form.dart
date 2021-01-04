@@ -60,6 +60,12 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                   obscureText: true,
                   textAlignVertical: TextAlignVertical.center,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter password';
+                    }
+                    return null;
+                  },
                 ),
               ],
             ),
