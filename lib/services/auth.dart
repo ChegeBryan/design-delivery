@@ -40,4 +40,8 @@ class Authentication with ChangeNotifier {
     uid = user.uid;
     notifyListeners();
   }
+
+  Future signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 }
