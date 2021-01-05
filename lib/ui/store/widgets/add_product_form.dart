@@ -10,6 +10,7 @@ class _AddProductFormState extends State<AddProductForm> {
 
   final TextEditingController _productName = TextEditingController();
   final TextEditingController _price = TextEditingController();
+  final TextEditingController _description = TextEditingController();
 
   Future<void> _imageSourceOptions() async {
     switch (await showDialog(
@@ -78,6 +79,7 @@ class _AddProductFormState extends State<AddProductForm> {
           ),
           Padding(padding: const EdgeInsets.only(bottom: 16.0)),
           TextFormField(
+            controller: _description,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               icon: Icon(Icons.notes),
