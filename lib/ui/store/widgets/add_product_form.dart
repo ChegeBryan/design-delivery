@@ -1,13 +1,4 @@
-import 'package:design_delivery/ui/store/widgets/custom_dropdown_feild.dart';
-import 'package:design_delivery/ui/store/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
-
-// category list for testing
-const List categories = <DropdownMenuItem>[
-  DropdownMenuItem(child: Text('Category 1'), value: 1),
-  DropdownMenuItem(child: Text('Category 2'), value: 2),
-  DropdownMenuItem(child: Text('Category 3'), value: 3),
-];
 
 class AddProductForm extends StatefulWidget {
   @override
@@ -16,6 +7,8 @@ class AddProductForm extends StatefulWidget {
 
 class _AddProductFormState extends State<AddProductForm> {
   final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _productName = TextEditingController()
 
   Future<void> _imageSourceOptions() async {
     switch (await showDialog(
@@ -64,6 +57,7 @@ class _AddProductFormState extends State<AddProductForm> {
             ),
           ),
           TextFormField(
+            controller: _productName,
             keyboardType: TextInputType.text,
             decoration: InputDecoration(
               icon: Icon(Icons.assignment_outlined),
