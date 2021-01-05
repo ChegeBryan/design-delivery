@@ -78,6 +78,7 @@ class ProductListBuilder extends StatelessWidget {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return ListView.builder(
+              itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int) => Padding(
                 padding:
                     const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
