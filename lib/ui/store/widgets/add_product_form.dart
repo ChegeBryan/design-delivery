@@ -70,10 +70,14 @@ class _AddProductFormState extends State<AddProductForm> {
               border: OutlineInputBorder(),
             ),
           ),
-          CustomInputField(
-            label: 'Price (Ksh.)',
-            inputIcon: Icons.monetization_on_outlined,
-            keyboard: TextInputType.number,
+          Padding(padding: const EdgeInsets.only(bottom: 16.0)),
+          TextFormField(
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              icon: Icon(Icons.monetization_on_outlined),
+              labelText: 'Price (Ksh.)',
+              border: OutlineInputBorder(),
+            ),
           ),
           CustomInputField(
             label: 'Product Description',
