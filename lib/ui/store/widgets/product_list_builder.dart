@@ -84,7 +84,7 @@ class ProductListBuilder extends StatelessWidget {
             }
             return ListView.builder(
               itemCount: snapshot.data.length,
-              itemBuilder: (BuildContext context, int) => Padding(
+              itemBuilder: (BuildContext context, int index) => Padding(
                 padding:
                     const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
                 child: Column(
@@ -102,7 +102,8 @@ class ProductListBuilder extends StatelessWidget {
                               clipBehavior: Clip.antiAlias,
                               child: FadeInImage.memoryNetwork(
                                 placeholder: kTransparentImage,
-                                image: 'https://picsum.photos/250?image=9',
+                                image:
+                                    snapshot.data[index].data()['productImg'],
                                 fit: BoxFit.cover,
                               ),
                             ),
