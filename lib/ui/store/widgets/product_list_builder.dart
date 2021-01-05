@@ -77,6 +77,11 @@ class ProductListBuilder extends StatelessWidget {
             .fetchProductsByStore(Provider.of<Authentication>(context).getUid),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.data.length == 0) {
+              return Center(
+                child: Text('You have no products registered yet.'),
+              );
+            }
             return ListView.builder(
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int) => Padding(
