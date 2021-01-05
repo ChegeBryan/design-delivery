@@ -123,7 +123,8 @@ class ProductListBuilder extends StatelessWidget {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Product title with overflow test from here continue',
+                                          snapshot.data[index]
+                                              .data()['productName'],
                                           style: TextStyle(
                                             fontSize: 18.0,
                                             fontWeight: FontWeight.w500,
