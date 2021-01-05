@@ -21,4 +21,10 @@ class ManageProducts extends ChangeNotifier {
     await products.doc().set(product.toJson());
     notifyListeners();
   }
+
+  Future fetchProductsByStore(String storeId) async {
+    QuerySnapshot querySnapshot =
+        await products.where('storeId', isEqualTo: storeId).get();
+    return querySnapshot.docs;
+  }
 }
