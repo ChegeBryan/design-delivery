@@ -1,5 +1,7 @@
 import 'package:design_delivery/helpers/validators.dart';
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/services/product.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -158,6 +160,8 @@ class _AddProductFormState extends State<AddProductForm> {
                         _dropdownValue,
                         _description.text,
                         'https://picsum.photos/250?image=9',
+                        Provider.of<Authentication>(context, listen: false)
+                            .getUid,
                       )
                       .then((value) => Navigator.pop(context));
                 }
