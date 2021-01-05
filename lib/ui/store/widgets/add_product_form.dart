@@ -82,6 +82,12 @@ class _AddProductFormState extends State<AddProductForm> {
               labelText: 'Price (Ksh.)',
               border: OutlineInputBorder(),
             ),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Product price cannot be empty';
+              }
+              return null;
+            },
           ),
           Padding(padding: const EdgeInsets.only(bottom: 16.0)),
           TextFormField(
