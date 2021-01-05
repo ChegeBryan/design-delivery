@@ -8,7 +8,8 @@ class AddProductForm extends StatefulWidget {
 class _AddProductFormState extends State<AddProductForm> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _productName = TextEditingController()
+  final TextEditingController _productName = TextEditingController();
+  final TextEditingController _price = TextEditingController();
 
   Future<void> _imageSourceOptions() async {
     switch (await showDialog(
@@ -67,6 +68,7 @@ class _AddProductFormState extends State<AddProductForm> {
           ),
           Padding(padding: const EdgeInsets.only(bottom: 16.0)),
           TextFormField(
+            controller: _price,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
               icon: Icon(Icons.monetization_on_outlined),
