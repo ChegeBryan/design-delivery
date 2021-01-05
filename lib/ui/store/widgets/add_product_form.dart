@@ -45,6 +45,7 @@ class _AddProductFormState extends State<AddProductForm> {
 
   @override
   Widget build(BuildContext context) {
+    String _dropdownValue = 'Shoes';
     return Form(
       key: _formKey,
       child: Column(
@@ -89,7 +90,36 @@ class _AddProductFormState extends State<AddProductForm> {
             ),
             maxLines: null,
           ),
-          CustomDropdownFormField(listFor: categories),
+          Padding(
+            padding: EdgeInsets.fromLTRB(42.0, 16.0, 0, 0),
+            child: DropdownButtonFormField(
+              value: _dropdownValue,
+              items: <String>[
+                'Shoes',
+                'Clothes',
+                'Jewellery',
+                'Bags',
+                'Makeup',
+                'Skincare',
+              ].map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  _dropdownValue = value;
+                });
+              },
+              decoration: InputDecoration(
+                labelText: "Product Category",
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                isDense: true,
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
         ],
       ),
     );
