@@ -14,6 +14,7 @@ class ManageProducts extends ChangeNotifier {
     String description,
     String productImg,
   ) async {
+    product = Product(productName, price, category, description, productImg);
     await products.doc().set(product.toJson());
     notifyListeners();
   }

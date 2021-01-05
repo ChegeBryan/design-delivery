@@ -1,5 +1,7 @@
 import 'package:design_delivery/helpers/validators.dart';
+import 'package:design_delivery/services/product.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddProductForm extends StatefulWidget {
   @override
@@ -145,7 +147,21 @@ class _AddProductFormState extends State<AddProductForm> {
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.only(top: 48),
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                if (_formKey.currentState.validate()) {
+                  // if form is valid
+                  // send data to firestore
+                  Provider.of<ManageProducts>(context, listen: false)
+                      .addProduct(
+                        _productName.text,
+                        double.parse(_price.text),
+                        _dropdownValue,
+                        _description.text,
+                        'https://picsum.photos/250?image=9',
+                      )
+                      .then((value) => Navigator.pop(context));
+                }
+              },
               icon: Icon(
                 Icons.add,
                 size: 18,
