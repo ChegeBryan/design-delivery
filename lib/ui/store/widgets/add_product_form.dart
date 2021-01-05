@@ -118,6 +118,31 @@ class _AddProductFormState extends State<AddProductForm> {
               ),
             ),
           ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.only(top: 48),
+            child: ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(
+                Icons.add,
+                size: 18,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Add Product',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(StadiumBorder()),
+                padding: MaterialStateProperty.all(
+                    EdgeInsets.symmetric(vertical: 16.0)),
+              ),
+            ),
+          ),
         ],
       ),
     );
