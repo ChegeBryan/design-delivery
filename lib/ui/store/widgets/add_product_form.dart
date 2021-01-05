@@ -66,6 +66,12 @@ class _AddProductFormState extends State<AddProductForm> {
               labelText: 'Product Name',
               border: OutlineInputBorder(),
             ),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Product name cannot be empty';
+              }
+              return null;
+            },
           ),
           Padding(padding: const EdgeInsets.only(bottom: 16.0)),
           TextFormField(
