@@ -104,6 +104,12 @@ class _AddProductFormState extends State<AddProductForm> {
               border: OutlineInputBorder(),
             ),
             maxLines: null,
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Product description must be provided';
+              }
+              return null;
+            },
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(42.0, 16.0, 0, 0),
