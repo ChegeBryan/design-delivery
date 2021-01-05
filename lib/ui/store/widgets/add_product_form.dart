@@ -85,6 +85,8 @@ class _AddProductFormState extends State<AddProductForm> {
             validator: (value) {
               if (value.isEmpty) {
                 return 'Product price cannot be empty';
+              } else if (double.parse(value) < 1) {
+                return 'Product price cannot be less than 1';
               }
               return null;
             },
