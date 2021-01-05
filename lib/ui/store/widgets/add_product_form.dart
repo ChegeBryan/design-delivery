@@ -62,9 +62,13 @@ class _AddProductFormState extends State<AddProductForm> {
               ),
             ),
           ),
-          CustomInputField(
-            label: 'Product Name',
-            inputIcon: Icons.assignment_outlined,
+          TextFormField(
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              icon: Icon(Icons.assignment_outlined),
+              labelText: 'Product Name',
+              border: OutlineInputBorder(),
+            ),
           ),
           CustomInputField(
             label: 'Price (Ksh.)',
