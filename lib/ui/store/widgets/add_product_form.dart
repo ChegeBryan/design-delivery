@@ -1,3 +1,4 @@
+import 'package:design_delivery/helpers/validators.dart';
 import 'package:flutter/material.dart';
 
 class AddProductForm extends StatefulWidget {
@@ -85,6 +86,8 @@ class _AddProductFormState extends State<AddProductForm> {
             validator: (value) {
               if (value.isEmpty) {
                 return 'Product price cannot be empty';
+              } else if (!isNumeric(value)) {
+                return 'Product price should be a number';
               } else if (double.parse(value) < 1) {
                 return 'Product price cannot be less than 1';
               }
