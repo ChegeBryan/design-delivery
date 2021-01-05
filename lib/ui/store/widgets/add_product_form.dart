@@ -79,11 +79,15 @@ class _AddProductFormState extends State<AddProductForm> {
               border: OutlineInputBorder(),
             ),
           ),
-          CustomInputField(
-            label: 'Product Description',
-            inputIcon: Icons.notes,
-            keyboard: TextInputType.text,
-            maxlines: null,
+          Padding(padding: const EdgeInsets.only(bottom: 16.0)),
+          TextFormField(
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              icon: Icon(Icons.notes),
+              labelText: 'Product Description',
+              border: OutlineInputBorder(),
+            ),
+            maxLines: null,
           ),
           CustomDropdownFormField(listFor: categories),
         ],
