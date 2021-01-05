@@ -5,6 +5,7 @@ class Product {
   String description;
   String productImg;
   String storeId;
+  String storeName;
 
   Product(
     this.productName,
@@ -13,6 +14,7 @@ class Product {
     this.description,
     this.productImg,
     this.storeId,
+    this.storeName,
   );
 
   Map<String, dynamic> toJson() => {
@@ -22,5 +24,6 @@ class Product {
         'description': description,
         'productImg': productImg,
         'storeId': storeId,
+        'storeName': storeName,
       };
 }

@@ -45,8 +45,10 @@ class _AppStoreState extends State<AppStore> {
         // let system handle back button if we're on the first route
         return isFirstRouteInCurrentTab;
       },
-      child: ChangeNotifierProvider(
-        create: (context) => ManageProducts(),
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => ManageProducts()),
+        ],
         child: Scaffold(
           body: Stack(children: <Widget>[
             _buildOffstageNavigator('products'),
