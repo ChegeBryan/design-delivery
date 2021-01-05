@@ -1,5 +1,7 @@
+import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/ui/store/widgets/store_tab_navigator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppStore extends StatefulWidget {
   @override
@@ -43,36 +45,39 @@ class _AppStoreState extends State<AppStore> {
         // let system handle back button if we're on the first route
         return isFirstRouteInCurrentTab;
       },
-      child: Scaffold(
-        body: Stack(children: <Widget>[
-          _buildOffstageNavigator('products'),
-          _buildOffstageNavigator('orders'),
-          _buildOffstageNavigator('profile'),
-        ]),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              activeIcon: Icon(Icons.list),
-              label: 'Products',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.storefront_outlined),
-              label: 'Orders',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_outline_outlined,
+      child: ChangeNotifierProvider(
+        create: (context) => ManageProducts(),
+        child: Scaffold(
+          body: Stack(children: <Widget>[
+            _buildOffstageNavigator('products'),
+            _buildOffstageNavigator('orders'),
+            _buildOffstageNavigator('profile'),
+          ]),
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.list),
+                activeIcon: Icon(Icons.list),
+                label: 'Products',
               ),
-              activeIcon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          showUnselectedLabels: true,
-          currentIndex: _currentTab,
-          onTap: _onItemTapped,
-          selectedLabelStyle: TextStyle(color: Color(0xFF25408F)),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.storefront_outlined),
+                label: 'Orders',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person_outline_outlined,
+                ),
+                activeIcon: Icon(Icons.person),
+                label: 'Profile',
+              ),
+            ],
+            showUnselectedLabels: true,
+            currentIndex: _currentTab,
+            onTap: _onItemTapped,
+            selectedLabelStyle: TextStyle(color: Color(0xFF25408F)),
+          ),
         ),
       ),
     );
