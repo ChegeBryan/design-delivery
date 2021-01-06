@@ -18,15 +18,6 @@ class _EditProductDialogScreenState extends State<EditProductDialogScreen> {
       appBar: AppBar(
         title: Text('Edit Product'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        actions: [
-          TextButton(
-            style: ButtonStyle(),
-            onPressed: () {},
-            child: Text(
-              'Update',
-            ),
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Container(
