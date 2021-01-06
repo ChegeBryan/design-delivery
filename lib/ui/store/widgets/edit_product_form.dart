@@ -85,6 +85,7 @@ class _EditProductFormState extends State<EditProductForm> {
                   ),
                 ),
                 TextFormField(
+                  initialValue: snapshot.data.data()['productName'],
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
                     icon: Icon(Icons.assignment_outlined),
@@ -100,6 +101,7 @@ class _EditProductFormState extends State<EditProductForm> {
                 ),
                 Padding(padding: const EdgeInsets.only(bottom: 16.0)),
                 TextFormField(
+                  initialValue: snapshot.data.data()['price'].toString(),
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     icon: Icon(Icons.monetization_on_outlined),
@@ -119,6 +121,7 @@ class _EditProductFormState extends State<EditProductForm> {
                 ),
                 Padding(padding: const EdgeInsets.only(bottom: 16.0)),
                 TextFormField(
+                  initialValue: snapshot.data.data()['description'],
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     icon: Icon(Icons.notes),
