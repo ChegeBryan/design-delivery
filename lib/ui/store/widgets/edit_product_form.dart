@@ -186,6 +186,15 @@ class _EditProductFormState extends State<EditProductForm> {
                       if (_formKey.currentState.validate()) {
                         // update all form field values
                         _formKey.currentState.save();
+                        Provider.of<ManageProducts>(context, listen: false)
+                            .updateProduct(
+                              widget.productId,
+                              _productName,
+                              double.parse(_price),
+                              _dropdownValue,
+                              _description,
+                            )
+                            .then((value) => Navigator.pop(context));
                       }
                     },
                     icon: Icon(
