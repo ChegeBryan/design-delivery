@@ -183,7 +183,10 @@ class _EditProductFormState extends State<EditProductForm> {
                   padding: EdgeInsets.only(top: 48),
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      if (_formKey.currentState.validate()) {}
+                      if (_formKey.currentState.validate()) {
+                        // update all form field values
+                        _formKey.currentState.save();
+                      }
                     },
                     icon: Icon(
                       Icons.edit,
