@@ -23,6 +23,11 @@ class _ViewProductDetailState extends State<ViewProductDetail> {
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
+          if (!snapshot.data.exists) {
+            return Center(
+              child: Text('Product not found.'),
+            );
+          }
           return ListView(
             children: [
               FadeInImage.memoryNetwork(
