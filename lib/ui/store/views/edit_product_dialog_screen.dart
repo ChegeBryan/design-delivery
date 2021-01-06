@@ -2,6 +2,10 @@ import 'package:design_delivery/ui/store/widgets/edit_product_form.dart';
 import 'package:flutter/material.dart';
 
 class EditProductDialogScreen extends StatefulWidget {
+  final String productId;
+
+  const EditProductDialogScreen({Key key, this.productId}) : super(key: key);
+
   @override
   _EditProductDialogScreenState createState() =>
       _EditProductDialogScreenState();

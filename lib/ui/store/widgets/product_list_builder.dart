@@ -50,11 +50,12 @@ class ProductListBuilder extends StatelessWidget {
     );
   }
 
-  void _lauchEditProductDialog(context) {
+  void _lauchEditProductDialog(context, String productId) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => EditProductDialogScreen(),
+        builder: (BuildContext context) =>
+            EditProductDialogScreen(productId: productId),
         fullscreenDialog: true,
       ),
     );
@@ -145,7 +146,8 @@ class ProductListBuilder extends StatelessWidget {
                                         ),
                                         // toggle wishlist status
                                         onPressed: () =>
-                                            _lauchEditProductDialog(context),
+                                            _lauchEditProductDialog(context,
+                                                snapshot.data[index].id),
                                         padding: const EdgeInsets.fromLTRB(
                                             8, 8, 0, 8),
                                         splashRadius: 1,
