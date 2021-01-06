@@ -48,4 +48,11 @@ class ManageProducts extends ChangeNotifier {
     });
     notifyListeners();
   }
+
+  Future deleteProduct(
+    String productId,
+  ) async {
+    await products.doc(productId).delete();
+    notifyListeners();
+  }
 }
