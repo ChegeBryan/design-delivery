@@ -31,7 +31,7 @@ class _EditProductDialogScreenState extends State<EditProductDialogScreen> {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(16.0),
-          child: EditProductForm(),
+          child: EditProductForm(productId: widget.productId),
         ),
       ),
     );
