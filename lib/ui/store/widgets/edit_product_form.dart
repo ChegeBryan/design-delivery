@@ -178,6 +178,33 @@ class _EditProductFormState extends State<EditProductForm> {
                     ),
                   ),
                 ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.only(top: 48),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {}
+                    },
+                    icon: Icon(
+                      Icons.edit,
+                      size: 18,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      'Update Product',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(StadiumBorder()),
+                      padding: MaterialStateProperty.all(
+                          EdgeInsets.symmetric(vertical: 16.0)),
+                    ),
+                  ),
+                ),
               ],
             ),
           );
