@@ -27,4 +27,9 @@ class ManageProducts extends ChangeNotifier {
         await products.where('storeId', isEqualTo: storeId).get();
     return querySnapshot.docs;
   }
+
+  Future fetchProduct(String productId) async {
+    DocumentSnapshot snapshot = await products.doc(productId).get();
+    return snapshot;
+  }
 }
