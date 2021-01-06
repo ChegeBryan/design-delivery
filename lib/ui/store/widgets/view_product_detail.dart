@@ -28,7 +28,7 @@ class _ViewProductDetailState extends State<ViewProductDetail> {
               FadeInImage.memoryNetwork(
                 placeholder: kTransparentImage,
                 // what would be typically product image
-                image: 'https://picsum.photos/250?image=9',
+                image: snapshot.data.data()['productImg'],
                 height: 250,
                 fit: BoxFit.cover,
               ),
@@ -38,7 +38,7 @@ class _ViewProductDetailState extends State<ViewProductDetail> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                     child: Text(
-                      'Product title with overflow test from here continue',
+                      snapshot.data.data()['productName'],
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class _ViewProductDetailState extends State<ViewProductDetail> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      'Ksh. 499',
+                      'Ksh. ${snapshot.data.data()['price'].toStringAsFixed(0)}',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -85,7 +85,7 @@ class _ViewProductDetailState extends State<ViewProductDetail> {
                     Padding(
                       padding: EdgeInsets.only(top: 16.0),
                       child: Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus.',
+                        snapshot.data.data()['description'],
                         softWrap: true,
                         style: TextStyle(
                           fontSize: 16.0,
@@ -121,7 +121,7 @@ class _ViewProductDetailState extends State<ViewProductDetail> {
                           fontSize: 16.0,
                         ),
                         label: Text(
-                          'Lorem ipsum dolor',
+                          snapshot.data.data()['category'],
                           softWrap: true,
                         ),
                       ),
