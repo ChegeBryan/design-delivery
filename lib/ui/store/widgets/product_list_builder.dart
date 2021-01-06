@@ -154,7 +154,7 @@ class ProductListBuilder extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Ksh. ${snapshot.data[index].data()['price']}',
+                                        'Ksh. ${snapshot.data[index].data()['price'].toStringAsFixed(0)}',
                                         style: TextStyle(
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.bold,

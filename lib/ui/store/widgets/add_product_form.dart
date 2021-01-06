@@ -162,7 +162,7 @@ class _AddProductFormState extends State<AddProductForm> {
                       Provider.of<ManageProducts>(context, listen: false)
                           .addProduct(
                             _productName.text,
-                            double.parse(_price.text),
+                            double.parse(_price.text).roundToDouble(),
                             _dropdownValue,
                             _description.text,
                             'https://picsum.photos/250?image=9',
