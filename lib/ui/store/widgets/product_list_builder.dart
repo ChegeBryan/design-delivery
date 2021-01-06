@@ -11,10 +11,12 @@ class ProductListBuilder extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  Future<void> _confirmDeleteDialog(BuildContext context) async {
+  Future<void> _confirmDeleteDialog(
+      BuildContext context, String productId) async {
     return showDialog<void>(
       context: context,
-      barrierDismissible: false, // user must tap button!
+      barrierDismissible: false,
+      useRootNavigator: false,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Are you sure you want to delete product?'),
@@ -41,7 +43,9 @@ class ProductListBuilder extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                Provider.of<ManageProducts>(context, listen: false)
+                    .deleteProduct(productId)
+                    .then((value) => Navigator.of(context).pop());
               },
             ),
           ],
@@ -173,7 +177,8 @@ class ProductListBuilder extends StatelessWidget {
                                         ),
                                         // toggle wishlist status
                                         onPressed: () {
-                                          _confirmDeleteDialog(context);
+                                          _confirmDeleteDialog(
+                                              context, snapshot.data[index].id);
                                         },
                                         splashRadius: 1,
                                       ),
