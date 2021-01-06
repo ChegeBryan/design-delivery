@@ -136,8 +136,32 @@ class _EditProductFormState extends State<EditProductForm> {
                     return null;
                   },
                 ),
-                Padding(padding: const EdgeInsets.only(bottom: 16.0)),
-                CustomDropdownFormField(listFor: categories),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(42.0, 16.0, 0, 0),
+                  child: DropdownButtonFormField(
+                    value: snapshot.data.data()['category'],
+                    items: <String>[
+                      'Shoes',
+                      'Clothes',
+                      'Jewellery',
+                      'Bags',
+                      'Makeup',
+                      'Skincare',
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (value) {},
+                    decoration: InputDecoration(
+                      labelText: "Product Category",
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      isDense: true,
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
               ],
             ),
           );
