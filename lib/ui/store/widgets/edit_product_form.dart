@@ -4,6 +4,7 @@ import 'package:design_delivery/ui/store/widgets/custom_dropdown_feild.dart';
 import 'package:design_delivery/ui/store/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 const List categories = <DropdownMenuItem>[
   DropdownMenuItem(child: Text('Category 1'), value: 1),
@@ -77,6 +78,8 @@ class _EditProductFormState extends State<EditProductForm> {
                         icon: Icon(Icons.add_a_photo_outlined),
                         onPressed: _imageSourceOptions,
                       ),
+                      backgroundImage:
+                          NetworkImage(snapshot.data.data()['productImg']),
                     ),
                   ),
                 ),
