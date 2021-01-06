@@ -1,4 +1,5 @@
 import 'package:design_delivery/services/product.dart';
+import 'package:design_delivery/ui/store/views/edit_product_dialog_screen.dart';
 import 'package:design_delivery/ui/store/widgets/view_product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,16 @@ class _ProductDetailDialogScreenState extends State<ProductDetailDialogScreen> {
       body: ViewProductDetail(productId: widget.productId),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFF25408F),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) =>
+                  EditProductDialogScreen(productId: widget.productId),
+              fullscreenDialog: true,
+            ),
+          );
+        },
         child: Icon(
           Icons.edit,
           color: Colors.white,
