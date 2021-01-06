@@ -92,7 +92,7 @@ class ProductListBuilder extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         _launchProductDetailDialog(
-                            context, snapshot.data[index].documentID);
+                            context, snapshot.data[index].id);
                       },
                       child: Row(
                         children: [
