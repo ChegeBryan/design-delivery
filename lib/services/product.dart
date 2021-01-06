@@ -39,14 +39,12 @@ class ManageProducts extends ChangeNotifier {
     double price,
     String category,
     String description,
-    String productImg,
   ) async {
     await products.doc(productId).update({
       'productName': productName,
       'price': price,
       'category': category,
       'description': description,
-      'productImg': productImg,
     });
     notifyListeners();
   }
