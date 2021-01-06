@@ -32,4 +32,22 @@ class ManageProducts extends ChangeNotifier {
     DocumentSnapshot snapshot = await products.doc(productId).get();
     return snapshot;
   }
+
+  Future updateProduct(
+    String productId,
+    String productName,
+    double price,
+    String category,
+    String description,
+    String productImg,
+  ) async {
+    await products.doc(productId).update({
+      'productName': productName,
+      'price': price,
+      'category': category,
+      'description': description,
+      'productImg': productImg,
+    });
+    notifyListeners();
+  }
 }
