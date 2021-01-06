@@ -60,7 +60,7 @@ class ProductListBuilder extends StatelessWidget {
     );
   }
 
-  void _launchProductDetailDialog(context) {
+  void _launchProductDetailDialog(context, String productId) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -91,7 +91,8 @@ class ProductListBuilder extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
-                        _launchProductDetailDialog(context);
+                        _launchProductDetailDialog(
+                            context, snapshot.data[index].documentID);
                       },
                       child: Row(
                         children: [
