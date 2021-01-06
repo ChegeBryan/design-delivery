@@ -1,5 +1,7 @@
+import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/ui/store/widgets/view_product_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailDialogScreen extends StatefulWidget {
   final String productId;
@@ -20,7 +22,15 @@ class _ProductDetailDialogScreenState extends State<ProductDetailDialogScreen> {
         title: Text('Product Details'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         actionsIconTheme: IconThemeData(color: Color(0xFF25408F)),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.delete))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Provider.of<ManageProducts>(context, listen: false)
+                    .deleteProduct(widget.productId)
+                    .then((value) => Navigator.of(context).pop());
+              },
+              icon: Icon(Icons.delete))
+        ],
       ),
       body: ViewProductDetail(productId: widget.productId),
       floatingActionButton: FloatingActionButton(
