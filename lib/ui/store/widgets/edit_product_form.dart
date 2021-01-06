@@ -25,6 +25,11 @@ class EditProductForm extends StatefulWidget {
 class _EditProductFormState extends State<EditProductForm> {
   final _formKey = GlobalKey<FormState>();
 
+  String _dropdownValue;
+  String _productName;
+  String _description;
+  String _price;
+
   Future<void> _imageSourceOptions() async {
     switch (await showDialog(
         context: context,
@@ -67,6 +72,9 @@ class _EditProductFormState extends State<EditProductForm> {
         if (snapshot.connectionState == ConnectionState.done) {
           return Form(
             key: _formKey,
+            onChanged: () {
+              Form.of(primaryFocus.context).save();
+            },
             child: Column(
               children: [
                 Container(
@@ -98,6 +106,7 @@ class _EditProductFormState extends State<EditProductForm> {
                     }
                     return null;
                   },
+                  onSaved: (newValue) => _productName = newValue,
                 ),
                 Padding(padding: const EdgeInsets.only(bottom: 16.0)),
                 TextFormField(
@@ -118,6 +127,7 @@ class _EditProductFormState extends State<EditProductForm> {
                     }
                     return null;
                   },
+                  onSaved: (newValue) => _price = newValue,
                 ),
                 Padding(padding: const EdgeInsets.only(bottom: 16.0)),
                 TextFormField(
@@ -135,6 +145,7 @@ class _EditProductFormState extends State<EditProductForm> {
                     }
                     return null;
                   },
+                  onSaved: (newValue) => _description = newValue,
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(42.0, 16.0, 0, 0),
@@ -153,7 +164,12 @@ class _EditProductFormState extends State<EditProductForm> {
                         child: Text(value),
                       );
                     }).toList(),
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      setState(() {
+                        _dropdownValue = value;
+                      });
+                    },
+                    onSaved: (newValue) => _dropdownValue = newValue,
                     decoration: InputDecoration(
                       labelText: "Product Category",
                       floatingLabelBehavior: FloatingLabelBehavior.always,
