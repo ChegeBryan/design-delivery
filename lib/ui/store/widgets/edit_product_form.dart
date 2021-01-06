@@ -83,10 +83,21 @@ class _EditProductFormState extends State<EditProductForm> {
                     ),
                   ),
                 ),
-                CustomInputField(
-                  label: 'Product Name',
-                  inputIcon: Icons.assessment_outlined,
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    icon: Icon(Icons.assignment_outlined),
+                    labelText: 'Product Name',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Product name cannot be empty';
+                    }
+                    return null;
+                  },
                 ),
+                Padding(padding: const EdgeInsets.only(bottom: 16.0)),
                 CustomInputField(
                   label: 'Price (Ksh.)',
                   inputIcon: Icons.monetization_on_outlined,
