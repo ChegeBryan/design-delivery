@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:design_delivery/helpers/validators.dart';
 import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/ui/store/widgets/custom_dropdown_feild.dart';
 import 'package:design_delivery/ui/store/widgets/custom_input_field.dart';
@@ -98,17 +99,41 @@ class _EditProductFormState extends State<EditProductForm> {
                   },
                 ),
                 Padding(padding: const EdgeInsets.only(bottom: 16.0)),
-                CustomInputField(
-                  label: 'Price (Ksh.)',
-                  inputIcon: Icons.monetization_on_outlined,
-                  keyboard: TextInputType.number,
+                TextFormField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    icon: Icon(Icons.monetization_on_outlined),
+                    labelText: 'Price (Ksh.)',
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Product price cannot be empty';
+                    } else if (!isNumeric(value)) {
+                      return 'Product price should be a number';
+                    } else if (double.parse(value) < 1) {
+                      return 'Product price cannot be less than 1';
+                    }
+                    return null;
+                  },
                 ),
-                CustomInputField(
-                  label: 'Product Description',
-                  inputIcon: Icons.notes,
-                  keyboard: TextInputType.text,
-                  maxlines: null,
+                Padding(padding: const EdgeInsets.only(bottom: 16.0)),
+                TextFormField(
+                  keyboardType: TextInputType.multiline,
+                  decoration: InputDecoration(
+                    icon: Icon(Icons.notes),
+                    labelText: 'Product Description',
+                    border: OutlineInputBorder(),
+                  ),
+                  maxLines: null,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Product description must be provided';
+                    }
+                    return null;
+                  },
                 ),
+                Padding(padding: const EdgeInsets.only(bottom: 16.0)),
                 CustomDropdownFormField(listFor: categories),
               ],
             ),
