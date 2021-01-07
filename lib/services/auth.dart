@@ -74,8 +74,20 @@ class Authentication with ChangeNotifier {
     await FirebaseAuth.instance.signOut();
   }
 
-  Future deleteAccount() async {
-    await FirebaseAuth.instance.currentUser.delete();
-    notifyListeners();
+  Future deleteAccount({String email, String password}) async {
+    try {
+      await FirebaseAuth.instance.currentUser.delete();
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        EmailAuthCredential credential =
+            EmailAuthProvider.credential(email: email, password: password);
+        await FirebaseAuth.instance.currentUser
+            .reauthenticateWithCredential(credential);
+      }
+      EmailAuthCredential credential =
+          EmailAuthProvider.credential(email: 'text', password: 'asss');
+      await FirebaseAuth.instance.currentUser
+          .reauthenticateWithCredential(credential);
+    }
   }
 }
