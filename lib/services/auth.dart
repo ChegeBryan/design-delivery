@@ -23,8 +23,9 @@ class Authentication with ChangeNotifier {
 
     CollectionReference users = db.collection('users');
     await users.doc(uid).set({
-      'role': 'user',
       'username': username,
+      'email': email,
+      'role': 'user',
     });
 
     notifyListeners();
