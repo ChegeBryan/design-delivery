@@ -73,4 +73,9 @@ class Authentication with ChangeNotifier {
   Future signOut() async {
     await FirebaseAuth.instance.signOut();
   }
+
+  Future deleteAccount() async {
+    await FirebaseAuth.instance.currentUser.delete();
+    notifyListeners();
+  }
 }
