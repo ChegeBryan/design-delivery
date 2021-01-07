@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:design_delivery/main.dart';
 import 'package:design_delivery/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -85,7 +86,17 @@ class _StoreProfileState extends State<StoreProfile> {
                       width: MediaQuery.of(context).size.width,
                       height: 50.0,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Provider.of<Authentication>(context, listen: false)
+                              .deleteAccount()
+                              .then((value) => Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => MyApp(),
+                                    ),
+                                    (Route<dynamic> route) => false,
+                                  ));
+                        },
                         child: Text(
                           'Delete Account',
                           style: TextStyle(
