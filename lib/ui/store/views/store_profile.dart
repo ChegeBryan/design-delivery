@@ -77,7 +77,19 @@ class _StoreProfileState extends State<StoreProfile> {
                       leading: Icon(Icons.logout),
                       title: Text('Logout'),
                       trailing: Icon(Icons.keyboard_arrow_right),
-                      onTap: () {},
+                      onTap: () {
+                        Provider.of<Authentication>(context, listen: false)
+                            .signOut()
+                            .then(
+                              (value) => Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MyApp(),
+                                ),
+                                (Route<dynamic> route) => false,
+                              ),
+                            );
+                      },
                     ),
                     Divider(
                       indent: 52.0,
