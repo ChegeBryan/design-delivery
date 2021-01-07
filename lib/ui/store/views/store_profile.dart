@@ -33,14 +33,15 @@ class _StoreProfileState extends State<StoreProfile> {
                       child: Column(
                         children: [
                           Text(
-                            'Store Name',
+                            snapshot.data.data()['storeName'],
                             style: TextStyle(
                               color: Color(0xFF25408F),
                               fontSize: 24.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text('store address'),
+                          Text(snapshot.data.data()['email']),
+                          Text(snapshot.data.data()['storeAddress']),
                         ],
                       ),
                     ),
