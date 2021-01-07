@@ -16,7 +16,6 @@ class Authentication with ChangeNotifier {
   ) async {
     UserCredential userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
-    await userCredential.user.updateProfile(displayName: username);
 
     User user = userCredential.user;
     uid = user.uid;
