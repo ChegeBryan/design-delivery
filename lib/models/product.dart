@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Product {
   String productName;
   double price;
@@ -25,5 +27,6 @@ class Product {
         'productImg': productImg,
         'storeId': storeId,
         'storeName': storeName,
+        'createdOn': FieldValue.serverTimestamp(),
       };
 }
