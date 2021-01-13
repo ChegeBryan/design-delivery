@@ -17,7 +17,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         title: Text('Details'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: ProductDetail(),
+      body: ProductDetail(product: widget.product),
       bottomNavigationBar: Material(
         elevation: 4.0,
         child: Container(

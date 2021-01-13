@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class ProductDetail extends StatefulWidget {
+  final dynamic product;
+
+  const ProductDetail({Key key, @required this.product}) : super(key: key);
+
   @override
   _ProductDetailState createState() => _ProductDetailState();
 }
@@ -26,7 +30,7 @@ class _ProductDetailState extends State<ProductDetail> {
         FadeInImage.memoryNetwork(
           placeholder: kTransparentImage,
           // what would be typically product image
-          image: 'https://picsum.photos/250?image=9',
+          image: widget.product['productImg'],
           height: 250,
           fit: BoxFit.cover,
         ),
@@ -42,7 +46,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Product title with overflow test from here continue',
+                      widget.product['productName'],
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -130,7 +134,7 @@ class _ProductDetailState extends State<ProductDetail> {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus.',
+              widget.product['description'],
               softWrap: true,
               style: TextStyle(
                 fontSize: 16.0,
@@ -154,14 +158,14 @@ class _ProductDetailState extends State<ProductDetail> {
           leading: CircleAvatar(
             backgroundColor: Colors.amber,
             child: Text(
-              "AB",
+              widget.product['storeName'][0].toUpperCase(),
               style: TextStyle(
                 color: Colors.white,
               ),
             ),
           ),
           title: Text(
-            'Long text for store name',
+            widget.product['storeName'],
             style: TextStyle(
               fontWeight: FontWeight.w400,
               color: Color(0xFF515C6F),
