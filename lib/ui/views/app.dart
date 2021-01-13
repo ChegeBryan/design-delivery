@@ -1,5 +1,7 @@
+import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/ui/widgets/user_tab_navigator_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatefulWidget {
   @override
@@ -44,50 +46,55 @@ class _AppState extends State<App> {
         // let system handle back button if we're on the first route
         return isFirstRouteInCurrentTab;
       },
-      child: Scaffold(
-        body: Stack(children: <Widget>[
-          _buildOffstageNavigator('home'),
-          _buildOffstageNavigator('wishlist'),
-          _buildOffstageNavigator('cart'),
-          _buildOffstageNavigator('profile'),
-        ]),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => ManageProducts()),
+        ],
+        child: Scaffold(
+          body: Stack(children: <Widget>[
+            _buildOffstageNavigator('home'),
+            _buildOffstageNavigator('wishlist'),
+            _buildOffstageNavigator('cart'),
+            _buildOffstageNavigator('profile'),
+          ]),
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home_outlined,
+                ),
+                activeIcon: Icon(Icons.home),
+                label: 'Home',
               ),
-              activeIcon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.favorite_border_outlined,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.favorite_border_outlined,
+                ),
+                activeIcon: Icon(Icons.favorite),
+                label: 'Favorites',
               ),
-              activeIcon: Icon(Icons.favorite),
-              label: 'Favorites',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.shopping_cart_outlined,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.shopping_cart_outlined,
+                ),
+                activeIcon: Icon(Icons.shopping_cart),
+                label: 'Cart',
               ),
-              activeIcon: Icon(Icons.shopping_cart),
-              label: 'Cart',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_outline_outlined,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person_outline_outlined,
+                ),
+                activeIcon: Icon(Icons.person),
+                label: 'Profile',
               ),
-              activeIcon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          currentIndex: _currentTab,
-          onTap: _onItemTapped,
-        ), // This trailing comma makes auto-formatting nicer for build methods.
+            ],
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            currentIndex: _currentTab,
+            onTap: _onItemTapped,
+          ), // This trailing comma makes auto-formatting nicer for build methods.
+        ),
       ),
     );
   }
