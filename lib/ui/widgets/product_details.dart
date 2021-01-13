@@ -3,8 +3,10 @@ import 'package:transparent_image/transparent_image.dart';
 
 class ProductDetail extends StatefulWidget {
   final dynamic product;
+  final String productId;
 
-  const ProductDetail({Key key, @required this.product}) : super(key: key);
+  const ProductDetail({Key key, @required this.product, this.productId})
+      : super(key: key);
 
   @override
   _ProductDetailState createState() => _ProductDetailState();

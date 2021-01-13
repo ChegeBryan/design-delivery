@@ -39,7 +39,9 @@ class HomeRecentlyAdded extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ProductDetailScreen(
-                            product: snapshot.data[index].data()),
+                          product: snapshot.data[index].data(),
+                          productId: snapshot.data[index].id,
+                        ),
                       ),
                     ),
                     child: Card(

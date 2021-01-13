@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   final dynamic product;
+  final String productId;
 
-  const ProductDetailScreen({Key key, this.product}) : super(key: key);
+  const ProductDetailScreen({Key key, this.product, this.productId})
+      : super(key: key);
   @override
   _ProductDetailScreenState createState() => _ProductDetailScreenState();
 }
@@ -17,7 +19,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         title: Text('Details'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: ProductDetail(product: widget.product),
+      body: ProductDetail(product: widget.product, productId: widget.productId),
       bottomNavigationBar: Material(
         elevation: 4.0,
         child: Container(
