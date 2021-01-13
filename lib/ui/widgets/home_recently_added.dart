@@ -38,7 +38,8 @@ class HomeRecentlyAdded extends StatelessWidget {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProductDetailScreen(),
+                        builder: (context) => ProductDetailScreen(
+                            product: snapshot.data[index].data()),
                       ),
                     ),
                     child: Card(
