@@ -171,11 +171,6 @@ class _ProductDetailState extends State<ProductDetail> {
               color: Color(0xFF515C6F),
             ),
           ),
-          subtitle: Text(
-            'Long text for store address',
-          ),
-          isThreeLine: true,
-          onTap: () {},
         ),
       ],
     );
