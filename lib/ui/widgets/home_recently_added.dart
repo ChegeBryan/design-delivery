@@ -15,6 +15,14 @@ class HomeRecentlyAdded extends StatelessWidget {
       future: Provider.of<ManageProducts>(context).fetchRecentlyAddedProducts(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.data.length == 0) {
+            return SizedBox(
+              height: 70.0,
+              child: Center(
+                child: Text('No products registered yet.'),
+              ),
+            );
+          }
           return Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: SizedBox(
