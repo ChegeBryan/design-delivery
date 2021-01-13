@@ -28,6 +28,7 @@ class HomeRecentlyAdded extends StatelessWidget {
             child: SizedBox(
               height: 150.0,
               child: ListView.builder(
+                itemCount: snapshot.data.length,
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) => SizedBox(
@@ -49,14 +50,14 @@ class HomeRecentlyAdded extends StatelessWidget {
                             aspectRatio: 4 / 3,
                             child: FadeInImage.memoryNetwork(
                               placeholder: kTransparentImage,
-                              image: 'https://picsum.photos/250?image=9',
+                              image: snapshot.data[index].data()['productImg'],
                               fit: BoxFit.cover,
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                             child: Text(
-                              'Title ddddddddddd',
+                              snapshot.data[index].data()['productName'],
                               style: TextStyle(
                                 color: Color(0xFF727C8E),
                                 fontSize: 16.0,
@@ -69,7 +70,7 @@ class HomeRecentlyAdded extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                             child: Text(
-                              'Ksh. 499.00',
+                              'Ksh. ${snapshot.data[index].data()['price']}',
                               style: TextStyle(
                                 color: Color(0xFF727C8E),
                                 fontSize: 16.0,
