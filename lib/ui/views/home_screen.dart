@@ -52,7 +52,37 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 8.0,
           ),
-          HomeRecentlyAdded(),
+          Container(
+            color: Colors.grey[100],
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Recently Added',
+                        style: TextStyle(
+                          color: Color(0xFF254081),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                          fontFamily: 'Lato',
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('Shop More'),
+                      ),
+                    ],
+                  ),
+                ),
+                HomeRecentlyAdded(),
+              ],
+            ),
+          ),
         ],
       ),
     );
