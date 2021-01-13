@@ -2,6 +2,9 @@ import 'package:design_delivery/ui/widgets/product_details.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
+  final dynamic product;
+
+  const ProductDetailScreen({Key key, this.product}) : super(key: key);
   @override
   _ProductDetailScreenState createState() => _ProductDetailScreenState();
 }
@@ -39,7 +42,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       Row(
                         children: [
                           Text(
-                            'KSh. 563',
+                            'KSh. ${widget.product['price']}',
                             style: TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
