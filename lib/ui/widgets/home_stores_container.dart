@@ -70,7 +70,10 @@ class StoresList extends StatelessWidget {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProductsByStoreScreen(),
+                        builder: (context) => ProductsByStoreScreen(
+                          storeId: snapshot.data[index].id,
+                          storeName: snapshot.data[index].data()['storeName'],
+                        ),
                       ),
                     ),
                     child: Card(
