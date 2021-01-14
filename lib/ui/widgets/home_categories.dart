@@ -1,6 +1,6 @@
 import 'package:design_delivery/ui/views/products_by_category_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({
@@ -9,6 +9,15 @@ class HomeCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, dynamic>> categories = [
+      {"icon": "assets/icons/shoe.svg", "text": "Shoes"},
+      {"icon": "assets/icons/casual-t-shirt.svg", "text": "Clothes"},
+      {"icon": "assets/icons/necklace.svg", "text": "Jewellery"},
+      {"icon": "assets/icons/bag.svg", "text": "Bags"},
+      {"icon": "assets/icons/cosmetics.svg", "text": "Makeup"},
+      {"icon": "assets/icons/skincare.svg", "text": "Skincare"}
+    ];
+
     return Container(
       color: Colors.grey[100],
       padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -36,70 +45,6 @@ class HomeCategories extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: SizedBox(
-              height: 150.0,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) => SizedBox(
-                  height: 150,
-                  width: 120,
-                  child: InkWell(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductsByCateory(),
-                      ),
-                    ),
-                    child: Card(
-                      clipBehavior: Clip.antiAlias,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AspectRatio(
-                            aspectRatio: 4 / 3,
-                            child: FadeInImage.memoryNetwork(
-                              placeholder: kTransparentImage,
-                              image: 'https://picsum.photos/250?image=9',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-                            child: Text(
-                              'Title ddddddddddd',
-                              style: TextStyle(
-                                color: Color(0xFF727C8E),
-                                fontSize: 16.0,
-                                fontFamily: 'Lato',
-                              ),
-                              softWrap: false,
-                              overflow: TextOverflow.fade,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-                            child: Text(
-                              'Ksh. 499.00',
-                              style: TextStyle(
-                                color: Color(0xFF727C8E),
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              softWrap: false,
-                              overflow: TextOverflow.fade,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          )
         ],
       ),
     );
