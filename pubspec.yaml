@@ -27,6 +27,7 @@ dependencies:
   firebase_auth: ^0.18.4+1
   cloud_firestore: ^0.14.4
   provider: ^4.3.2+3
+  flutter_svg: ^0.18.1
 
   transparent_image: ^1.0.0
   carousel_slider: ^2.3.1
