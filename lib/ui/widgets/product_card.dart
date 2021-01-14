@@ -25,7 +25,10 @@ class _ProductCardState extends State<ProductCard> {
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProductDetailScreen(),
+            builder: (context) => ProductDetailScreen(
+              product: widget.product,
+              productId: widget.productId,
+            ),
           ),
         ),
         child: Column(
