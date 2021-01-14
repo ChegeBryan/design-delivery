@@ -16,12 +16,17 @@ class ProductGridBuilder extends StatelessWidget {
       future: Provider.of<ManageProducts>(context)
           .fetchProductsByCategory(category),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        return GridView.builder(
-          itemCount: snapshot.data.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
-          itemBuilder: (BuildContext context, int index) => ProductCard(),
-          padding: const EdgeInsets.all(16.0),
+        if (snapshot.connectionState == ConnectionState.done) {
+          return GridView.builder(
+            itemCount: snapshot.data.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
+            itemBuilder: (BuildContext context, int index) => ProductCard(),
+            padding: const EdgeInsets.all(16.0),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
         );
       },
     );
