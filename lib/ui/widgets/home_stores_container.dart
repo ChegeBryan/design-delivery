@@ -1,6 +1,7 @@
+import 'package:design_delivery/services/stores.dart';
 import 'package:design_delivery/ui/views/products_by_store_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
+import 'package:provider/provider.dart';
 
 class HomeStoresContainer extends StatelessWidget {
   const HomeStoresContainer({
@@ -36,83 +37,68 @@ class HomeStoresContainer extends StatelessWidget {
               ],
             ),
           ),
-          Stores()
+          StoresList()
         ],
       ),
     );
   }
 }
 
-class Stores extends StatelessWidget {
-  const Stores({
+class StoresList extends StatelessWidget {
+  const StoresList({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0),
-      child: SizedBox(
-        height: 150.0,
-        child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (BuildContext context, int index) => SizedBox(
-            height: 150,
-            width: 120,
-            child: InkWell(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ProductsByStoreScreen(),
-                ),
-              ),
-              child: Card(
-                clipBehavior: Clip.antiAlias,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AspectRatio(
-                      aspectRatio: 4 / 3,
-                      child: FadeInImage.memoryNetwork(
-                        placeholder: kTransparentImage,
-                        image: 'https://picsum.photos/250?image=9',
-                        fit: BoxFit.cover,
+    return FutureBuilder(
+      future: Provider.of<Stores>(context).fetchStores(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.data.length == 0) {
+            return Center(
+              child: Text('No stores registered yet.'),
+            );
+          }
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: List.generate(
+                snapshot.data.length,
+                (index) => Expanded(
+                  child: InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductsByStoreScreen(),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-                      child: Text(
-                        'Title ddddddddddd',
-                        style: TextStyle(
-                          color: Color(0xFF727C8E),
-                          fontSize: 16.0,
-                          fontFamily: 'Lato',
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 12),
+                        child: Text(
+                          snapshot.data[index].data()['storeName'],
+                          style: TextStyle(
+                            color: Color(0xFF727C8E),
+                            fontSize: 16.0,
+                            fontFamily: 'Lato',
+                          ),
+                          softWrap: false,
+                          overflow: TextOverflow.fade,
                         ),
-                        softWrap: false,
-                        overflow: TextOverflow.fade,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-                      child: Text(
-                        'Ksh. 499.00',
-                        style: TextStyle(
-                          color: Color(0xFF727C8E),
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        softWrap: false,
-                        overflow: TextOverflow.fade,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
-      ),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
     );
   }
 }
