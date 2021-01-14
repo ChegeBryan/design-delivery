@@ -53,7 +53,12 @@ class HomeCategories extends StatelessWidget {
                 categories.length,
                 (index) => Expanded(
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductsByCateory(),
+                      ),
+                    ),
                     child: SizedBox(
                       child: Column(
                         children: [
