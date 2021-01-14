@@ -2,11 +2,21 @@ import 'package:design_delivery/ui/views/product_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
+  final dynamic product;
+  final String productId;
+
   const ProductCard({
     Key key,
+    this.product,
+    this.productId,
   }) : super(key: key);
 
+  @override
+  _ProductCardState createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -25,7 +35,7 @@ class ProductCard extends StatelessWidget {
               aspectRatio: 18.0 / 11.0,
               child: FadeInImage.memoryNetwork(
                 placeholder: kTransparentImage,
-                image: 'https://picsum.photos/250?image=9',
+                image: widget.product['productImg'],
                 fit: BoxFit.cover,
               ),
             ),
@@ -40,7 +50,7 @@ class ProductCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Product title',
+                          widget.product['productName'],
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
@@ -48,7 +58,7 @@ class ProductCard extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Ksh. 399.00',
+                          'Ksh. ${widget.product['price']}',
                           style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,
