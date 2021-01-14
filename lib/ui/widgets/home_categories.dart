@@ -45,6 +45,44 @@ class HomeCategories extends StatelessWidget {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(
+                categories.length,
+                (index) => Expanded(
+                  child: InkWell(
+                    onTap: () {},
+                    child: SizedBox(
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(16.0),
+                            width: MediaQuery.of(context).size.width * 0.14,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.amber,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: SvgPicture.asset(
+                              categories[index]['icon'],
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            categories[index]['text'],
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
