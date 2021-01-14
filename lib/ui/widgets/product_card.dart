@@ -67,14 +67,16 @@ class _ProductCardState extends State<ProductCard> {
                         ),
                       ],
                     ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.favorite,
-                        color: Theme.of(context).primaryColor,
+                    Expanded(
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.favorite,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        // toggle wishlist status
+                        onPressed: () {},
+                        splashRadius: 1,
                       ),
-                      // toggle wishlist status
-                      onPressed: () {},
-                      splashRadius: 1,
                     ),
                   ],
                 ),
