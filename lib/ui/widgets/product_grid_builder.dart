@@ -17,6 +17,11 @@ class ProductGridBuilder extends StatelessWidget {
           .fetchProductsByCategory(category),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.data.length == 0) {
+            return Center(
+              child: Text('No $category found.'),
+            );
+          }
           return GridView.builder(
             itemCount: snapshot.data.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
