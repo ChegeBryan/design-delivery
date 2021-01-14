@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class ProductGridBuilder extends StatelessWidget {
   const ProductGridBuilder({
     Key key,
+    String category,
   }) : super(key: key);
 
   @override

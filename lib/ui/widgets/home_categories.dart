@@ -56,7 +56,8 @@ class HomeCategories extends StatelessWidget {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProductsByCateory(),
+                        builder: (context) => ProductsByCateory(
+                            category: categories[index]['text']),
                       ),
                     ),
                     child: SizedBox(
