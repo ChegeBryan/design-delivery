@@ -36,71 +36,82 @@ class HomeStoresContainer extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: SizedBox(
-              height: 150.0,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) => SizedBox(
-                  height: 150,
-                  width: 120,
-                  child: InkWell(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductsByStoreScreen(),
+          Stores()
+        ],
+      ),
+    );
+  }
+}
+
+class Stores extends StatelessWidget {
+  const Stores({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0),
+      child: SizedBox(
+        height: 150.0,
+        child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) => SizedBox(
+            height: 150,
+            width: 120,
+            child: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductsByStoreScreen(),
+                ),
+              ),
+              child: Card(
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 4 / 3,
+                      child: FadeInImage.memoryNetwork(
+                        placeholder: kTransparentImage,
+                        image: 'https://picsum.photos/250?image=9',
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    child: Card(
-                      clipBehavior: Clip.antiAlias,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AspectRatio(
-                            aspectRatio: 4 / 3,
-                            child: FadeInImage.memoryNetwork(
-                              placeholder: kTransparentImage,
-                              image: 'https://picsum.photos/250?image=9',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-                            child: Text(
-                              'Title ddddddddddd',
-                              style: TextStyle(
-                                color: Color(0xFF727C8E),
-                                fontSize: 16.0,
-                                fontFamily: 'Lato',
-                              ),
-                              softWrap: false,
-                              overflow: TextOverflow.fade,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-                            child: Text(
-                              'Ksh. 499.00',
-                              style: TextStyle(
-                                color: Color(0xFF727C8E),
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              softWrap: false,
-                              overflow: TextOverflow.fade,
-                            ),
-                          ),
-                        ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
+                      child: Text(
+                        'Title ddddddddddd',
+                        style: TextStyle(
+                          color: Color(0xFF727C8E),
+                          fontSize: 16.0,
+                          fontFamily: 'Lato',
+                        ),
+                        softWrap: false,
+                        overflow: TextOverflow.fade,
                       ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
+                      child: Text(
+                        'Ksh. 499.00',
+                        style: TextStyle(
+                          color: Color(0xFF727C8E),
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        softWrap: false,
+                        overflow: TextOverflow.fade,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
