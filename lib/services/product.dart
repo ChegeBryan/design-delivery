@@ -39,6 +39,11 @@ class ManageProducts extends ChangeNotifier {
     return snapshot;
   }
 
+  Future fetchProducts() async {
+    QuerySnapshot querySnapshot = await products.get();
+    return querySnapshot.docs;
+  }
+
   Future fetchRecentlyAddedProducts() async {
     QuerySnapshot querySnapshot =
         await products.orderBy('createdOn', descending: true).limit(20).get();
