@@ -32,7 +32,7 @@ class HomeStoresContainer extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text('Shop More'),
+                  child: Text('See More'),
                 ),
               ],
             ),
