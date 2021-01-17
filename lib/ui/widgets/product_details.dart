@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/views/products_by_store_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -171,6 +172,15 @@ class _ProductDetailState extends State<ProductDetail> {
             style: TextStyle(
               fontWeight: FontWeight.w400,
               color: Color(0xFF515C6F),
+            ),
+          ),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductsByStoreScreen(
+                storeId: widget.product['storeId'],
+                storeName: widget.product['storeName'],
+              ),
             ),
           ),
         ),
