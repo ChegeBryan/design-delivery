@@ -14,7 +14,10 @@ class _StoresListScreenState extends State<StoresListScreen> {
         title: Text('Stores'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: StoreListTiles(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: StoreListTiles(),
+      ),
     );
   }
 }
