@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/widgets/all_products_grid.dart';
 import 'package:flutter/material.dart';
 
 class AllProductsScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
         title: Text('All Products'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: AllProductsGrid(),
     );
   }
 }
