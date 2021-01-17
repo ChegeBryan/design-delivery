@@ -33,7 +33,7 @@ class ProductGridBuilder extends StatelessWidget {
               product: snapshot.data[index].data(),
               productId: snapshot.data[index].id,
             ),
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(8.0),
           );
         }
         return Center(
