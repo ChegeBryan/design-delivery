@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/widgets/store_list_tiles.dart';
 import 'package:flutter/material.dart';
 
 class StoresListScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class _StoresListScreenState extends State<StoresListScreen> {
         title: Text('Stores'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
+      body: StoreListTiles(),
     );
   }
 }
