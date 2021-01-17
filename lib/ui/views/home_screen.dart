@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/views/all_products_screen.dart';
 import 'package:design_delivery/ui/widgets/home_carousel.dart';
 import 'package:design_delivery/ui/widgets/home_categories.dart';
 import 'package:design_delivery/ui/widgets/home_recently_added.dart';
@@ -73,7 +74,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AllProductsScreen(),
+                          ),
+                        ),
                         child: Text('Shop More'),
                       ),
                     ],

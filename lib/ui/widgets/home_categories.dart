@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/views/all_products_screen.dart';
 import 'package:design_delivery/ui/views/products_by_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,7 +40,12 @@ class HomeCategories extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AllProductsScreen(),
+                    ),
+                  ),
                   child: Text('Shop More'),
                 ),
               ],
