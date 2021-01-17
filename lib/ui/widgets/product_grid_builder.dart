@@ -25,7 +25,10 @@ class ProductGridBuilder extends StatelessWidget {
           return GridView.builder(
             itemCount: snapshot.data.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
+              crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3,
+              crossAxisSpacing: 8.0,
+              mainAxisSpacing: 8.0,
+            ),
             itemBuilder: (BuildContext context, int index) => ProductCard(
               product: snapshot.data[index].data(),
               productId: snapshot.data[index].id,
