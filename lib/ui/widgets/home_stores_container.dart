@@ -1,5 +1,6 @@
 import 'package:design_delivery/services/stores.dart';
 import 'package:design_delivery/ui/views/products_by_store_screen.dart';
+import 'package:design_delivery/ui/views/stores_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +32,12 @@ class HomeStoresContainer extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => StoresListScreen(),
+                    ),
+                  ),
                   child: Text('See More'),
                 ),
               ],
