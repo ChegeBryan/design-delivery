@@ -14,6 +14,14 @@ class StoreListTiles extends StatelessWidget {
               child: Text('No stores registered yet.'),
             );
           }
+          return ListView.separated(
+            itemCount: snapshot.data.length,
+            itemBuilder: (BuildContext context, int index) => ListTile(
+              title: Text(snapshot.data[index].data()['storeName']),
+              subtitle: Text(snapshot.data[index].data()['storeAddress']),
+            ),
+            separatorBuilder: (context, index) => Divider(),
+          );
         }
         return Center(
           child: CircularProgressIndicator(),
