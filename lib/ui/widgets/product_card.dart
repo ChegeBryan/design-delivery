@@ -19,6 +19,12 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> {
+  bool inWishlist(String productId) {
+    return Provider.of<WishlistProvider>(context)
+        .getWishlistProducts
+        .contains(widget.productId);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -77,9 +83,7 @@ class _ProductCardState extends State<ProductCard> {
                       ),
                     ),
                     IconButton(
-                      icon: Provider.of<WishlistProvider>(context)
-                              .getWishlistProducts
-                              .contains(widget.productId)
+                      icon: inWishlist(widget.productId)
                           ? Icon(
                               Icons.favorite,
                               color: Theme.of(context).primaryColor,
