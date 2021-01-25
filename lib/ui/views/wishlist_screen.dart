@@ -29,7 +29,9 @@ class _WishlistScreenState extends State<WishlistScreen> {
         title: Text('Wishlist'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: WishlistProduct(),
+      body: WishlistProducts(
+        wishlistData: tempWishlist,
+      ),
     );
   }
 }
