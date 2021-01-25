@@ -1,3 +1,4 @@
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/services/wishlist.dart';
 import 'package:design_delivery/ui/views/product_detail_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class ProductCard extends StatefulWidget {
 
 class _ProductCardState extends State<ProductCard> {
   bool inWishlist(String productId) {
-    return Provider.of<WishlistProvider>(context)
+    return Provider.of<WishlistProvider>(context, listen: false)
         .getWishlistProducts
         .contains(widget.productId);
   }
@@ -93,7 +94,25 @@ class _ProductCardState extends State<ProductCard> {
                               color: Theme.of(context).primaryColor,
                             ),
                       // toggle wishlist status
-                      onPressed: () {},
+                      onPressed: () {
+                        inWishlist(widget.productId)
+                            ? Provider.of<WishlistProvider>(
+                                context,
+                                listen: false,
+                              ).removeFromWishlist(
+                                widget.productId,
+                                Provider.of<Authentication>(context,
+                                        listen: false)
+                                    .getUid)
+                            : Provider.of<WishlistProvider>(
+                                context,
+                                listen: false,
+                              ).addToWishlist(
+                                widget.productId,
+                                Provider.of<Authentication>(context,
+                                        listen: false)
+                                    .getUid);
+                      },
                       splashRadius: 1,
                     ),
                   ],
