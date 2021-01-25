@@ -1,5 +1,7 @@
+import 'package:design_delivery/services/wishlist.dart';
 import 'package:design_delivery/ui/views/product_detail_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class ProductCard extends StatefulWidget {
@@ -73,9 +75,11 @@ class _ProductCardState extends State<ProductCard> {
                     ),
                     Expanded(
                       child: IconButton(
-                        icon: widget.inWishlist
+                        icon: Provider.of<WishlistProvider>(context)
+                                .getWishlistProducts
+                                .contains(widget.productId)
                             ? Icon(
-                                Icons.favorite_border,
+                                Icons.favorite,
                                 color: Theme.of(context).primaryColor,
                               )
                             : Icon(
