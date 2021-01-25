@@ -20,14 +20,20 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> {
-  bool inWishlist(String productId) {
-    return Provider.of<WishlistProvider>(context, listen: false)
-        .getWishlistProducts
-        .contains(widget.productId);
-  }
-
+  bool isInwishlist = false;
   @override
   Widget build(BuildContext context) {
+    bool inWishlist(String productId) {
+      if (Provider.of<WishlistProvider>(context, listen: false)
+          .getWishlistProducts
+          .contains(widget.productId)) {
+        isInwishlist = true;
+        return true;
+      }
+      isInwishlist = false;
+      return false;
+    }
+
     return Card(
       clipBehavior: Clip.antiAlias,
       child: GestureDetector(
@@ -99,19 +105,25 @@ class _ProductCardState extends State<ProductCard> {
                             ? Provider.of<WishlistProvider>(
                                 context,
                                 listen: false,
-                              ).removeFromWishlist(
-                                widget.productId,
-                                Provider.of<Authentication>(context,
-                                        listen: false)
-                                    .getUid)
+                              )
+                                .removeFromWishlist(
+                                    widget.productId,
+                                    Provider.of<Authentication>(context,
+                                            listen: false)
+                                        .getUid)
+                                .then((value) =>
+                                    setState(() => isInwishlist = false))
                             : Provider.of<WishlistProvider>(
                                 context,
                                 listen: false,
-                              ).addToWishlist(
-                                widget.productId,
-                                Provider.of<Authentication>(context,
-                                        listen: false)
-                                    .getUid);
+                              )
+                                .addToWishlist(
+                                    widget.productId,
+                                    Provider.of<Authentication>(context,
+                                            listen: false)
+                                        .getUid)
+                                .then((value) =>
+                                    setState(() => isInwishlist = true));
                       },
                       splashRadius: 1,
                     ),
