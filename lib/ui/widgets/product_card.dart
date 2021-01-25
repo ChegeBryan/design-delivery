@@ -5,6 +5,7 @@ import 'package:transparent_image/transparent_image.dart';
 class ProductCard extends StatefulWidget {
   final dynamic product;
   final String productId;
+  final bool inWishlist = false;
 
   const ProductCard({
     Key key,
@@ -72,10 +73,15 @@ class _ProductCardState extends State<ProductCard> {
                     ),
                     Expanded(
                       child: IconButton(
-                        icon: Icon(
-                          Icons.favorite,
-                          color: Theme.of(context).primaryColor,
-                        ),
+                        icon: widget.inWishlist
+                            ? Icon(
+                                Icons.favorite_border,
+                                color: Theme.of(context).primaryColor,
+                              )
+                            : Icon(
+                                Icons.favorite_border,
+                                color: Theme.of(context).primaryColor,
+                              ),
                         // toggle wishlist status
                         onPressed: () {},
                         splashRadius: 1,
