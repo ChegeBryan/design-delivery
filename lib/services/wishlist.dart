@@ -20,4 +20,10 @@ class WishlistProvider extends ChangeNotifier {
     await wishlist.doc(user).set({'products': _wishlistProducts});
     notifyListeners();
   }
+
+  removeFromWishlist(String product, String user) async {
+    _wishlistProducts.remove(product);
+    await wishlist.doc(user).set({'products': _wishlistProducts});
+    notifyListeners();
+  }
 }
