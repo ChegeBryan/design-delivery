@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class WishlistProducts extends StatelessWidget {
+class WishlistProducts extends StatefulWidget {
   final wishlistData;
 
   const WishlistProducts({
@@ -12,10 +12,15 @@ class WishlistProducts extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _WishlistProductsState createState() => _WishlistProductsState();
+}
+
+class _WishlistProductsState extends State<WishlistProducts> {
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: Provider.of<ManageProducts>(context)
-          .fetchProductsInArray(wishlistData),
+          .fetchProductsInArray(widget.wishlistData),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.data.length == 0) {
