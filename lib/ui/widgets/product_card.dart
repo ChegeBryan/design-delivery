@@ -62,6 +62,8 @@ class _ProductCardState extends State<ProductCard> {
                               fontWeight: FontWeight.w500,
                               color: Color(0xFF515C6F),
                             ),
+                            softWrap: false,
+                            overflow: TextOverflow.fade,
                           ),
                           Text(
                             'Ksh. ${widget.product['price']}',
