@@ -14,4 +14,10 @@ class WishlistProvider extends ChangeNotifier {
     _wishlistProducts = List<String>.from(items.data()['products']);
     notifyListeners();
   }
+
+  addToWishlist(String product, String user) async {
+    _wishlistProducts.add(product);
+    await wishlist.doc(user).set({'products': _wishlistProducts});
+    notifyListeners();
+  }
 }
