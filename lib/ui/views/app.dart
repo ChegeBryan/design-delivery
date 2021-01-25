@@ -1,5 +1,6 @@
 import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/services/stores.dart';
+import 'package:design_delivery/services/wishlist.dart';
 import 'package:design_delivery/ui/widgets/user_tab_navigator_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -51,6 +52,7 @@ class _AppState extends State<App> {
         providers: [
           ChangeNotifierProvider(create: (context) => ManageProducts()),
           ChangeNotifierProvider(create: (context) => Stores()),
+          ChangeNotifierProvider(create: (context) => WishlistProvider())
         ],
         child: Scaffold(
           body: Stack(children: <Widget>[
