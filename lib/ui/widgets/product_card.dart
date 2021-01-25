@@ -55,7 +55,7 @@ class _ProductCardState extends State<ProductCard> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          widget.product['productName'],
+                          "widget.product['productName']",
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
@@ -72,23 +72,21 @@ class _ProductCardState extends State<ProductCard> {
                         ),
                       ],
                     ),
-                    Expanded(
-                      child: IconButton(
-                        icon: Provider.of<WishlistProvider>(context)
-                                .getWishlistProducts
-                                .contains(widget.productId)
-                            ? Icon(
-                                Icons.favorite,
-                                color: Theme.of(context).primaryColor,
-                              )
-                            : Icon(
-                                Icons.favorite_border,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                        // toggle wishlist status
-                        onPressed: () {},
-                        splashRadius: 1,
-                      ),
+                    IconButton(
+                      icon: Provider.of<WishlistProvider>(context)
+                              .getWishlistProducts
+                              .contains(widget.productId)
+                          ? Icon(
+                              Icons.favorite,
+                              color: Theme.of(context).primaryColor,
+                            )
+                          : Icon(
+                              Icons.favorite_border,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                      // toggle wishlist status
+                      onPressed: () {},
+                      splashRadius: 1,
                     ),
                   ],
                 ),
