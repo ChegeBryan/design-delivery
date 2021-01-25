@@ -24,7 +24,8 @@ class WishlistProducts extends StatelessWidget {
             );
           }
           return ListView.builder(
-            itemBuilder: (BuildContext context, int) => Padding(
+            itemCount: snapshot.data.length,
+            itemBuilder: (BuildContext context, int index) => Padding(
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
               child: Column(
                 children: [
@@ -37,7 +38,7 @@ class WishlistProducts extends StatelessWidget {
                           clipBehavior: Clip.antiAlias,
                           child: FadeInImage.memoryNetwork(
                             placeholder: kTransparentImage,
-                            image: 'https://picsum.photos/250?image=9',
+                            image: snapshot.data[index].data()['productImg'],
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -51,7 +52,7 @@ class WishlistProducts extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
-                                'Product title',
+                                snapshot.data[index].data()['productName'],
                                 style: TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.w500,
@@ -59,7 +60,7 @@ class WishlistProducts extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'Ksh. 399.00',
+                                'Ksh. ${snapshot.data[index].data()['price']}',
                                 style: TextStyle(
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.bold,
