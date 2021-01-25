@@ -23,7 +23,7 @@ class WishlistProducts extends StatelessWidget {
               child: Text('Product no longer available.'),
             );
           }
-          return ListView.builder(
+          return ListView.separated(
             itemCount: snapshot.data.length,
             itemBuilder: (BuildContext context, int index) => Padding(
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
@@ -81,15 +81,12 @@ class WishlistProducts extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Divider(
-                      indent: 116,
-                      endIndent: 16,
-                    ),
-                  )
                 ],
               ),
+            ),
+            separatorBuilder: (context, index) => Divider(
+              indent: 116,
+              endIndent: 16,
             ),
           );
         }
