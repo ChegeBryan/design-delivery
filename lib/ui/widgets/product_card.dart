@@ -7,7 +7,6 @@ import 'package:transparent_image/transparent_image.dart';
 class ProductCard extends StatefulWidget {
   final dynamic product;
   final String productId;
-  final bool inWishlist = false;
 
   const ProductCard({
     Key key,
