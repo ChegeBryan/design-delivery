@@ -56,7 +56,7 @@ class _ProductCardState extends State<ProductCard> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "widget.product['productName']",
+                            widget.product['productName'],
                             style: TextStyle(
                               fontSize: 18.0,
                               fontWeight: FontWeight.w500,
