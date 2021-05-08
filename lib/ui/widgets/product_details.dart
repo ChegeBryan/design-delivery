@@ -1,3 +1,4 @@
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/services/wishlist.dart';
 import 'package:design_delivery/ui/views/products_by_store_screen.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +87,31 @@ class _ProductDetailState extends State<ProductDetail> {
                             color: Theme.of(context).primaryColor,
                           ),
                     // toggle wishlist status
-                    onPressed: () {},
+                    onPressed: () {
+                      inWishlist(widget.productId)
+                          ? Provider.of<WishlistProvider>(
+                              context,
+                              listen: false,
+                            )
+                              .removeFromWishlist(
+                                  widget.productId,
+                                  Provider.of<Authentication>(context,
+                                          listen: false)
+                                      .getUid)
+                              .then((value) =>
+                                  setState(() => isInwishlist = false))
+                          : Provider.of<WishlistProvider>(
+                              context,
+                              listen: false,
+                            )
+                              .addToWishlist(
+                                  widget.productId,
+                                  Provider.of<Authentication>(context,
+                                          listen: false)
+                                      .getUid)
+                              .then((value) =>
+                                  setState(() => isInwishlist = true));
+                    },
                     padding: const EdgeInsets.fromLTRB(8, 0, 0, 8),
                     splashRadius: 1,
                   ),
