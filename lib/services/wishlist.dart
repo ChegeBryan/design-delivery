@@ -10,7 +10,8 @@ class WishlistProvider extends ChangeNotifier {
   List<String> get getWishlistProducts => _wishlistProducts;
 
   getWishListItems(String user) async {
-    DocumentSnapshot items = await wishlist.doc(user).get();
+    DocumentSnapshot<Map<String, dynamic>> items =
+        await wishlist.doc(user).get();
     _wishlistProducts = List<String>.from(items.data()['products']);
     notifyListeners();
   }

@@ -12,11 +12,11 @@ class StoreProfile extends StatefulWidget {
 class _StoreProfileState extends State<StoreProfile> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<DocumentSnapshot>(
+    return FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
       future: Provider.of<Authentication>(context)
           .fetchStoreData(Provider.of<Authentication>(context).getUid),
-      builder:
-          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+      builder: (BuildContext context,
+          AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> snapshot) {
         return Scaffold(
           appBar: AppBar(
             title: Text('Profile'),

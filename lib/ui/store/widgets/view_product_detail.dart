@@ -17,11 +17,11 @@ class ViewProductDetail extends StatefulWidget {
 class _ViewProductDetailState extends State<ViewProductDetail> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<DocumentSnapshot>(
+    return FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
       future:
           Provider.of<ManageProducts>(context).fetchProduct(widget.productId),
-      builder:
-          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+      builder: (BuildContext context,
+          AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (!snapshot.data.exists) {
             return Center(
