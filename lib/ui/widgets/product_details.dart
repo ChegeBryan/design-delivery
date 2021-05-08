@@ -1,5 +1,7 @@
+import 'package:design_delivery/services/wishlist.dart';
 import 'package:design_delivery/ui/views/products_by_store_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class ProductDetail extends StatefulWidget {
@@ -15,6 +17,8 @@ class ProductDetail extends StatefulWidget {
 
 class _ProductDetailState extends State<ProductDetail> {
   bool _descriptionVisible = false;
+  bool isInwishlist = false;
+
   IconData _descriptionIcon = Icons.keyboard_arrow_right_outlined;
 
   void _toggleDescriptionVisibility() {
@@ -28,6 +32,17 @@ class _ProductDetailState extends State<ProductDetail> {
 
   @override
   Widget build(BuildContext context) {
+    bool inWishlist(String productId) {
+      if (Provider.of<WishlistProvider>(context, listen: false)
+          .getWishlistProducts
+          .contains(widget.productId)) {
+        isInwishlist = true;
+        return true;
+      }
+      isInwishlist = false;
+      return false;
+    }
+
     return ListView(
       children: [
         FadeInImage.memoryNetwork(
@@ -61,10 +76,15 @@ class _ProductDetailState extends State<ProductDetail> {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(
-                      Icons.favorite_border,
-                      color: Theme.of(context).primaryColor,
-                    ),
+                    icon: inWishlist(widget.productId)
+                        ? Icon(
+                            Icons.favorite,
+                            color: Theme.of(context).primaryColor,
+                          )
+                        : Icon(
+                            Icons.favorite_border,
+                            color: Theme.of(context).primaryColor,
+                          ),
                     // toggle wishlist status
                     onPressed: () {},
                     padding: const EdgeInsets.fromLTRB(8, 0, 0, 8),
