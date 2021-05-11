@@ -27,10 +27,10 @@ class CartProvider extends ChangeNotifier {
         await cart.doc(user).get();
     if (snapshot.data() != null) {
       _cartProducts = Map<String, int>.from(snapshot.data()['products']);
+    } else {
+      _cartProducts = {};
     }
-    _cartProducts = {};
-
-    notifyListeners();
+    return _cartProducts;
   }
 
   addToCart(String product, int count) async {
