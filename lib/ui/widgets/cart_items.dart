@@ -12,8 +12,9 @@ class CartItems extends StatefulWidget {
 class _CartItemsState extends State<CartItems> {
   @override
   Widget build(BuildContext context) {
-    List<String> products =
-        (Provider.of<CartProvider>(context).getCartProducts.keys).toList();
+    Map<String, int> productsInCart =
+        Provider.of<CartProvider>(context, listen: false).getCartProducts;
+    List<String> products = productsInCart.keys.toList();
 
     return FutureBuilder(
       future:
@@ -118,7 +119,9 @@ class _CartItemsState extends State<CartItems> {
                                         },
                                         splashRadius: 1,
                                       ),
-                                      Text('3'),
+                                      Text(productsInCart[
+                                              snapshot.data[index].id]
+                                          .toString()),
                                       IconButton(
                                         icon: Icon(
                                           Icons.add_circle,
