@@ -1,3 +1,4 @@
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/services/stores.dart';
 import 'package:design_delivery/services/wishlist.dart';
@@ -52,7 +53,10 @@ class _AppState extends State<App> {
         providers: [
           ChangeNotifierProvider(create: (context) => ManageProducts()),
           ChangeNotifierProvider(create: (context) => Stores()),
-          ChangeNotifierProvider(create: (context) => WishlistProvider())
+          ChangeNotifierProxyProvider<Authentication, WishlistProvider>(
+            update: (_, auth, __) => WishlistProvider(auth),
+            create: (context) => WishlistProvider(null),
+          ),
         ],
         child: Scaffold(
           body: Stack(children: <Widget>[
