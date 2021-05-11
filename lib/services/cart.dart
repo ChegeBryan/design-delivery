@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 
 class CartProvider extends ChangeNotifier {
   Authentication _auth;
+  String user;
 
-  CartProvider(this._auth);
+  CartProvider(this._auth) {
+    if (this._auth != null) {
+      user = this._auth.getUid;
+    }
+  }
 
   CollectionReference cart = FirebaseFirestore.instance.collection('cart');
 
@@ -17,10 +22,15 @@ class CartProvider extends ChangeNotifier {
     /**
      * Get user cart returng list of product ids
      */
-    String user = _auth.getUid;
     DocumentSnapshot<Map<String, dynamic>> snapshot =
         await cart.doc(user).get();
     _cartProducts = List<String>.from(snapshot.data()['products']);
+    notifyListeners();
+  }
+
+  addToCart(String product) async {
+    _cartProducts.add(product);
+    await cart.doc(user).set({'products': _cartProducts});
     notifyListeners();
   }
 }
