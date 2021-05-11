@@ -14,9 +14,9 @@ class CartProvider extends ChangeNotifier {
 
   CollectionReference cart = FirebaseFirestore.instance.collection('cart');
 
-  List<String> _cartProducts;
+  Map<String, int> _cartProducts;
 
-  List<String> get getCartProducts => _cartProducts;
+  Map<String, int> get getCartProducts => _cartProducts;
 
   getCartItems() async {
     /**
@@ -24,12 +24,12 @@ class CartProvider extends ChangeNotifier {
      */
     DocumentSnapshot<Map<String, dynamic>> snapshot =
         await cart.doc(user).get();
-    _cartProducts = List<String>.from(snapshot.data()['products']);
+    _cartProducts = snapshot.data()['products'];
     notifyListeners();
   }
 
-  addToCart(String product) async {
-    _cartProducts.add(product);
+  addToCart(String product, int count) async {
+    _cartProducts.putIfAbsent(product, () => count);
     await cart.doc(user).set({'products': _cartProducts});
     notifyListeners();
   }
