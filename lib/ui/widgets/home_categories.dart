@@ -11,10 +11,7 @@ class HomeCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/shoe.svg", "text": "Shoes"},
       {"icon": "assets/icons/casual-t-shirt.svg", "text": "Clothes"},
-      {"icon": "assets/icons/necklace.svg", "text": "Jewellery"},
-      {"icon": "assets/icons/bag.svg", "text": "Bags"},
       {"icon": "assets/icons/cosmetics.svg", "text": "Makeup"},
       {"icon": "assets/icons/skincare.svg", "text": "Skincare"}
     ];

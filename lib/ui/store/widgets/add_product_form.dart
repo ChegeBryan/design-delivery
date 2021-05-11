@@ -126,10 +126,7 @@ class _AddProductFormState extends State<AddProductForm> {
                 child: DropdownButtonFormField(
                   value: _dropdownValue,
                   items: <String>[
-                    'Shoes',
                     'Clothes',
-                    'Jewellery',
-                    'Bags',
                     'Makeup',
                     'Skincare',
                   ].map<DropdownMenuItem<String>>((String value) {
