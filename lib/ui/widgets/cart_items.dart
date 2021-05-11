@@ -118,7 +118,13 @@ class _CartItemsState extends State<CartItems> {
                                           Icons.add_circle,
                                           color: Theme.of(context).primaryColor,
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Provider.of<CartProvider>(context,
+                                                  listen: false)
+                                              .incrementCartProductCount(
+                                            snapshot.data[index].id,
+                                          );
+                                        },
                                         splashRadius: 1,
                                         padding: const EdgeInsets.fromLTRB(
                                             8, 8, 0, 8),
