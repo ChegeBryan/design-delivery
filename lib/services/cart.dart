@@ -50,4 +50,10 @@ class CartProvider extends ChangeNotifier {
     await cart.doc(user).set({'products': _cartProducts});
     notifyListeners();
   }
+
+  removeCartProduct(String product) async {
+    _cartProducts.remove(product);
+    await cart.doc(user).set({'products': _cartProducts});
+    notifyListeners();
+  }
 }
