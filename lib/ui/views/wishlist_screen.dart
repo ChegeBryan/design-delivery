@@ -10,18 +10,6 @@ class WishlistScreen extends StatefulWidget {
 }
 
 class _WishlistScreenState extends State<WishlistScreen> {
-  List<String> tempWishlist;
-
-  @override
-  void initState() {
-    super.initState();
-    WishlistProvider wishlistProvider =
-        Provider.of<WishlistProvider>(context, listen: false);
-    wishlistProvider.getWishListItems(
-        Provider.of<Authentication>(context, listen: false).getUid);
-    tempWishlist = List<String>.from(wishlistProvider.getWishlistProducts);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +17,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
         title: Text('Wishlist'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: WishlistProducts(
-        wishlistData: tempWishlist,
-      ),
+      body: WishlistProducts(),
     );
   }
 }
