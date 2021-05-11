@@ -30,7 +30,7 @@ class CartProvider extends ChangeNotifier {
     } else {
       _cartProducts = {};
     }
-    return _cartProducts;
+    notifyListeners();
   }
 
   addToCart(String product, int count) async {
