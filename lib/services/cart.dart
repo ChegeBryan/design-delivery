@@ -9,12 +9,13 @@ class CartProvider extends ChangeNotifier {
   CartProvider(this._auth) {
     if (this._auth != null) {
       user = this._auth.getUid;
+      getCartItems();
     }
   }
 
   CollectionReference cart = FirebaseFirestore.instance.collection('cart');
 
-  Map<String, int> _cartProducts;
+  Map<String, int> _cartProducts = {};
 
   Map<String, int> get getCartProducts => _cartProducts;
 
