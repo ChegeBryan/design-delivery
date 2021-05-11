@@ -53,7 +53,8 @@ class Authentication with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<DocumentSnapshot> fetchStoreData(String storeId) async {
+  Future<DocumentSnapshot<Map<String, dynamic>>> fetchStoreData(
+      String storeId) async {
     DocumentSnapshot snapshot =
         await FirebaseFirestore.instance.collection('users').doc(storeId).get();
     return snapshot;
