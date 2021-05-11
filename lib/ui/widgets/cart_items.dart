@@ -12,10 +12,8 @@ class CartItems extends StatefulWidget {
 class _CartItemsState extends State<CartItems> {
   @override
   Widget build(BuildContext context) {
-    List<String> products;
-    Provider.of<CartProvider>(context).getCartItems().then((value) {
-      products = List<String>.from(value.keys);
-    });
+    List<String> products =
+        (Provider.of<CartProvider>(context).getCartProducts.keys).toList();
 
     return FutureBuilder(
       future:
