@@ -22,6 +22,11 @@ class _WishlistProductsState extends State<WishlistProducts> {
       future:
           Provider.of<ManageProducts>(context).fetchProductsInArray(wishlist),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (!snapshot.hasData) {
+          return Center(
+            child: Text('Your wishlist is empty.'),
+          );
+        }
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.data.length == 0) {
             return Center(
