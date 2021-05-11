@@ -1,15 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:design_delivery/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class WishlistProvider extends ChangeNotifier {
+  Authentication auth;
+
+  WishlistProvider(this.auth) {
+    if (this.auth != null) {
+      getWishListItems();
+    }
+  }
+
   CollectionReference wishlist =
       FirebaseFirestore.instance.collection('wishlist');
 
   List<String> _wishlistProducts;
-
   List<String> get getWishlistProducts => _wishlistProducts;
 
-  getWishListItems(String user) async {
+  getWishListItems() async {
+    String user = auth.getUid;
     DocumentSnapshot<Map<String, dynamic>> items =
         await wishlist.doc(user).get();
     _wishlistProducts = List<String>.from(items.data()['products']);
