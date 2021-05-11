@@ -33,10 +33,11 @@ class _ProductDetailState extends State<ProductDetail> {
 
   @override
   Widget build(BuildContext context) {
+    List<String> wishlist =
+        Provider.of<WishlistProvider>(context).getWishlistProducts;
     bool inWishlist(String productId) {
-      if (Provider.of<WishlistProvider>(context, listen: false)
-          .getWishlistProducts
-          .contains(widget.productId)) {
+      // TODO: fix list loading null
+      if (wishlist.contains(widget.productId)) {
         isInwishlist = true;
         return true;
       }
