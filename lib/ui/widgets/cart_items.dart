@@ -108,8 +108,14 @@ class _CartItemsState extends State<CartItems> {
                                           Icons.remove_circle,
                                           color: Theme.of(context).primaryColor,
                                         ),
-                                        // toggle wishlist status
-                                        onPressed: () {},
+                                        // decrement cart item count
+                                        onPressed: () {
+                                          Provider.of<CartProvider>(context,
+                                                  listen: false)
+                                              .decrementCartProductCount(
+                                            snapshot.data[index].id,
+                                          );
+                                        },
                                         splashRadius: 1,
                                       ),
                                       Text('3'),
