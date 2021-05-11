@@ -1,4 +1,5 @@
 import 'package:design_delivery/services/auth.dart';
+import 'package:design_delivery/services/cart.dart';
 import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/services/stores.dart';
 import 'package:design_delivery/services/wishlist.dart';
@@ -56,6 +57,10 @@ class _AppState extends State<App> {
           ChangeNotifierProxyProvider<Authentication, WishlistProvider>(
             update: (_, auth, __) => WishlistProvider(auth),
             create: (context) => WishlistProvider(null),
+          ),
+          ChangeNotifierProxyProvider<Authentication, CartProvider>(
+            update: (_, auth, __) => CartProvider(auth),
+            create: (context) => CartProvider(null),
           ),
         ],
         child: Scaffold(
