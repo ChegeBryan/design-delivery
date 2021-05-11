@@ -1,4 +1,5 @@
 import 'package:design_delivery/services/auth.dart';
+import 'package:design_delivery/services/cart.dart';
 import 'package:design_delivery/services/wishlist.dart';
 import 'package:design_delivery/ui/views/products_by_store_screen.dart';
 import 'package:flutter/material.dart';
@@ -123,7 +124,12 @@ class _ProductDetailState extends State<ProductDetail> {
                   Icons.add_shopping_cart_sharp,
                   color: Color(0xFF25408F),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Provider.of<CartProvider>(
+                    context,
+                    listen: false,
+                  ).addToCart(widget.productId, 1);
+                },
               ),
             ],
           ),
