@@ -38,4 +38,10 @@ class CartProvider extends ChangeNotifier {
     await cart.doc(user).set({'products': _cartProducts});
     notifyListeners();
   }
+
+  incrementCartProductCount(String product) async {
+    _cartProducts.update(product, (count) => count + 1);
+    await cart.doc(user).set({'products': _cartProducts});
+    notifyListeners();
+  }
 }
