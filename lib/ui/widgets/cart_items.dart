@@ -83,7 +83,12 @@ class _CartItemsState extends State<CartItems> {
                                       color: Theme.of(context).primaryColor,
                                     ),
                                     // toggle wishlist status
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Provider.of<CartProvider>(context,
+                                              listen: false)
+                                          .removeCartProduct(
+                                              snapshot.data[index].id);
+                                    },
                                     padding:
                                         const EdgeInsets.fromLTRB(8, 8, 0, 8),
                                     splashRadius: 1,
