@@ -45,7 +45,7 @@ class _AddProductFormState extends State<AddProductForm> {
 
   @override
   Widget build(BuildContext context) {
-    String _dropdownValue = 'Shoes';
+    String _dropdownValue = 'Clothes';
     final uid = Provider.of<Authentication>(context, listen: false).getUid;
 
     return FutureBuilder<DocumentSnapshot>(
