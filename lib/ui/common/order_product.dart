@@ -34,7 +34,7 @@ class OrderProduct extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 child: FadeInImage.memoryNetwork(
                   placeholder: kTransparentImage,
-                  image: 'https://picsum.photos/250?image=9',
+                  image: snapshot.data[index].data()['productImg'],
                   fit: BoxFit.cover,
                 ),
               ),
@@ -61,7 +61,7 @@ class OrderProduct extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Ksh. ${snapshot.data[index].data()['price'].toString()} * ${orderProducts[snapshot.data[index].id]}',
+                      'Ksh. ${snapshot.data[index].data()['price'].toString()} * ${orderProducts['products'][snapshot.data[index].id]}',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
