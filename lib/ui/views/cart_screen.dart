@@ -1,3 +1,4 @@
+import 'package:design_delivery/ui/views/checkout_screen.dart';
 import 'package:design_delivery/ui/widgets/cart_items.dart';
 import 'package:flutter/material.dart';
 
@@ -118,7 +119,13 @@ class _CartScreenState extends State<CartScreen> {
                     ],
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CheckoutScreen()),
+                      );
+                    },
                     child: Text(
                       'Checkout',
                       style: TextStyle(
