@@ -28,4 +28,10 @@ class OrderProvider with ChangeNotifier {
     await orderCollection.doc().set(order.toJson());
     notifyListeners();
   }
+
+  Future getUserOrders(String user) async {
+    QuerySnapshot querySnapshot =
+        await orderCollection.where('customerId', isEqualTo: user).get();
+    return querySnapshot.docs;
+  }
 }
