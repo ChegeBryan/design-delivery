@@ -9,19 +9,21 @@ class OrderProvider with ChangeNotifier {
 
   addOrder({
     String customerName,
+    String customerId,
     String deliverAddress,
     Map<String, int> products,
     int subtotal,
     int deliveryFee,
-    String user,
   }) async {
     order = Order(
-        customerName: customerName,
-        deliveryAddress: deliverAddress,
-        products: products,
-        subtotal: subtotal,
-        deliveryFee: deliveryFee);
-    await orderCollection.doc(user).set(order.toJson());
+      customerName: customerName,
+      deliveryAddress: deliverAddress,
+      products: products,
+      subtotal: subtotal,
+      deliveryFee: deliveryFee,
+      customerId: customerId,
+    );
+    await orderCollection.doc().set(order.toJson());
     notifyListeners();
   }
 }
