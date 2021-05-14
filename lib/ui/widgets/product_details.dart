@@ -57,79 +57,59 @@ class _ProductDetailState extends State<ProductDetail> {
         ),
         Container(
           padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
-          child: Column(
-            // product name sections
-            crossAxisAlignment: CrossAxisAlignment.end,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Text(
-                      widget.product['productName'],
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF25408F),
-                      ),
-                      maxLines: 2,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+              Expanded(
+                child: Text(
+                  widget.product['productName'],
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF25408F),
                   ),
-                  IconButton(
-                    icon: inWishlist(widget.productId)
-                        ? Icon(
-                            Icons.favorite,
-                            color: Theme.of(context).primaryColor,
-                          )
-                        : Icon(
-                            Icons.favorite_border,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                    // toggle wishlist status
-                    onPressed: () {
-                      inWishlist(widget.productId)
-                          ? Provider.of<WishlistProvider>(
-                              context,
-                              listen: false,
-                            )
-                              .removeFromWishlist(
-                                  widget.productId,
-                                  Provider.of<Authentication>(context,
-                                          listen: false)
-                                      .getUid)
-                              .then((value) =>
-                                  setState(() => isInwishlist = false))
-                          : Provider.of<WishlistProvider>(
-                              context,
-                              listen: false,
-                            )
-                              .addToWishlist(
-                                  widget.productId,
-                                  Provider.of<Authentication>(context,
-                                          listen: false)
-                                      .getUid)
-                              .then((value) =>
-                                  setState(() => isInwishlist = true));
-                    },
-                    padding: const EdgeInsets.fromLTRB(8, 0, 0, 8),
-                    splashRadius: 1,
-                  ),
-                ],
+                  maxLines: 2,
+                  softWrap: true,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.add_shopping_cart_sharp,
-                  color: Color(0xFF25408F),
-                ),
+                icon: inWishlist(widget.productId)
+                    ? Icon(
+                        Icons.favorite,
+                        color: Theme.of(context).primaryColor,
+                      )
+                    : Icon(
+                        Icons.favorite_border,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                // toggle wishlist status
                 onPressed: () {
-                  Provider.of<CartProvider>(
-                    context,
-                    listen: false,
-                  ).addToCart(widget.productId, 1);
+                  inWishlist(widget.productId)
+                      ? Provider.of<WishlistProvider>(
+                          context,
+                          listen: false,
+                        )
+                          .removeFromWishlist(
+                              widget.productId,
+                              Provider.of<Authentication>(context,
+                                      listen: false)
+                                  .getUid)
+                          .then((value) => setState(() => isInwishlist = false))
+                      : Provider.of<WishlistProvider>(
+                          context,
+                          listen: false,
+                        )
+                          .addToWishlist(
+                              widget.productId,
+                              Provider.of<Authentication>(context,
+                                      listen: false)
+                                  .getUid)
+                          .then((value) => setState(() => isInwishlist = true));
                 },
+                padding: const EdgeInsets.fromLTRB(8, 0, 0, 8),
+                splashRadius: 1,
               ),
             ],
           ),
