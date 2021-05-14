@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:design_delivery/services/orders.dart';
 import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/ui/common/detail_attribute.dart';
