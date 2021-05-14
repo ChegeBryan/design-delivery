@@ -21,6 +21,15 @@ class CartItems extends StatefulWidget {
 
 class _CartItemsState extends State<CartItems> {
   // contains product details of products in cart
+  List _productsInCart;
+  double subtotal = 0;
+
+  double calcSubtotal({List productsInCart}) {
+    for (var product in productsInCart) {
+      subtotal += product['price'];
+    }
+    return subtotal;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +53,9 @@ class _CartItemsState extends State<CartItems> {
               child: Text('Product no longer available.'),
             );
           }
+
+          _productsInCart = snapshot.data.map((data) => data.data()).toList();
+          calcSubtotal(productsInCart: _productsInCart);
 
           return Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
