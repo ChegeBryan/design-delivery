@@ -211,37 +211,25 @@ class DeliveryDetails extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: Text('Decline'),
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(StadiumBorder()),
-                      padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-                          horizontal: 32.0, vertical: 16.0)),
-                      minimumSize: MaterialStateProperty.all(Size(48.0, 8.0)),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Intiate Delivery',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Accept',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(StadiumBorder()),
-                      padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-                          horizontal: 32.0, vertical: 16.0)),
-                      minimumSize: MaterialStateProperty.all(Size(48.0, 8.0)),
-                    ),
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(StadiumBorder()),
+                    padding: MaterialStateProperty.all(
+                        EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0)),
+                    minimumSize: MaterialStateProperty.all(Size(48.0, 8.0)),
                   ),
-                ],
+                ),
               )
             ],
           );
