@@ -42,6 +42,13 @@ class OrderProvider with ChangeNotifier {
     return querySnapshot.docs;
   }
 
+  Future getOrdersAwaitingDelivery() async {
+    QuerySnapshot querySnapshot = await orderCollection
+        .where('orderStatus', isEqualTo: 'Awaiting Delivery')
+        .get();
+    return querySnapshot.docs;
+  }
+
   Future getOrder(String orderId) async {
     DocumentSnapshot snapshot = await orderCollection.doc(orderId).get();
     return snapshot;
