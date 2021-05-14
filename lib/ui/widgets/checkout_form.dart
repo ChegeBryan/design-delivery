@@ -185,6 +185,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                           products: widget.products,
                           subtotal: widget.subtotal,
                           deliveryFee: _fee,
+                          orderStatus: 'Paid',
                           customerId: Provider.of<Authentication>(context,
                                   listen: false)
                               .getUid)

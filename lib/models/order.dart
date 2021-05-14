@@ -8,6 +8,7 @@ class Order {
   int subtotal;
   int deliveryFee;
   Map<String, int> products;
+  String orderStatus;
 
   Order({
     this.customerName,
@@ -17,6 +18,7 @@ class Order {
     this.subtotal,
     this.deliveryFee,
     this.products,
+    this.orderStatus,
   });
 
   Map<String, dynamic> toJson() => {
@@ -27,6 +29,7 @@ class Order {
         'subtotal': subtotal,
         'deliveryFee': deliveryFee,
         'products': products,
+        'orderStatus': orderStatus,
         'createdOn': FieldValue.serverTimestamp(),
       };
 }

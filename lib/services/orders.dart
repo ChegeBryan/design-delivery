@@ -15,6 +15,7 @@ class OrderProvider with ChangeNotifier {
     Map<String, int> products,
     int subtotal,
     int deliveryFee,
+    String orderStatus,
   }) async {
     order = Order(
       customerName: customerName,
@@ -24,6 +25,7 @@ class OrderProvider with ChangeNotifier {
       subtotal: subtotal,
       deliveryFee: deliveryFee,
       customerId: customerId,
+      orderStatus: orderStatus,
     );
     await orderCollection.doc().set(order.toJson());
     notifyListeners();
