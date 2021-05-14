@@ -106,6 +106,14 @@ class _LoginFormState extends State<LoginForm> {
                           ),
                           (Route<dynamic> route) => false,
                         );
+                      } else if (data['role'] == 'courier') {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AppCourier(),
+                          ),
+                          (Route<dynamic> route) => false,
+                        );
                       }
                     } else {
                       print('Document does not exist on the database');
