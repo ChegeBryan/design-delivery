@@ -5,6 +5,10 @@ import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
 
 class CartItems extends StatefulWidget {
+  final List<String> products;
+
+  const CartItems({Key key, @required this.products}) : super(key: key);
+
   @override
   _CartItemsState createState() => _CartItemsState();
 }
@@ -12,13 +16,13 @@ class CartItems extends StatefulWidget {
 class _CartItemsState extends State<CartItems> {
   @override
   Widget build(BuildContext context) {
-    Map<String, int> productsInCart =
-        Provider.of<CartProvider>(context).getCartProducts;
-    List<String> products = productsInCart.keys.toList();
+    // Map<String, int> productsInCart =
+    //     Provider.of<CartProvider>(context).getCartProducts;
+    // List<String> products = productsInCart.keys.toList();
 
     return FutureBuilder(
-      future:
-          Provider.of<ManageProducts>(context).fetchProductsInArray(products),
+      future: Provider.of<ManageProducts>(context)
+          .fetchProductsInArray(widget.products),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(

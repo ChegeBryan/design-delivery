@@ -1,11 +1,16 @@
+import 'package:design_delivery/services/auth.dart';
+import 'package:design_delivery/services/orders.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CheckoutForm extends StatefulWidget {
   final int subtotal;
+  final Map<String, int> products;
 
   CheckoutForm({
     Key key,
     @required this.subtotal,
+    @required this.products,
   });
 
   @override
@@ -133,7 +138,17 @@ class _CheckoutFormState extends State<CheckoutForm> {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_formKey.currentState.validate()) {
+                  Provider.of<OrderProvider>(context, listen: false).addOrder(
+                      customerName: _customerName.text,
+                      deliverAddress: _dropdownValue,
+                      products: widget.products,
+                      subtotal: widget.subtotal,
+                      deliveryFee: _fee,
+                      user: Provider.of<Authentication>(context).getUid);
+                }
+              },
               child: Text(
                 'Place Order',
                 style: TextStyle(
