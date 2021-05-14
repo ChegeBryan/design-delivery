@@ -18,6 +18,17 @@ class OrderDetails extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> orderSnapshot = snapshot.data.data()['products'];
+
+          int subtotal = snapshot.data.data()['subtotal'];
+          int deliveryFee = snapshot.data.data()['deliveryFee'];
+          int getProductCount() {
+            int _count = 0;
+            orderSnapshot.forEach((key, value) {
+              _count += value;
+            });
+            return _count;
+          }
+
           return SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.all(16.0),
@@ -131,41 +142,64 @@ class OrderDetails extends StatelessWidget {
                     ),
                   ),
                   Divider(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text('Decline'),
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all(StadiumBorder()),
-                          padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(
-                                  horizontal: 32.0, vertical: 16.0)),
-                          minimumSize:
-                              MaterialStateProperty.all(Size(48.0, 8.0)),
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Accept',
+                  SizedBox(
+                    height: 150.0,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Text(
+                          'Order Summary',
                           style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF25408F),
                             fontSize: 16.0,
+                            fontWeight: FontWeight.w900,
                           ),
                         ),
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all(StadiumBorder()),
-                          padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(
-                                  horizontal: 32.0, vertical: 16.0)),
-                          minimumSize:
-                              MaterialStateProperty.all(Size(48.0, 8.0)),
+                        DetailAttribute(
+                          detailFor: 'Products',
+                          detailText: orderSnapshot.length.toString(),
+                        ),
+                        DetailAttribute(
+                          detailFor: 'Total Quantity',
+                          detailText: getProductCount().toString(),
+                        ),
+                        DetailAttribute(
+                          detailFor: 'Subtotal',
+                          detailText: 'Ksh. ${subtotal.toString()}',
+                        ),
+                        DetailAttribute(
+                          detailFor: 'Delivery fee',
+                          detailText: 'Ksh. ${deliveryFee.toString()}',
+                        ),
+                        DetailAttribute(
+                          detailFor: 'Total',
+                          detailText:
+                              'Ksh. ${(subtotal + deliveryFee).toString()}',
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.only(top: 16.0),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Confirm Order Received',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
                         ),
                       ),
-                    ],
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(StadiumBorder()),
+                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(
+                            horizontal: 32.0, vertical: 16.0)),
+                        minimumSize: MaterialStateProperty.all(Size(48.0, 8.0)),
+                      ),
+                    ),
                   )
                 ],
               ),
