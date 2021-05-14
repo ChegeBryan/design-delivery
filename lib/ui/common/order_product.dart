@@ -74,6 +74,13 @@ class OrderProduct extends StatelessWidget {
             ),
           ],
         ),
+        Text(
+          "${snapshot.data[index].data()['category']}",
+          style: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
     );
   }
