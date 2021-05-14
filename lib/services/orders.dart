@@ -49,6 +49,14 @@ class OrderProvider with ChangeNotifier {
     return querySnapshot.docs;
   }
 
+  Future updateOrderDeliveryStatus(String orderId, String courierId) async {
+    await orderCollection.doc(orderId).update({
+      'courier': courierId,
+      'orderStatus': 'Delivery Inprogress',
+    });
+    notifyListeners();
+  }
+
   Future getOrder(String orderId) async {
     DocumentSnapshot snapshot = await orderCollection.doc(orderId).get();
     return snapshot;

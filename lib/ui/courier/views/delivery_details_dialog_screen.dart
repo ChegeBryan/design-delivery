@@ -1,3 +1,4 @@
+import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/services/orders.dart';
 import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/ui/common/order_product.dart';
@@ -214,7 +215,15 @@ class DeliveryDetails extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Provider.of<OrderProvider>(context, listen: false)
+                        .updateOrderDeliveryStatus(
+                          orderId,
+                          Provider.of<Authentication>(context, listen: false)
+                              .getUid,
+                        )
+                        .then((value) => Navigator.pop(context));
+                  },
                   child: Text(
                     'Intiate Delivery',
                     style: TextStyle(
