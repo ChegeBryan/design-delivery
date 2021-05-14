@@ -84,9 +84,9 @@ class _CheckoutFormState extends State<CheckoutForm> {
             ],
           ),
         ),
-        Divider(),
         Column(
           children: [
+            Divider(),
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
               child: Row(
