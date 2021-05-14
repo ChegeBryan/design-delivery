@@ -13,19 +13,24 @@ class _CartItemsState extends State<CartItems> {
   @override
   Widget build(BuildContext context) {
     Map<String, int> productsInCart =
-        Provider.of<CartProvider>(context, listen: false).getCartProducts;
+        Provider.of<CartProvider>(context).getCartProducts;
     List<String> products = productsInCart.keys.toList();
 
     return FutureBuilder(
       future:
           Provider.of<ManageProducts>(context).fetchProductsInArray(products),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        if (!snapshot.hasData) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
-            child: Text('Your Cart is empty.'),
+            child: Text('Fetching your cart items...'),
           );
         }
         if (snapshot.connectionState == ConnectionState.done) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: Text('Your Cart is empty.'),
+            );
+          }
           if (snapshot.data.length == 0) {
             return Center(
               child: Text('Product no longer available.'),
