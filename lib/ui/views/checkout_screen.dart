@@ -21,11 +21,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         title: Text('Checkout'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: CheckoutForm(
-          subtotal: widget.subtotal,
-          products: widget.productsInCart,
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          child: CheckoutForm(
+            subtotal: widget.subtotal,
+            products: widget.productsInCart,
+          ),
         ),
       ),
       resizeToAvoidBottomInset: false,
