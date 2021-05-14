@@ -40,7 +40,10 @@ class _CartScreenState extends State<CartScreen> {
         title: Text('Cart'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: CartItems(products: products),
+      body: CartItems(
+        products: products,
+        productsInCart: productsInCart,
+      ),
       bottomNavigationBar: Material(
         elevation: 4.0,
         child: Container(

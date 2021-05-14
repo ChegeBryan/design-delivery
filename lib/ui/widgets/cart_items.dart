@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 
 class CartItems extends StatefulWidget {
   final List<String> products;
+  final Map<String, int> productsInCart;
 
-  const CartItems({Key key, @required this.products}) : super(key: key);
+  const CartItems({Key key, @required this.products, this.productsInCart})
+      : super(key: key);
 
   @override
   _CartItemsState createState() => _CartItemsState();
@@ -133,7 +135,7 @@ class _CartItemsState extends State<CartItems> {
                                         },
                                         splashRadius: 1,
                                       ),
-                                      Text(productsInCart[
+                                      Text(widget.productsInCart[
                                               snapshot.data[index].id]
                                           .toString()),
                                       IconButton(
