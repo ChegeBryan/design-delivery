@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:design_delivery/services/auth.dart';
+import 'package:design_delivery/ui/views/order_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -48,7 +49,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         leading: Icon(Icons.list),
                         title: Text('My Orders'),
                         trailing: Icon(Icons.keyboard_arrow_right),
-                        onTap: () {},
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OrderListScreen(),
+                          ),
+                        ),
                       ),
                       Divider(
                         indent: 52.0,
