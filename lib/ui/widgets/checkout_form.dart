@@ -29,9 +29,8 @@ class _CheckoutFormState extends State<CheckoutForm> {
     'Ruiru': 300,
   };
 
-  int total;
-
   final TextEditingController _customerName = TextEditingController();
+  final TextEditingController _customerPhone = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +62,21 @@ class _CheckoutFormState extends State<CheckoutForm> {
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Name cannot be empty';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 16.0),
+              TextFormField(
+                controller: _customerPhone,
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  labelText: 'Phone Number',
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Phone number cannot be empty';
                   }
                   return null;
                 },
