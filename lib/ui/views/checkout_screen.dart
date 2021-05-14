@@ -28,6 +28,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           products: widget.productsInCart,
         ),
       ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }
