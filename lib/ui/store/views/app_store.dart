@@ -1,3 +1,4 @@
+import 'package:design_delivery/services/orders.dart';
 import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/ui/store/widgets/store_tab_navigator.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,7 @@ class _AppStoreState extends State<AppStore> {
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => ManageProducts()),
+          ChangeNotifierProvider(create: (context) => OrderProvider()),
         ],
         child: Scaffold(
           body: Stack(children: <Widget>[
