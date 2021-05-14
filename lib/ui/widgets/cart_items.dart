@@ -24,6 +24,12 @@ class _CartItemsState extends State<CartItems> {
   List _productsInCart;
   double subtotal = 0;
 
+  int totalItems() {
+    int _totalItemsCount = 0;
+    widget.productsInCart.forEach((key, value) => _totalItemsCount += value);
+    return _totalItemsCount;
+  }
+
   double calcSubtotal({List productsInCart}) {
     for (var product in productsInCart) {
       subtotal += product['price'];
@@ -232,7 +238,7 @@ class _CartItemsState extends State<CartItems> {
                               children: [
                                 Text('Total Items'),
                                 Text(
-                                  widget.productsInCart.length.toString(),
+                                  totalItems().toString(),
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ],
