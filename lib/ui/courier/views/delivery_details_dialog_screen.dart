@@ -1,7 +1,15 @@
+import 'package:design_delivery/services/orders.dart';
+import 'package:design_delivery/services/product.dart';
+import 'package:design_delivery/ui/common/order_product.dart';
 import 'package:design_delivery/ui/courier/widgets/detail_attribute.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DeliveryDetailsScreen extends StatelessWidget {
+  final String orderId;
+
+  const DeliveryDetailsScreen({Key key, this.orderId}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,11 +20,80 @@ class DeliveryDetailsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(16.0),
-          child: Column(
+          child: DeliveryDetails(
+            orderId: orderId,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DeliveryDetails extends StatelessWidget {
+  final String orderId;
+
+  const DeliveryDetails({
+    Key key,
+    this.orderId,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: Provider.of<OrderProvider>(context).getOrder(orderId),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (!snapshot.hasData) {
+            return Center(child: Text('Order no londer available.'));
+          }
+
+          Map<String, dynamic> orderSnapshot = snapshot.data.data();
+
+          int subtotal = snapshot.data.data()['subtotal'];
+          int deliveryFee = snapshot.data.data()['deliveryFee'];
+          int getProductCount() {
+            int _count = 0;
+            orderSnapshot['products'].forEach((key, value) {
+              _count += value;
+            });
+            return _count;
+          }
+
+          return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 100.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      'Order',
+                      style: TextStyle(
+                        color: Color(0xFF25408F),
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    DetailAttribute(
+                      detailFor: 'OrderId',
+                      detailText: orderId,
+                    ),
+                    DetailAttribute(
+                      detailFor: 'Order Time',
+                      detailText: DateTime.parse(snapshot.data
+                              .data()['createdOn']
+                              .toDate()
+                              .toString())
+                          .toString(),
+                    ),
+                  ],
+                ),
+              ),
+              Divider(),
+              SizedBox(
+                height: 50.0,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -30,38 +107,8 @@ class DeliveryDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     DetailAttribute(
-                      detailFor: 'Vendor',
-                      detailText: 'Address goes here',
-                    ),
-                    DetailAttribute(
-                      detailFor: 'Customer',
-                      detailText: 'Address Goes here',
-                    ),
-                  ],
-                ),
-              ),
-              Divider(),
-              SizedBox(
-                height: 100.0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Text(
-                      'Vendor / Store',
-                      style: TextStyle(
-                        color: Color(0xFF25408F),
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    DetailAttribute(
-                      detailFor: 'Vendor Name',
-                      detailText: 'Name goes here',
-                    ),
-                    DetailAttribute(
-                      detailFor: 'Phone',
-                      detailText: '+001 0100 1001',
+                      detailFor: 'Deliver to',
+                      detailText: orderSnapshot['deliveryAddress'],
                     ),
                   ],
                 ),
@@ -83,24 +130,64 @@ class DeliveryDetailsScreen extends StatelessWidget {
                     ),
                     DetailAttribute(
                       detailFor: 'Customer Name',
-                      detailText: 'Name goes here',
+                      detailText: orderSnapshot['customerName'],
                     ),
                     DetailAttribute(
                       detailFor: 'Phone',
-                      detailText: '+001 0100 1001',
+                      detailText: orderSnapshot['customerPhone'],
                     ),
                   ],
                 ),
               ),
               Divider(),
+              Text(
+                'Products',
+                style: TextStyle(
+                  color: Color(0xFF25408F),
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
               SizedBox(
                 height: 100.0,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
+                    FutureBuilder(
+                      future: Provider.of<ManageProducts>(context)
+                          .fetchProductsInArray(
+                              orderSnapshot['products'].keys.toList()),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return ListView.separated(
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) => OrderProduct(
+                              snapshot: snapshot,
+                              index: index,
+                              orderProducts: orderSnapshot,
+                            ),
+                            separatorBuilder: (context, index) => Divider(),
+                            itemCount: snapshot.data.length,
+                          );
+                        }
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Divider(),
+              SizedBox(
+                height: 150.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
                     Text(
-                      'Product',
+                      'Order Summary',
                       style: TextStyle(
                         color: Color(0xFF25408F),
                         fontSize: 16.0,
@@ -108,17 +195,24 @@ class DeliveryDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     DetailAttribute(
-                      detailFor: 'Product Name',
-                      detailText: 'Name goes here',
+                      detailFor: 'Products',
+                      detailText: orderSnapshot['products'].length.toString(),
                     ),
                     DetailAttribute(
-                      detailFor: 'Quantity',
-                      detailText: 'Value',
+                      detailFor: 'Total Quantity',
+                      detailText: getProductCount().toString(),
+                    ),
+                    DetailAttribute(
+                      detailFor: 'Total Value',
+                      detailText: 'Ksh. ${subtotal.toString()}',
+                    ),
+                    DetailAttribute(
+                      detailFor: 'Delivery fee',
+                      detailText: 'Ksh. ${deliveryFee.toString()}',
                     ),
                   ],
                 ),
               ),
-              Divider(),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -153,9 +247,12 @@ class DeliveryDetailsScreen extends StatelessWidget {
                 ],
               )
             ],
-          ),
-        ),
-      ),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
     );
   }
 }

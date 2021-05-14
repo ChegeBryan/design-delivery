@@ -9,11 +9,12 @@ class NewDeliveriesListBuilder extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  void _launchDeliveryDetailsDialog(context) {
+  void _launchDeliveryDetailsDialog(context, orderId) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => DeliveryDetailsScreen(),
+        builder: (BuildContext context) =>
+            DeliveryDetailsScreen(orderId: orderId),
         fullscreenDialog: true,
       ),
     );
@@ -37,7 +38,8 @@ class NewDeliveriesListBuilder extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               child: InkWell(
                 onTap: () {
-                  _launchDeliveryDetailsDialog(context);
+                  _launchDeliveryDetailsDialog(
+                      context, snapshot.data[index].id);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
