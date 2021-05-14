@@ -80,6 +80,7 @@ class Authentication with ChangeNotifier {
 
   Future signOut() async {
     await FirebaseAuth.instance.signOut();
+    notifyListeners();
   }
 
   Future deleteAccount({String email, String password}) async {
