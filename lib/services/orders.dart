@@ -10,6 +10,7 @@ class OrderProvider with ChangeNotifier {
   addOrder({
     String customerName,
     String customerId,
+    String customerPhone,
     String deliverAddress,
     Map<String, int> products,
     int subtotal,
@@ -18,6 +19,7 @@ class OrderProvider with ChangeNotifier {
     order = Order(
       customerName: customerName,
       deliveryAddress: deliverAddress,
+      customerPhone: customerPhone,
       products: products,
       subtotal: subtotal,
       deliveryFee: deliveryFee,

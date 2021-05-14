@@ -45,7 +45,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Text(
-                  'Enter Delivery details',
+                  'Enter Delivery Details',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,
@@ -168,6 +168,7 @@ class _CheckoutFormState extends State<CheckoutForm> {
                   Provider.of<OrderProvider>(context, listen: false)
                       .addOrder(
                           customerName: _customerName.text,
+                          customerPhone: _customerPhone.text,
                           deliverAddress: _dropdownValue,
                           products: widget.products,
                           subtotal: widget.subtotal,
