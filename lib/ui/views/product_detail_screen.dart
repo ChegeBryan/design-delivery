@@ -1,5 +1,8 @@
+import 'package:design_delivery/services/cart.dart';
+import 'package:design_delivery/ui/views/checkout_screen.dart';
 import 'package:design_delivery/ui/widgets/product_details.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   final dynamic product;
@@ -56,21 +59,26 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ],
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<CartProvider>(
+                        context,
+                        listen: false,
+                      ).addToCart(widget.productId, 1);
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
+                        Icon(
+                          Icons.add_shopping_cart_sharp,
+                          size: 14,
+                          color: Colors.white,
+                        ),
                         Text(
-                          'Buy Now',
+                          'Add to Cart',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                          size: 14,
-                          color: Colors.white,
                         ),
                       ],
                     ),
