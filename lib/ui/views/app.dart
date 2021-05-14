@@ -1,5 +1,6 @@
 import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/services/cart.dart';
+import 'package:design_delivery/services/orders.dart';
 import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/services/stores.dart';
 import 'package:design_delivery/services/wishlist.dart';
@@ -62,6 +63,7 @@ class _AppState extends State<App> {
             update: (_, auth, __) => CartProvider(auth),
             create: (context) => CartProvider(null),
           ),
+          ChangeNotifierProvider(create: (context) => OrderProvider()),
         ],
         child: Scaffold(
           body: Stack(children: <Widget>[
