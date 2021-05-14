@@ -53,6 +53,30 @@ class Authentication with ChangeNotifier {
     notifyListeners();
   }
 
+  Future registerCourier({
+    String courierName,
+    String courierPhone,
+    String courierEmail,
+    String password,
+  }) async {
+    UserCredential storeCredential = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            email: courierEmail, password: password);
+
+    User courier = storeCredential.user;
+    uid = courier.uid;
+
+    CollectionReference users = db.collection('users');
+    await users.doc(uid).set({
+      'storeName': courierName,
+      'courierPhone': courierPhone,
+      'courierEmail': courierEmail,
+      'role': 'courier',
+    });
+
+    notifyListeners();
+  }
+
   Future<DocumentSnapshot<Map<String, dynamic>>> fetchStoreData(
       String storeId) async {
     DocumentSnapshot snapshot =
