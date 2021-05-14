@@ -147,7 +147,11 @@ class DeliveryDetails extends StatelessWidget {
               Divider(),
               SizedBox(height: 20),
               ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  Provider.of<OrderProvider>(context, listen: false)
+                      .completeOrderDelivery(orderId)
+                      .then((value) => Navigator.pop(context));
+                },
                 icon: Icon(
                   Icons.check_box_outlined,
                   size: 18,
