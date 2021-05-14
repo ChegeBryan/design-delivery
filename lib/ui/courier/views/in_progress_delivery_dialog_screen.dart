@@ -1,7 +1,16 @@
+import 'package:design_delivery/services/orders.dart';
 import 'package:design_delivery/ui/courier/widgets/detail_attribute.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class InProgressDeliveryDialogScreen extends StatelessWidget {
+  final String orderId;
+
+  const InProgressDeliveryDialogScreen({
+    Key key,
+    this.orderId,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +21,31 @@ class InProgressDeliveryDialogScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(16.0),
-          child: Column(
+          child: DeliveryDetails(orderId: orderId),
+        ),
+      ),
+    );
+  }
+}
+
+class DeliveryDetails extends StatelessWidget {
+  final String orderId;
+
+  const DeliveryDetails({
+    Key key,
+    this.orderId,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: Provider.of<OrderProvider>(context).getOrder(orderId),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (!snapshot.hasData) {
+            return Center(child: Text('Order no longer available.'));
+          }
+          return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
@@ -31,20 +64,24 @@ class InProgressDeliveryDialogScreen extends StatelessWidget {
                     ),
                     DetailAttribute(
                       detailFor: 'Time Picked',
-                      detailText: 'Time',
+                      detailText: DateTime.parse(snapshot.data
+                              .data()['deliveryStartTime']
+                              .toDate()
+                              .toString())
+                          .toString(),
                     ),
                   ],
                 ),
               ),
               Divider(),
               SizedBox(
-                height: 100.0,
+                height: 50.0,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Text(
-                      'Location',
+                      'Delivery Address',
                       style: TextStyle(
                         color: Color(0xFF25408F),
                         fontSize: 16.0,
@@ -52,38 +89,8 @@ class InProgressDeliveryDialogScreen extends StatelessWidget {
                       ),
                     ),
                     DetailAttribute(
-                      detailFor: 'Vendor',
-                      detailText: 'Address goes here',
-                    ),
-                    DetailAttribute(
-                      detailFor: 'Customer',
-                      detailText: 'Address Goes here',
-                    ),
-                  ],
-                ),
-              ),
-              Divider(),
-              SizedBox(
-                height: 100.0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Text(
-                      'Vendor / Store',
-                      style: TextStyle(
-                        color: Color(0xFF25408F),
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    DetailAttribute(
-                      detailFor: 'Vendor Name',
-                      detailText: 'Name goes here',
-                    ),
-                    DetailAttribute(
-                      detailFor: 'Phone',
-                      detailText: '+001 0100 1001',
+                      detailFor: 'Delivering to',
+                      detailText: snapshot.data.data()['deliveryAddress'],
                     ),
                   ],
                 ),
@@ -105,11 +112,11 @@ class InProgressDeliveryDialogScreen extends StatelessWidget {
                     ),
                     DetailAttribute(
                       detailFor: 'Customer Name',
-                      detailText: 'Name goes here',
+                      detailText: snapshot.data.data()['customerName'],
                     ),
                     DetailAttribute(
                       detailFor: 'Phone',
-                      detailText: '+001 0100 1001',
+                      detailText: snapshot.data.data()['customerPhone'],
                     ),
                   ],
                 ),
@@ -122,7 +129,7 @@ class InProgressDeliveryDialogScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Text(
-                      'Product',
+                      'Products',
                       style: TextStyle(
                         color: Color(0xFF25408F),
                         fontSize: 16.0,
@@ -130,12 +137,9 @@ class InProgressDeliveryDialogScreen extends StatelessWidget {
                       ),
                     ),
                     DetailAttribute(
-                      detailFor: 'Product Name',
-                      detailText: 'Name goes here',
-                    ),
-                    DetailAttribute(
-                      detailFor: 'Quantity',
-                      detailText: 'Value',
+                      detailFor: 'Products Count',
+                      detailText:
+                          snapshot.data.data()['products'].length.toString(),
                     ),
                   ],
                 ),
@@ -166,9 +170,12 @@ class InProgressDeliveryDialogScreen extends StatelessWidget {
                 ),
               )
             ],
-          ),
-        ),
-      ),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
     );
   }
 }

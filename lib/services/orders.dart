@@ -61,6 +61,7 @@ class OrderProvider with ChangeNotifier {
     await orderCollection.doc(orderId).update({
       'courier': courierId,
       'orderStatus': 'Delivery Inprogress',
+      'deliveryStartTime': FieldValue.serverTimestamp(),
     });
     notifyListeners();
   }

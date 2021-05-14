@@ -10,11 +10,12 @@ class DeliveriesInProgressListBuilder extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  void _launchInProgressDeliveryDialog(context) {
+  void _launchInProgressDeliveryDialog(context, orderId) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => InProgressDeliveryDialogScreen(),
+        builder: (BuildContext context) =>
+            InProgressDeliveryDialogScreen(orderId: orderId),
         fullscreenDialog: true,
       ),
     );
@@ -27,35 +28,42 @@ class DeliveriesInProgressListBuilder extends StatelessWidget {
             .getOrdersCourierInProgressDeliveries(
                 Provider.of<Authentication>(context).getUid),
         builder: (context, snapshot) {
-          return ListView.separated(
-            itemCount: snapshot.data.length,
-            itemBuilder: (BuildContext context, int index) {
-              return SizedBox(
-                height: 50.0,
-                width: MediaQuery.of(context).size.width,
-                child: InkWell(
-                  onTap: () {
-                    _launchInProgressDeliveryDialog(context);
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      DetailAttribute(
-                        detailFor: 'Customer Name',
-                        detailText: snapshot.data[index].data()['customerName'],
-                      ),
-                      DetailAttribute(
-                        detailFor: 'Deliver to',
-                        detailText:
-                            snapshot.data[index].data()['deliveryAddress'],
-                      ),
-                    ],
+          if (snapshot.connectionState == ConnectionState.done) {
+            return ListView.separated(
+              itemCount: snapshot.data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return SizedBox(
+                  height: 50.0,
+                  width: MediaQuery.of(context).size.width,
+                  child: InkWell(
+                    onTap: () {
+                      _launchInProgressDeliveryDialog(
+                          context, snapshot.data[index].id);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        DetailAttribute(
+                          detailFor: 'Customer Name',
+                          detailText:
+                              snapshot.data[index].data()['customerName'],
+                        ),
+                        DetailAttribute(
+                          detailFor: 'Deliver to',
+                          detailText:
+                              snapshot.data[index].data()['deliveryAddress'],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
-            separatorBuilder: (context, index) => Divider(),
-            padding: const EdgeInsets.all(16.0),
+                );
+              },
+              separatorBuilder: (context, index) => Divider(),
+              padding: const EdgeInsets.all(16.0),
+            );
+          }
+          return Center(
+            child: CircularProgressIndicator(),
           );
         });
   }
