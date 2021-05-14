@@ -148,36 +148,33 @@ class DeliveryDetails extends StatelessWidget {
                   fontWeight: FontWeight.w900,
                 ),
               ),
-              SizedBox(
-                height: 100.0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    FutureBuilder(
-                      future: Provider.of<ManageProducts>(context)
-                          .fetchProductsInArray(
-                              orderSnapshot['products'].keys.toList()),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.done) {
-                          return ListView.separated(
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) => OrderProduct(
-                              snapshot: snapshot,
-                              index: index,
-                              orderProducts: orderSnapshot,
-                            ),
-                            separatorBuilder: (context, index) => Divider(),
-                            itemCount: snapshot.data.length,
-                          );
-                        }
-                        return Center(
-                          child: CircularProgressIndicator(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  FutureBuilder(
+                    future: Provider.of<ManageProducts>(context)
+                        .fetchProductsInArray(
+                            orderSnapshot['products'].keys.toList()),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        return ListView.separated(
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) => OrderProduct(
+                            snapshot: snapshot,
+                            index: index,
+                            orderProducts: orderSnapshot,
+                          ),
+                          separatorBuilder: (context, index) => Divider(),
+                          itemCount: snapshot.data.length,
                         );
-                      },
-                    ),
-                  ],
-                ),
+                      }
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    },
+                  ),
+                ],
               ),
               Divider(),
               SizedBox(

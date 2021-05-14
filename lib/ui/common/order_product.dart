@@ -18,11 +18,14 @@ class OrderProduct extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Seller:  ${snapshot.data[index].data()['storeName']}",
-          style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            "Store:  ${snapshot.data[index].data()['storeName']}",
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         Row(
@@ -74,13 +77,16 @@ class OrderProduct extends StatelessWidget {
             ),
           ],
         ),
-        Text(
-          "${snapshot.data[index].data()['category']}",
-          style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            "${snapshot.data[index].data()['category']}",
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
+        )
       ],
     );
   }
