@@ -1,6 +1,9 @@
+import 'package:design_delivery/services/auth.dart';
+import 'package:design_delivery/services/orders.dart';
 import 'package:design_delivery/ui/courier/views/in_progress_delivery_dialog_screen.dart';
 import 'package:design_delivery/ui/courier/widgets/detail_attribute.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DeliveriesInProgressListBuilder extends StatelessWidget {
   const DeliveriesInProgressListBuilder({
@@ -19,40 +22,41 @@ class DeliveriesInProgressListBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemCount: 20,
-      itemBuilder: (BuildContext context, int) => SizedBox(
-        height: 150.0,
-        width: MediaQuery.of(context).size.width,
-        child: InkWell(
-          onTap: () {
-            _launchInProgressDeliveryDialog(context);
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              DetailAttribute(
-                detailFor: 'Vendor Address',
-                detailText: 'Address goes here',
-              ),
-              DetailAttribute(
-                detailFor: 'Deliver to',
-                detailText: 'Address Goes here',
-              ),
-              DetailAttribute(
-                detailFor: 'Product Name',
-                detailText: 'Name Goes here',
-              ),
-              DetailAttribute(
-                detailFor: 'Quantity',
-                detailText: 'Value',
-              ),
-            ],
-          ),
-        ),
-      ),
-      separatorBuilder: (context, index) => Divider(),
-      padding: const EdgeInsets.all(16.0),
-    );
+    return FutureBuilder(
+        future: Provider.of<OrderProvider>(context)
+            .getOrdersCourierInProgressDeliveries(
+                Provider.of<Authentication>(context).getUid),
+        builder: (context, snapshot) {
+          return ListView.separated(
+            itemCount: snapshot.data.length,
+            itemBuilder: (BuildContext context, int index) {
+              return SizedBox(
+                height: 50.0,
+                width: MediaQuery.of(context).size.width,
+                child: InkWell(
+                  onTap: () {
+                    _launchInProgressDeliveryDialog(context);
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      DetailAttribute(
+                        detailFor: 'Customer Name',
+                        detailText: snapshot.data[index].data()['customerName'],
+                      ),
+                      DetailAttribute(
+                        detailFor: 'Deliver to',
+                        detailText:
+                            snapshot.data[index].data()['deliveryAddress'],
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            separatorBuilder: (context, index) => Divider(),
+            padding: const EdgeInsets.all(16.0),
+          );
+        });
   }
 }
