@@ -1,6 +1,8 @@
 import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/services/cart.dart';
 import 'package:design_delivery/services/orders.dart';
+import 'package:design_delivery/ui/widgets/order_placed_dialog.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +21,16 @@ class CheckoutForm extends StatefulWidget {
 }
 
 class _CheckoutFormState extends State<CheckoutForm> {
+  void _launchOrderPlacedDialog(context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => OrderPlacedDialog(),
+        fullscreenDialog: true,
+      ),
+    );
+  }
+
   final _formKey = GlobalKey<FormState>();
 
   String _dropdownValue = 'Kasarani';
@@ -179,7 +191,12 @@ class _CheckoutFormState extends State<CheckoutForm> {
                       .then(
                         (value) =>
                             Provider.of<CartProvider>(context, listen: false)
-                                .clearCart(),
+                                .clearCart()
+                                .then(
+                          (value) {
+                            _launchOrderPlacedDialog(context);
+                          },
+                        ),
                       );
                 }
               },
