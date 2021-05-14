@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:design_delivery/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class CartProvider extends ChangeNotifier {
+class CartProvider with ChangeNotifier {
   Authentication _auth;
   String user;
 
@@ -56,6 +56,12 @@ class CartProvider extends ChangeNotifier {
   removeCartProduct(String product) async {
     _cartProducts.remove(product);
     await cart.doc(user).set({'products': _cartProducts});
+    notifyListeners();
+  }
+
+  clearCart() async {
+    _cartProducts.clear();
+    await cart.doc(user).delete();
     notifyListeners();
   }
 }

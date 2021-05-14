@@ -1,4 +1,5 @@
 import 'package:design_delivery/services/auth.dart';
+import 'package:design_delivery/services/cart.dart';
 import 'package:design_delivery/services/orders.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -140,15 +141,21 @@ class _CheckoutFormState extends State<CheckoutForm> {
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState.validate()) {
-                  Provider.of<OrderProvider>(context, listen: false).addOrder(
-                      customerName: _customerName.text,
-                      deliverAddress: _dropdownValue,
-                      products: widget.products,
-                      subtotal: widget.subtotal,
-                      deliveryFee: _fee,
-                      customerId:
-                          Provider.of<Authentication>(context, listen: false)
-                              .getUid);
+                  Provider.of<OrderProvider>(context, listen: false)
+                      .addOrder(
+                          customerName: _customerName.text,
+                          deliverAddress: _dropdownValue,
+                          products: widget.products,
+                          subtotal: widget.subtotal,
+                          deliveryFee: _fee,
+                          customerId: Provider.of<Authentication>(context,
+                                  listen: false)
+                              .getUid)
+                      .then(
+                        (value) =>
+                            Provider.of<CartProvider>(context, listen: false)
+                                .clearCart(),
+                      );
                 }
               },
               child: Text(
