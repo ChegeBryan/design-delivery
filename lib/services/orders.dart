@@ -37,6 +37,11 @@ class OrderProvider with ChangeNotifier {
     return querySnapshot.docs;
   }
 
+  Future getOrders() async {
+    QuerySnapshot querySnapshot = await orderCollection.get();
+    return querySnapshot.docs;
+  }
+
   Future getOrder(String orderId) async {
     DocumentSnapshot snapshot = await orderCollection.doc(orderId).get();
     return snapshot;
