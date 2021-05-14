@@ -66,6 +66,14 @@ class OrderProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  Future completeOrderDelivery(String orderId) async {
+    await orderCollection.doc(orderId).update({
+      'orderStatus': 'Delivered',
+      'deliveryEndTime': FieldValue.serverTimestamp(),
+    });
+    notifyListeners();
+  }
+
   Future getOrder(String orderId) async {
     DocumentSnapshot snapshot = await orderCollection.doc(orderId).get();
     return snapshot;
