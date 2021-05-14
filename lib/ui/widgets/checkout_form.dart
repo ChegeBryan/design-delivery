@@ -43,6 +43,16 @@ class _CheckoutFormState extends State<CheckoutForm> {
           key: _formKey,
           child: Column(
             children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: Text(
+                  'Enter Delivery details',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                      color: Color(0xFF25408F)),
+                ),
+              ),
               TextFormField(
                 controller: _customerName,
                 keyboardType: TextInputType.text,
