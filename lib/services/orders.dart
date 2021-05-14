@@ -34,4 +34,9 @@ class OrderProvider with ChangeNotifier {
         await orderCollection.where('customerId', isEqualTo: user).get();
     return querySnapshot.docs;
   }
+
+  Future getOrder(String orderId) async {
+    DocumentSnapshot snapshot = await orderCollection.doc(orderId).get();
+    return snapshot;
+  }
 }

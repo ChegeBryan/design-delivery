@@ -1,11 +1,22 @@
 import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/services/orders.dart';
 import 'package:design_delivery/ui/common/detail_attribute.dart';
+import 'package:design_delivery/ui/views/order_details_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class OrderList extends StatelessWidget {
+  void _launchOrderDetailsDialog(context, String orderId) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => OrderDetailsScreen(orderId: orderId),
+        fullscreenDialog: true,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -19,7 +30,9 @@ class OrderList extends StatelessWidget {
               height: 100.0,
               width: MediaQuery.of(context).size.width,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  _launchOrderDetailsDialog(context, snapshot.data[index].id);
+                },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
