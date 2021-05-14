@@ -1,4 +1,5 @@
 import 'package:design_delivery/services/orders.dart';
+import 'package:design_delivery/services/product.dart';
 import 'package:design_delivery/ui/courier/widgets/courier_tab_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -54,6 +55,7 @@ class _AppCourierState extends State<AppCourier> {
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => OrderProvider()),
+          ChangeNotifierProvider(create: (context) => ManageProducts()),
         ],
         child: Scaffold(
           body: Stack(
