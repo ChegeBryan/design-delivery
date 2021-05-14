@@ -16,13 +16,13 @@ class OrderDetails extends StatelessWidget {
       future: Provider.of<OrderProvider>(context).getOrder(orderId),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          Map<String, dynamic> orderSnapshot = snapshot.data.data()['products'];
+          Map<String, dynamic> orderSnapshot = snapshot.data.data();
 
           int subtotal = snapshot.data.data()['subtotal'];
           int deliveryFee = snapshot.data.data()['deliveryFee'];
           int getProductCount() {
             int _count = 0;
-            orderSnapshot.forEach((key, value) {
+            orderSnapshot['products'].forEach((key, value) {
               _count += value;
             });
             return _count;
@@ -157,7 +157,8 @@ class OrderDetails extends StatelessWidget {
                         ),
                         DetailAttribute(
                           detailFor: 'Products',
-                          detailText: orderSnapshot.length.toString(),
+                          detailText:
+                              orderSnapshot['products'].length.toString(),
                         ),
                         DetailAttribute(
                           detailFor: 'Total Quantity',
