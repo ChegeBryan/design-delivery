@@ -28,6 +28,14 @@ class ManageProducts extends ChangeNotifier {
     return querySnapshot.docs;
   }
 
+  Future fetchProductsByStoreInArray(String storeId, List productIds) async {
+    QuerySnapshot querySnapshot = await products
+        .where(FieldPath.documentId, whereIn: productIds)
+        .where('storeId', isEqualTo: storeId)
+        .get();
+    return querySnapshot.docs;
+  }
+
   Future fetchProductsByCategory(String category) async {
     QuerySnapshot querySnapshot =
         await products.where('category', isEqualTo: category).get();
