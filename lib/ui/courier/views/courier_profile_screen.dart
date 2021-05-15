@@ -66,7 +66,17 @@ class CourierProfileScreen extends StatelessWidget {
                         width: MediaQuery.of(context).size.width,
                         height: 50.0,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Provider.of<Authentication>(context, listen: false)
+                                .deleteAccount()
+                                .then((value) => Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MyApp(),
+                                      ),
+                                      (Route<dynamic> route) => false,
+                                    ));
+                          },
                           child: Text(
                             'Delete Account',
                             style: TextStyle(
