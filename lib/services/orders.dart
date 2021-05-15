@@ -49,6 +49,13 @@ class OrderProvider with ChangeNotifier {
     return querySnapshot.docs;
   }
 
+  Future getDeliveredOrders() async {
+    QuerySnapshot querySnapshot = await orderCollection
+        .where('orderStatus', isEqualTo: 'Delivered')
+        .get();
+    return querySnapshot.docs;
+  }
+
   Future getOrdersCourierInProgressDeliveries(String courierId) async {
     QuerySnapshot querySnapshot = await orderCollection
         .where('courier', isEqualTo: courierId)
