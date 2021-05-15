@@ -68,7 +68,7 @@ class Authentication with ChangeNotifier {
 
     CollectionReference users = db.collection('users');
     await users.doc(uid).set({
-      'storeName': courierName,
+      'courierName': courierName,
       'courierPhone': courierPhone,
       'courierEmail': courierEmail,
       'role': 'courier',
@@ -81,6 +81,15 @@ class Authentication with ChangeNotifier {
       String storeId) async {
     DocumentSnapshot snapshot =
         await FirebaseFirestore.instance.collection('users').doc(storeId).get();
+    return snapshot;
+  }
+
+  Future<DocumentSnapshot<Map<String, dynamic>>> fetchCourierData(
+      String courierId) async {
+    DocumentSnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(courierId)
+        .get();
     return snapshot;
   }
 
