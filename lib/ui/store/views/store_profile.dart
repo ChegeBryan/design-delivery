@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:design_delivery/main.dart';
 import 'package:design_delivery/services/auth.dart';
+import 'package:design_delivery/ui/store/views/orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -45,15 +46,6 @@ class _StoreProfileState extends State<StoreProfile> {
                           Text(snapshot.data.data()['storeAddress']),
                         ],
                       ),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.list),
-                      title: Text('All Products'),
-                      trailing: Icon(Icons.keyboard_arrow_right),
-                      onTap: () {},
-                    ),
-                    Divider(
-                      indent: 52.0,
                     ),
                     ListTile(
                       leading: Icon(Icons.money),
