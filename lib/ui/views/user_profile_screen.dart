@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:design_delivery/main.dart';
 import 'package:design_delivery/services/auth.dart';
 import 'package:design_delivery/ui/views/order_list_screen.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,15 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         trailing: Icon(Icons.keyboard_arrow_right),
                         onTap: () {
                           Provider.of<Authentication>(context, listen: false)
-                              .signOut();
+                              .signOut()
+                              .then(
+                                (value) =>
+                                    Navigator.of(context, rootNavigator: true)
+                                        .pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => MyApp()),
+                                ),
+                              );
                         },
                       ),
                       Divider(
