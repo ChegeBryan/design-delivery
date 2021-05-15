@@ -81,12 +81,11 @@ class _StoreProfileState extends State<StoreProfile> {
                         Provider.of<Authentication>(context, listen: false)
                             .signOut()
                             .then(
-                              (value) => Navigator.pushAndRemoveUntil(
-                                context,
+                              (value) =>
+                                  Navigator.of(context, rootNavigator: true)
+                                      .pushReplacement(
                                 MaterialPageRoute(
-                                  builder: (context) => MyApp(),
-                                ),
-                                (Route<dynamic> route) => false,
+                                    builder: (context) => MyApp()),
                               ),
                             );
                       },

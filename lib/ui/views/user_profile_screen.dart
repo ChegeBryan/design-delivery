@@ -84,7 +84,18 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         width: MediaQuery.of(context).size.width,
                         height: 50.0,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Provider.of<Authentication>(context, listen: false)
+                                .deleteAccount()
+                                .then(
+                                  (value) =>
+                                      Navigator.of(context, rootNavigator: true)
+                                          .pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) => MyApp()),
+                                  ),
+                                );
+                          },
                           child: Text(
                             'Delete Account',
                             style: TextStyle(

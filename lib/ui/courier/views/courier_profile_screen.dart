@@ -69,13 +69,14 @@ class CourierProfileScreen extends StatelessWidget {
                           onPressed: () {
                             Provider.of<Authentication>(context, listen: false)
                                 .deleteAccount()
-                                .then((value) => Navigator.pushAndRemoveUntil(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => MyApp(),
-                                      ),
-                                      (Route<dynamic> route) => false,
-                                    ));
+                                .then(
+                                  (value) =>
+                                      Navigator.of(context, rootNavigator: true)
+                                          .pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) => MyApp()),
+                                  ),
+                                );
                           },
                           child: Text(
                             'Delete Account',
