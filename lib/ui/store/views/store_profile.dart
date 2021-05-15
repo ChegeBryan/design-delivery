@@ -51,7 +51,13 @@ class _StoreProfileState extends State<StoreProfile> {
                       leading: Icon(Icons.money),
                       title: Text('Pending Orders'),
                       trailing: Icon(Icons.keyboard_arrow_right),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => OrdersScreen()),
+                        );
+                      },
                     ),
                     Divider(
                       indent: 52.0,
