@@ -1,4 +1,7 @@
+import 'package:design_delivery/main.dart';
+import 'package:design_delivery/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CourierProfileScreen extends StatelessWidget {
   @override
@@ -8,84 +11,76 @@ class CourierProfileScreen extends StatelessWidget {
         title: Text('Profile'),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
-      body: ListView(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
+      body: FutureBuilder(
+          future: Provider.of<Authentication>(context)
+              .fetchCourierData(Provider.of<Authentication>(context).getUid),
+          builder: (context, snapshot) {
+            return ListView(
               children: [
                 Container(
-                  alignment: Alignment.center,
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
-                      Text(
-                        'Courier Name',
-                        style: TextStyle(
-                          color: Color(0xFF25408F),
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
+                      Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              snapshot.data.data()['courierName'],
+                              style: TextStyle(
+                                color: Color(0xFF25408F),
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(snapshot.data.data()['courierEmail']),
+                            Text(snapshot.data.data()['courierPhone']),
+                          ],
                         ),
                       ),
-                      Text('courier@email.ddress'),
-                      Text('+2467383783'),
+                      Divider(
+                        indent: 52.0,
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.logout),
+                        title: Text('Logout'),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        onTap: () {
+                          Provider.of<Authentication>(context, listen: false)
+                              .signOut()
+                              .then(
+                                (value) => Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MyApp(),
+                                  ),
+                                ),
+                              );
+                        },
+                      ),
+                      Divider(
+                        indent: 52.0,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 50.0,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Delete Account',
+                            style: TextStyle(
+                              color: Colors.red,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                ListTile(
-                  leading: Icon(Icons.markunread_mailbox_outlined),
-                  title: Text('New Delivery Requests'),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: () {},
-                ),
-                Divider(
-                  indent: 52.0,
-                ),
-                ListTile(
-                  leading: Icon(Icons.two_wheeler_outlined),
-                  title: Text('In Progress Deliveries'),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: () {},
-                ),
-                Divider(
-                  indent: 52.0,
-                ),
-                ListTile(
-                  leading: Icon(Icons.done_all_outlined),
-                  title: Text('Completed Deliveries'),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: () {},
-                ),
-                Divider(
-                  indent: 52.0,
-                ),
-                ListTile(
-                  leading: Icon(Icons.logout),
-                  title: Text('Logout'),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: () {},
-                ),
-                Divider(
-                  indent: 52.0,
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50.0,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Delete Account',
-                      style: TextStyle(
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
-                ),
               ],
-            ),
-          ),
-        ],
-      ),
+            );
+          }),
     );
   }
 }
